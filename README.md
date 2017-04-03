@@ -8,3 +8,9 @@ WYMAGANA INSTALACJA WAMP-a LUB XAMPP-a! Jak nie ma, to standardowa instalacja, p
     Wchodzimy w app/config/ i mamy plik parameters.yml.dist i duplikujemy go i zmienamy nazwę na parameter.yml, tak żeby były oba pliki
     W konsoli wpisujemy: php bin/console server:run
     Serwer powinien wystartować i pod adresem "localhost:8000" powinniśmy zobaczyć stonę z napisem TA DAM
+
+## Instalacja Angulara
+###Instalacja
+Wchodzimy w konsoli w `web/` i wpisujemy `npm install`.
+### Uruchomienie
+Wchodzimy w konsoli w `web/` i wpisujemy `npm start`. To uruchamia cały serwer z automatycznie kompilowanymi plikami TypeScripta w tle. To oznacza, że serwer Symfony powinien być uruchomiony przed uruchomieniem Angulara.

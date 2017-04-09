@@ -14,3 +14,10 @@ WYMAGANA INSTALACJA WAMP-a LUB XAMPP-a! Jak nie ma, to standardowa instalacja, p
 Wchodzimy w konsoli w `web/` i wpisujemy `npm install`.
 ### Uruchomienie
 Wchodzimy w konsoli w `web/` i wpisujemy `npm start`. To uruchamia cały serwer z automatycznie kompilowanymi plikami TypeScripta w tle. To oznacza, że serwer Symfony powinien być uruchomiony przed uruchomieniem Angulara.
+
+
+## Baza danych
+### Tworzenie pustej bazy
+W głównym katalogu projektu wpisujemy w konsoli: php bin/console doctrine:create:datebase
+### Aktualizacja schematu bazy
+W głównym katalogu projketu wpisujemy w konsoli: php bin/console docrtine:schema:update --force

@@ -9,17 +9,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
  * Created by akselon on 2017-04-09.
  */
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'The Application';
+var mock_heroes_1 = require("./mock-heroes");
+var HeroService = (function () {
+    function HeroService() {
     }
-    return AppComponent;
+    HeroService.prototype.getHeroes = function () {
+        return Promise.resolve(mock_heroes_1.HEROES);
+    };
+    HeroService.prototype.getHero = function (id) {
+        return this.getHeroes()
+            .then(function (heroes) { return heroes.find(function (hero) { return hero.id === id; }); });
+    };
+    return HeroService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "\n        <h1>{{title}}</h1>\n        <!--<nav>-->\n            <!--<a routerLink=\"/dashboard\">Dashboard</a>-->\n            <!--<a routerLink=\"/heroes\">Heroes</a>-->\n        <!--</nav>-->\n        <router-outlet></router-outlet>\n    "
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+HeroService = __decorate([
+    core_1.Injectable()
+], HeroService);
+exports.HeroService = HeroService;
+//# sourceMappingURL=hero.service.js.map

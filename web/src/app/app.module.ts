@@ -3,15 +3,18 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdTabsModule, MdCardModule, MdButtonModule, MdIconModule, MdIconRegistry, MdInputModule} from '@angular/material';
-
-import { AppComponent }        from './app.component';
 import { AppRoutingModule }     from './app-routing.module';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent }     from './heroes.component';
-import { HeroService }         from './hero.service';
-import {DashboardComponent} from "./dashboard.component";
-import {LoginComponent} from "./login.component";
-import {PrivateComponent} from "./private.component";
+import { HeroService }         from './services/hero.service';
+import {AuthGuard} from "./guards/auth.guard";
+
+// Components
+import { AppComponent }        from './components/app.component';
+import { HeroDetailComponent } from './components/hero-detail.component';
+import { HeroesComponent }     from './components/heroes.component';
+import {DashboardComponent} from "./components/dashboard.component";
+import {LoginComponent} from "./components/login.component";
+import {PrivateComponent} from "./components/private.component";
+import {AlertBoxComponent} from "./components/shared/alert-box.component";
 
 // import 'hammerjs';
 
@@ -33,11 +36,13 @@ import {PrivateComponent} from "./private.component";
         HeroesComponent,
         DashboardComponent,
         LoginComponent,
-        PrivateComponent
+        PrivateComponent,
+        AlertBoxComponent
     ],
     providers: [
         HeroService,
-        MdIconRegistry
+        MdIconRegistry,
+        AuthGuard
     ],
     bootstrap: [ AppComponent ]
 })

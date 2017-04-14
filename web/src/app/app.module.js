@@ -10,14 +10,17 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
-var app_component_1 = require("./app.component");
 var app_routing_module_1 = require("./app-routing.module");
-var hero_detail_component_1 = require("./hero-detail.component");
-var heroes_component_1 = require("./heroes.component");
-var hero_service_1 = require("./hero.service");
-var dashboard_component_1 = require("./dashboard.component");
-var login_component_1 = require("./login.component");
-var private_component_1 = require("./private.component");
+var hero_service_1 = require("./services/hero.service");
+var auth_guard_1 = require("./guards/auth.guard");
+// Components
+var app_component_1 = require("./components/app.component");
+var hero_detail_component_1 = require("./components/hero-detail.component");
+var heroes_component_1 = require("./components/heroes.component");
+var dashboard_component_1 = require("./components/dashboard.component");
+var login_component_1 = require("./components/login.component");
+var private_component_1 = require("./components/private.component");
+var alert_box_component_1 = require("./components/shared/alert-box.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -43,11 +46,13 @@ AppModule = __decorate([
             heroes_component_1.HeroesComponent,
             dashboard_component_1.DashboardComponent,
             login_component_1.LoginComponent,
-            private_component_1.PrivateComponent
+            private_component_1.PrivateComponent,
+            alert_box_component_1.AlertBoxComponent
         ],
         providers: [
             hero_service_1.HeroService,
-            material_1.MdIconRegistry
+            material_1.MdIconRegistry,
+            auth_guard_1.AuthGuard
         ],
         bootstrap: [app_component_1.AppComponent]
     })

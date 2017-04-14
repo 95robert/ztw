@@ -1,7 +1,7 @@
 /**
  * Created by akselon on 2017-04-09.
  */
-import { Hero } from './hero';
+import { Hero } from './models/hero';
 export const HEROES: Hero[] = [
     {id: 11, name: 'Mr. Nice'},
     {id: 12, name: 'Narco'},

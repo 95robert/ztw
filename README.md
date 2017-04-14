@@ -10,7 +10,7 @@ WYMAGANA INSTALACJA WAMP-a LUB XAMPP-a! Jak nie ma, to standardowa instalacja, p
     Serwer powinien wystartować i pod adresem "localhost:8000" powinniśmy zobaczyć stonę z napisem TA DAM  
 
 ## Instalacja Angulara
-###Instalacja
+### Instalacja
 Wchodzimy w konsoli w `web/` i wpisujemy `npm install`.
 ### Uruchomienie
 Wchodzimy w konsoli w `web/` i wpisujemy `npm start`. To uruchamia cały serwer z automatycznie kompilowanymi plikami TypeScripta w tle. To oznacza, że serwer Symfony powinien być uruchomiony przed uruchomieniem Angulara.
@@ -27,18 +27,18 @@ W głównym katalogu projketu wpisujemy w konsoli: `php bin/console docrtine:sch
 ### Rejestracja
 Ścieżka: `api/register`  
 Wymagane dane:  
-    - email  
-    - login  
-    - password  
-    - repassword  
+ *   - email  
+ *   - login  
+ *   - password  
+ *  - repassword  
 Zwracane dane:  
-    - ok - określa, czy udało się zarejestrować  
-    - error_code - kod błędu(  
-            1 - login jest zajęty  
-            2 - email jest zajety  
-            3 - hasła się nie zgadzają  
-            4 - hasło za krótkie  
-        )  
+ *   - ok - określa, czy udało się zarejestrować  
+ *  - error_code - kod błędu(  
+ *          1 - login jest zajęty  
+ *          2 - email jest zajety  
+ *          3 - hasła się nie zgadzają  
+ *          4 - hasło za krótkie  
+ *      )  
     - error_msg - opis błędu   
       
 ### Logowanie  

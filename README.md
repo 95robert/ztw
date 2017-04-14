@@ -1,13 +1,13 @@
 WYMAGANA INSTALACJA WAMP-a LUB XAMPP-a! Jak nie ma, to standardowa instalacja, polecam WAMP-a. WYMAGANA INSTALACJA COMPOSER - https://getcomposer.org/doc/00-intro.md
 
-    Odpalamy konsole w folderze z projektem.
-    Sprawdzamy czy mamy globalnie zainstalowanego php i composera
-        w konsoli wpisujemy: php -v
-        jak nie ma(czyli wyrzuca 'php is not recognized as an internal or external command') to lipa i trzeba zrobić tak: 2.1 Panel sterowania 2.2 System 2.3 Zaawansowane ustawienia systemu 2.4 Zmienne środowiskowe 2.5 Wybieramy zmienną PATH 2.6 EDYTUJ 2.7 NOWY 2.8 i wklejamy ścieżkę do folderu z php-em u mnie jest to (C:\wamp\bin\php\php5.6.25) 2.9.1 OK, OK i OK 2.9.2 Robimy tak samo z composerem zaczynając od "composer -v" 2.10 Zamykany konsole, otwieramy ponownie, wchodzimy do folderu z projektem i sprawdzamy czy tym razem mamy php
-    Sprawdzamy czy mamy composer - jak już jest to dajemy "composer install"
-    Wchodzimy w app/config/ i mamy plik parameters.yml.dist i duplikujemy go i zmienamy nazwę na parameter.yml, tak żeby były oba pliki
-    W konsoli wpisujemy: php bin/console server:run
-    Serwer powinien wystartować i pod adresem "localhost:8000" powinniśmy zobaczyć stonę z napisem TA DAM
+   Odpalamy konsole w folderze z projektem.  
+   Sprawdzamy czy mamy globalnie zainstalowanego php i composera  
+        w konsoli wpisujemy: php -v  
+        jak nie ma(czyli wyrzuca 'php is not recognized as an internal or external command') to lipa i trzeba zrobić tak: 2.1 Panel sterowania 2.2 System 2.3 Zaawansowane ustawienia systemu 2.4 Zmienne środowiskowe 2.5 Wybieramy zmienną PATH 2.6 EDYTUJ 2.7 NOWY 2.8 i wklejamy ścieżkę do folderu z php-em u mnie jest to (C:\wamp\bin\php\php5.6.25) 2.9.1 OK, OK i OK 2.9.2 Robimy tak samo z composerem zaczynając od "composer -v" 2.10 Zamykany konsole, otwieramy ponownie, wchodzimy do folderu z projektem i sprawdzamy czy tym razem mamy php  
+    Sprawdzamy czy mamy composer - jak już jest to dajemy "composer install"  
+    Wchodzimy w app/config/ i mamy plik parameters.yml.dist i duplikujemy go i zmienamy nazwę na parameter.yml, tak żeby były oba pliki  
+    W konsoli wpisujemy: php bin/console server:run  
+    Serwer powinien wystartować i pod adresem "localhost:8000" powinniśmy zobaczyć stonę z napisem TA DAM  
 
 ## Instalacja Angulara
 ###Instalacja
@@ -25,39 +25,39 @@ W głównym katalogu projketu wpisujemy w konsoli: `php bin/console docrtine:sch
 
 ## API
 ### Rejestracja
-Ścieżka: `api/register`
-Wymagane dane: 
-    - email
-    - login
-    - password
-    - repassword
-Zwracane dane:
-    - ok - określa, czy udało się zarejestrować
-    - error_code - kod błędu(
-            1 - login jest zajęty
-            2 - email jest zajety
-            3 - hasła się nie zgadzają
-            4 - hasło za krótkie
-        )
-    - error_msg - opis błędu
-    
-### Logowanie
-Ścieżka: `api/login`
-Wymagane dane: 
-    - username - login lub adres e-mail
-    - password - hasło
-Zwracane dane:
-    - ok - określa, czy udało się zalogować
-    - error_code - kod błędu(
-            1 - użytkownik nie istnieje
-            2 - hasło się nie zgadza
-        )
-    - error_msg - opis błędu
+Ścieżka: `api/register`  
+Wymagane dane:  
+    - email  
+    - login  
+    - password  
+    - repassword  
+Zwracane dane:  
+    - ok - określa, czy udało się zarejestrować  
+    - error_code - kod błędu(  
+            1 - login jest zajęty  
+            2 - email jest zajety  
+            3 - hasła się nie zgadzają  
+            4 - hasło za krótkie  
+        )  
+    - error_msg - opis błędu   
+      
+### Logowanie  
+Ścieżka: `api/login`  
+Wymagane dane:   
+    - username - login lub adres e-mail  
+    - password - hasło  
+Zwracane dane:  
+    - ok - określa, czy udało się zalogować  
+    - error_code - kod błędu(  
+            1 - użytkownik nie istnieje  
+            2 - hasło się nie zgadza  
+        )  
+    - error_msg - opis błędu  
 
-### Wylogowywanie
-Ścieżka: `api/logout`
-Brak wymaganych danych
-Zwracane dane:
-    1 - udało się wylogować
-    0 - nie udało się wylogować
-
+### Wylogowywanie  
+Ścieżka: `api/logout`  
+Brak wymaganych danych  
+Zwracane dane:  
+    1 - udało się wylogować  
+    0 - nie udało się wylogować  
+  

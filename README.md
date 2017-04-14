@@ -30,16 +30,16 @@ Wymagane dane:
    - email  
    - login  
    - password  
-  - repassword  
+   - repassword  
 Zwracane dane:  
    - ok - określa, czy udało się zarejestrować  
    - error_code - kod błędu(  
-          1 - login jest zajęty  
-          2 - email jest zajety  
-          3 - hasła się nie zgadzają  
-          4 - hasło za krótkie  
+         1 - login jest zajęty  
+         2 - email jest zajety  
+         3 - hasła się nie zgadzają  
+         4 - hasło za krótkie  
       )  
-    - error_msg - opis błędu   
+   - error_msg - opis błędu   
       
 ### Logowanie  
 Ścieżka: `api/login`  

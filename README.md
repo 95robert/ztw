@@ -27,18 +27,18 @@ W głównym katalogu projketu wpisujemy w konsoli: `php bin/console docrtine:sch
 ### Rejestracja
 Ścieżka: `api/register`  
 Wymagane dane:  
- *   - email  
- *   - login  
- *   - password  
- *  - repassword  
+   - email  
+   - login  
+   - password  
+  - repassword  
 Zwracane dane:  
- *   - ok - określa, czy udało się zarejestrować  
- *  - error_code - kod błędu(  
- *          1 - login jest zajęty  
- *          2 - email jest zajety  
- *          3 - hasła się nie zgadzają  
- *          4 - hasło za krótkie  
- *      )  
+   - ok - określa, czy udało się zarejestrować  
+   - error_code - kod błędu(  
+          1 - login jest zajęty  
+          2 - email jest zajety  
+          3 - hasła się nie zgadzają  
+          4 - hasło za krótkie  
+      )  
     - error_msg - opis błędu   
       
 ### Logowanie  

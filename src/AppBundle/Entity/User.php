@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Role;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -114,19 +116,33 @@ class User
     private $views;
 
     /**
+     * Kolekcja ról danego użytkownika.
+     *
+     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
+     * @ORM\JoinTable(name="users_roles",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="user_ID", onDelete="cascade")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="role_id", referencedColumnName="id", onDelete="cascade")}
+     *  )
+     */
+    private $roles;
+
+    /**
      * User constructor.
      */
     public function __construct()
     {
         $this->createdAt = new \DateTime();
         $this->enable = true;
-        $this->active = false;
+//        $this->active = false;
+        $this->active = true;
+        $this->subscriptionCost = 100;
         $this->usersBets = new ArrayCollection();
         $this->paidBets = new ArrayCollection();
         $this->payments = new ArrayCollection();
         $this->paidSubscriptions = new ArrayCollection();
         $this->soldSubscriptions = new ArrayCollection();
         $this->views = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
 
@@ -486,5 +502,130 @@ class User
         $this->views->remove($seenBet);
         $seenBet->setUser(null);
     }
+
+    /**
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
+     */
+    public function getSalt()
+    {
+    }
+
+    /**
+     * Returns the username used to authenticate the user.
+     *
+     * @return string The username
+     */
+    public function getUsername()
+    {
+        return $this->login;
+    }
+
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
+    public function eraseCredentials()
+    {
+    }
+
+    /* ROLES */
+    public function getRoles()
+    {
+        $roleArray = $this->roles->toArray();
+        $roles = array_merge($roleArray, array(new Role('ROLE_USER')));
+        return array_map(function ($role) {
+            return $role->getRole();
+        }, $roles);
+    }
+
+    /**
+     * Returns the true ArrayCollection of Roles.
+     */
+    public function getRolesCollection()
+    {
+        return $this->roles;
+    }
+    /**
+     * Przekaż string, a otrzymasz wypragniony obiekt roli (albo nulla, lol).
+     *
+     * @param string $role
+     * @return Role|null
+     */
+    public function getRole($role)
+    {
+        foreach ($this->getRolesCollection() as $roleItem) {
+            if ($role === $roleItem->getRole()) {
+                return $roleItem;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param mixed $roles
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    /**
+     * Pass a string, checks if we have that Role. Same functionality as getRole() except returns a real boolean.
+     * @param string $role
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+        if ($this->getRole($role)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Dodaje obiekt Role do kolekcji ArrayCollection ról.
+     *
+     * Nie możemy type hintować kolekcji w nagłówku (bo interfejs),
+     * więć rzucamy wyjątkiem.
+     *
+     * @throws \Exception
+     * @param Role $role
+     * @return User
+     */
+    public function addRole($role)
+    {
+
+        if (!$role instanceof Role) {
+            throw new \Exception("addRole przyjmuje obiekt Role jako parametr");
+        }
+
+        if (!$this->hasRole($role->getRole())) {
+            $this->roles->add($role);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Pass a string, remove the Role object from collection.
+     * @param string $role
+     * @return User
+     */
+    public function removeRole( $role )
+    {
+        $roleElement = $this->getRole( $role );
+        if ($roleElement) {
+            $this->roles->removeElement( $roleElement );
+        }
+
+        return $this;
+    }
+    /* ROLES */
 }
 

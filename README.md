@@ -20,7 +20,7 @@ Wchodzimy w konsoli w `web/` i wpisujemy `npm start`. To uruchamia cały serwer 
 ### Tworzenie pustej bazy
 W głównym katalogu projektu wpisujemy w konsoli: `php bin/console doctrine:create:datebase`
 ### Aktualizacja schematu bazy
-W głównym katalogu projketu wpisujemy w konsoli: `php bin/console docrtine:schema:update --force`
+W głównym katalogu projketu wpisujemy w konsoli: `php bin/console doctrine:schema:update --force`
 
 
 ## API

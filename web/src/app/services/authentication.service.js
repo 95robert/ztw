@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/toPromise");
 var user_1 = require("../models/user");
 var users = [
     new user_1.User(1, 'admin@admin.com', 'adm9'),
@@ -17,28 +19,48 @@ var users = [
     new user_1.User(3, 'test', 'test'),
 ];
 var AuthenticationService = (function () {
-    function AuthenticationService(router) {
+    function AuthenticationService(router, http) {
         this.router = router;
+        this.http = http;
+        this.apiUrl = 'http://localhost:8000/api/'; // URL to web api
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     AuthenticationService.prototype.logout = function () {
         localStorage.removeItem("currentUser");
         this.router.navigate(['/login']);
     };
-    AuthenticationService.prototype.login = function (user) {
-        var authenticatedUser = users.find(function (u) { return u.email === user.email; });
-        if (authenticatedUser && authenticatedUser.password === user.password) {
-            console.log("Udało się");
-            localStorage.setItem("currentUser", "id_" + authenticatedUser.id);
-            this.router.navigate(['/home']);
+    /*
+        login(user : User){
+            var authenticatedUser = users.find(u => u.email === user.email);
+            if (authenticatedUser && authenticatedUser.password === user.password){
+                console.log("Udało się");
+                localStorage.setItem("currentUser", "id_"+authenticatedUser.id);
+                this.router.navigate(['/home']);
+                return true;
+            }
+            return false;
+        }*/
+    AuthenticationService.prototype.login = function (username, password) {
+        return this.http
+            .post(this.apiUrl + 'login2', JSON.stringify({ username: username, password: password }), { headers: this.headers })
+            .toPromise()
+            .then(function (res) {
+            console.log(res);
             return true;
-        }
-        return false;
+        })
+            .catch(this.handleError);
+    };
+    AuthenticationService.prototype.handleError = function (error) {
+        console.error('An error occurred', error); // for demo purposes only
+        return Promise.reject(error.message || error);
+    };
+    AuthenticationService.prototype.register = function (newUser) {
     };
     return AuthenticationService;
 }());
 AuthenticationService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [router_1.Router])
+    __metadata("design:paramtypes", [router_1.Router, http_1.Http])
 ], AuthenticationService);
 exports.AuthenticationService = AuthenticationService;
 //# sourceMappingURL=authentication.service.js.map

@@ -10,6 +10,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
+var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
 var hero_service_1 = require("./services/hero.service");
 var auth_guard_1 = require("./guards/auth.guard");
@@ -21,6 +22,7 @@ var dashboard_component_1 = require("./components/dashboard.component");
 var login_component_1 = require("./components/login.component");
 var private_component_1 = require("./components/private.component");
 var alert_box_component_1 = require("./components/shared/alert-box.component");
+var hero_search_component_1 = require("./components/hero-search.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -32,6 +34,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
             app_routing_module_1.AppRoutingModule,
             animations_1.BrowserAnimationsModule,
             material_1.MdCardModule,
@@ -47,7 +50,8 @@ AppModule = __decorate([
             dashboard_component_1.DashboardComponent,
             login_component_1.LoginComponent,
             private_component_1.PrivateComponent,
-            alert_box_component_1.AlertBoxComponent
+            alert_box_component_1.AlertBoxComponent,
+            hero_search_component_1.HeroSearchComponent
         ],
         providers: [
             hero_service_1.HeroService,

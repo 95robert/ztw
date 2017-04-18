@@ -3,9 +3,9 @@
  * Created by akselon on 2017-04-13.
  */
 var User = (function () {
-    function User(id, email, password) {
+    function User(id, login, password) {
         this.id = id;
-        this.email = email;
+        this.login = login;
         this.password = password;
     }
     return User;

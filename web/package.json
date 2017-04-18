@@ -1,7 +1,8 @@
 {
-  "name": "angular-quickstart",
+  "name": "BettingerApp",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "A university project",
+  "authors": "Robert Przybylski, Aksel Nooitgedagt",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
@@ -21,7 +22,6 @@
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
   "keywords": [],
-  "author": "",
   "license": "MIT",
   "dependencies": {
     "@angular/animations": "^4.0.1",

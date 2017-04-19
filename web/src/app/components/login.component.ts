@@ -22,7 +22,7 @@ import {Router} from "@angular/router";
                         </md-input-container>
                         <br />
                         <button md-raised-button (click)="login()">Zaloguj</button>
-                        <span *ngIf="httpStatusMessage" [ngClass]="{'error': httpStatusError}" [innerHTML]="httpStatusMessage" class="http-status"></span>
+                        <span *ngIf="httpLoginStatusMessage" [ngClass]="{'error': httpLoginStatusError}" [innerHTML]="httpLoginStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
                 
@@ -46,6 +46,7 @@ import {Router} from "@angular/router";
                         </md-input-container>
                         <br />
                         <button md-raised-button (click)="register()">Zarejestruj</button>
+                        <span *ngIf="httpRegisterStatusMessage" [ngClass]="{'error': httpRegisterStatusError}" [innerHTML]="httpRegisterStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
             </md-tab-group>
@@ -66,8 +67,11 @@ import {Router} from "@angular/router";
 
 export class LoginComponent {
     public user = new User(0, '','');
-    public httpStatusMessage = '';
-    public httpStatusError = false;
+    public httpLoginStatusMessage = '';
+    public httpLoginStatusError = false;
+
+    public httpRegisterStatusMessage = '';
+    public httpRegisterStatusError = false;
     public newUser = {login: '', email: '', password1: '', password2: ''}
 
     constructor(
@@ -75,26 +79,37 @@ export class LoginComponent {
         private service:AuthenticationService) {}
 
     login() {
-        this.httpStatusError = false;
-        this.httpStatusMessage = 'Logowanie ...';
+        this.httpLoginStatusError = false;
+        this.httpLoginStatusMessage = 'Logowanie ...';
         this.service.login(this.user.login, this.user.password).then(res => {
-            console.log(res);
             if (res.ok) {
-                this.httpStatusError = false;
-                this.httpStatusMessage = 'Zalogowano pomyślnie';
+                this.httpLoginStatusError = false;
+                this.httpLoginStatusMessage = 'Zalogowano pomyślnie';
                 setTimeout(() => {
                     this.router.navigate(['/home']);
-                }, 1000);
+                }, 3000);
             } else {
-                this.httpStatusError = true;
-                this.httpStatusMessage = 'Nie udało się zalogować: '+res.error_msg;
+                this.httpLoginStatusError = true;
+                this.httpLoginStatusMessage = 'Nie udało się zalogować: '+res.error_msg;
             }
         });
     }
 
     register() {
-        if(!this.service.register(this.newUser)){
-            this.httpStatusMessage = 'Failed to login';
-        }
+        this.httpRegisterStatusError = false;
+        this.httpRegisterStatusMessage = 'Rejestracja ...';
+        this.service.register(this.newUser.login, this.newUser.email, this.newUser.password1, this.newUser.password2).then(res => {
+            console.log(res);
+            if (res.ok) {
+                this.httpRegisterStatusError = false;
+                this.httpRegisterStatusMessage = 'Zarejestrowano i zalogowano pomyślnie';
+                setTimeout(() => {
+                    this.router.navigate(['/home']);
+                }, 1000);
+            } else {
+                this.httpRegisterStatusError = true;
+                this.httpRegisterStatusMessage = 'Nie udało się zarejestrować: '+res.error_msg;
+            }
+        });
     }
 }

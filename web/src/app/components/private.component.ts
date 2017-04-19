@@ -6,11 +6,10 @@ import {AuthenticationService} from '../services/authentication.service'
     providers: [AuthenticationService],
     template: `
         <md-card>
-            <span>Oto strona dostępna tylko dla zalogowanych. Takich jak ty :)</span>
+            <span i18n>This content is only available for logget in users :)</span>
             <br />
             <br />
-            <br />
-            <button md-raised-button (click)="logout()" >Wyloguj</button>
+            <button md-raised-button (click)="logout()" i18n>Logout</button>
         </md-card>
     `
 })

@@ -9,43 +9,42 @@ import {Router} from "@angular/router";
     template: `
         <md-card>
             <md-tab-group>
-                <md-tab label="Logowanie">
+                <md-tab label="Login">
                     <div class="tab-container">
-                        <alert-box [message]="'Użyj tych danych do logowania: test/test'"></alert-box>
-                        <md-card-title>Logowanie</md-card-title>
+                        <md-card-title>Login</md-card-title>
                         <md-input-container>
-                            <input [(ngModel)]="user.login" mdInput placeholder="Nazwa użytkownika">
+                            <input [(ngModel)]="user.login" mdInput i18n-placeholder placeholder="Username">
                         </md-input-container>
                         <br />
                         <md-input-container>
-                            <input [(ngModel)]="user.password" mdInput type="password" placeholder="Hasło" value="Sushi">
+                            <input [(ngModel)]="user.password" mdInput type="password" i18n-placeholder placeholder="Password">
                         </md-input-container>
                         <br />
-                        <button md-raised-button (click)="login()">Zaloguj</button>
+                        <button md-raised-button (click)="login()" i18n>Logg in</button>
                         <span *ngIf="httpLoginStatusMessage" [ngClass]="{'error': httpLoginStatusError}" [innerHTML]="httpLoginStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
                 
-                <md-tab label="Rejestracja">
+                <md-tab label="Registration">
                     <div class="tab-container">
-                        <md-card-title>Rejestracja</md-card-title>
+                        <md-card-title>Registration</md-card-title>
                         <md-input-container>
-                            <input [(ngModel)]="newUser.login" mdInput placeholder="Nazwa użytkownika">
+                            <input [(ngModel)]="newUser.login" mdInput i18n-placeholder placeholder="User name">
                         </md-input-container>
                         <br />
                         <md-input-container>
-                            <input [(ngModel)]="newUser.email" mdInput placeholder="Email">
+                            <input [(ngModel)]="newUser.email" mdInput i18n-placeholder placeholder="E-mail">
                         </md-input-container>
                         <br />
                         <md-input-container>
-                            <input [(ngModel)]="newUser.password1" mdInput type="password" placeholder="Hasło">
+                            <input [(ngModel)]="newUser.password1" mdInput i18n-placeholder type="password" placeholder="Password">
                         </md-input-container>
                         <br />
                         <md-input-container>
-                            <input [(ngModel)]="newUser.password2" mdInput type="password" placeholder="Powtórz haslo">
+                            <input [(ngModel)]="newUser.password2" mdInput i18n-placeholder type="password" placeholder="Repeat password">
                         </md-input-container>
                         <br />
-                        <button md-raised-button (click)="register()">Zarejestruj</button>
+                        <button md-raised-button (click)="register()" i18n>Register</button>
                         <span *ngIf="httpRegisterStatusMessage" [ngClass]="{'error': httpRegisterStatusError}" [innerHTML]="httpRegisterStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
@@ -80,35 +79,34 @@ export class LoginComponent {
 
     login() {
         this.httpLoginStatusError = false;
-        this.httpLoginStatusMessage = 'Logowanie ...';
+        this.httpLoginStatusMessage = 'Logging in ...';
         this.service.login(this.user.login, this.user.password).then(res => {
             if (res.ok) {
                 this.httpLoginStatusError = false;
-                this.httpLoginStatusMessage = 'Zalogowano pomyślnie';
+                this.httpLoginStatusMessage = 'Logged in succesfully <md-icon></md-icon>';
                 setTimeout(() => {
                     this.router.navigate(['/home']);
                 }, 3000);
             } else {
                 this.httpLoginStatusError = true;
-                this.httpLoginStatusMessage = 'Nie udało się zalogować: '+res.error_msg;
+                this.httpLoginStatusMessage = 'Could not log in: '+res.error_msg;
             }
         });
     }
 
     register() {
         this.httpRegisterStatusError = false;
-        this.httpRegisterStatusMessage = 'Rejestracja ...';
+        this.httpRegisterStatusMessage = 'Registration ...';
         this.service.register(this.newUser.login, this.newUser.email, this.newUser.password1, this.newUser.password2).then(res => {
-            console.log(res);
             if (res.ok) {
                 this.httpRegisterStatusError = false;
-                this.httpRegisterStatusMessage = 'Zarejestrowano i zalogowano pomyślnie';
+                this.httpRegisterStatusMessage = 'Registered succesfully! Logging in...';
                 setTimeout(() => {
                     this.router.navigate(['/home']);
                 }, 1000);
             } else {
                 this.httpRegisterStatusError = true;
-                this.httpRegisterStatusMessage = 'Nie udało się zarejestrować: '+res.error_msg;
+                this.httpRegisterStatusMessage = 'Could not register: '+res.error_msg;
             }
         });
     }

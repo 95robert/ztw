@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="08c74dc9762957593b91f6eb5d65efdfc975bf48" datatype="html">
+        <source>Username</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="941569b532220a71921d30cd1b5ea4e8b93e0326" datatype="html">
+        <source>Logg in</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="024886ca34a6f309e3e51c2ed849320592c3faaa" datatype="html">
+        <source>User name</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="f85dc01e7aab1a5c282d14b74650255ae4042fe0" datatype="html">
+        <source>E-mail</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="d78d6fc5e90c093605d4e4f166bf074cdef1acc8" datatype="html">
+        <source>Repeat password</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="cfc2f436ec2beffb042e7511a73c89c372e86a6c" datatype="html">
+        <source>Register</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="0483a010aafedfbbfe240993e476c77d7885bafd" datatype="html">
+        <source>This content is only available for logget in users :)</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
+        <source>Logout</source>
+        <target/>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

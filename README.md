@@ -1,4 +1,4 @@
-## Instalacja Angulara
+## Instalacja
 Aby zainstalować Bettinger, należy posiadać: composer do obsługi paczek php oraz node do zarządzania paczkami JavaScript. Wymagane jest również PHP oraz baza danych MySQL.
 ### Instalacja Symfony
 * W głównym katalogu wpisujemy w konsoli: `composer install`
@@ -16,6 +16,11 @@ W głównym katalogu projektu wpisujemy w konsoli: `php bin/console doctrine:cre
 #### Aktualizacja schematu bazy
 W głównym katalogu projketu wpisujemy w konsoli: `php bin/console doctrine:schema:update --force`
 
+## Angular
+###i18n, Internationalization
+Aby przeszukać aplikację angulara w poszukiwaniu plików językowych, należy w /web wpisać:
+`npm run i18n -- -p src/tsconfig.json`
+Następnie przetłumaczyć `messages.xlf` na odpowiedni język i zapisać w formacie: `web/src/locale/messages.pl.xlf`
 ## API
 ### Rejestracja
 Ścieżka: `api/register`  

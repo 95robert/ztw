@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
     template: `
         <h1>{{title}}</h1>
         <nav>
-            <a routerLink="/login" routerLinkActive="active">Mój profil</a>
-            <a routerLink="/home" routerLinkActive="active">Dla zalogowanych</a>
-            <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-            <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+            <a routerLink="/login" routerLinkActive="active">Login/Registration</a>
+            <a routerLink="/home" routerLinkActive="active">Private content</a>
+            <!--<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>-->
+            <!--<a routerLink="/heroes" routerLinkActive="active">Heroes</a>-->
         </nav>
 
         <div class="app-content">

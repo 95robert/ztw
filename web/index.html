@@ -18,11 +18,20 @@
 
     <script src="systemjs.config.js"></script>
     <script>
+        // Get the locale id somehow
+        document.locale = 'pl';
+
+        // Map to the text plugin
+        System.config({
+            map: {
+                text: 'systemjs-text-plugin.js'
+            }
+        });
       System.import('src/main.js').catch(function(err){ console.error(err); });
     </script>
   </head>
 
   <body>
-    <my-app>Bettinger ładuje się <img src="img/ellipsis.gif" style="height: 1.5em;" /></my-app>
+    <my-app>Bettinger is loading <img src="img/ellipsis.gif" style="height: 1.5em;" /></my-app>
   </body>
 </html>

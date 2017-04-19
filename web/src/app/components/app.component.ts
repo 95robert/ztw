@@ -20,6 +20,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./assets/app.component.css']
 })
 export class AppComponent {
-    title = 'The Application';
+    title = 'Bettinger';
 }
 

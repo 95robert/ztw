@@ -12,17 +12,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var user_1 = require("../models/user");
-var users = [
-    new user_1.User(1, 'admin@admin.com', 'adm9'),
-    new user_1.User(2, 'user1@gmail.com', 'a23'),
-    new user_1.User(3, 'test', 'test'),
-];
 var AuthenticationService = (function () {
     function AuthenticationService(router, http) {
         this.router = router;
         this.http = http;
-        this.apiUrl = 'http://localhost:8000/api/'; // URL to web api
+        this.apiUrl = 'api/'; // URL to web api
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     AuthenticationService.prototype.logout = function () {
@@ -42,11 +36,13 @@ var AuthenticationService = (function () {
         }*/
     AuthenticationService.prototype.login = function (username, password) {
         return this.http
-            .post(this.apiUrl + 'login2', JSON.stringify({ username: username, password: password }), { headers: this.headers })
+            .post(this.apiUrl + 'login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
             .toPromise()
             .then(function (res) {
-            console.log(res);
-            return true;
+            if (res.json().ok) {
+                localStorage.setItem("currentUser", username);
+            }
+            return res.json();
         })
             .catch(this.handleError);
     };

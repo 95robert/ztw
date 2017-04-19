@@ -23,7 +23,7 @@ PrivateComponent = __decorate([
     core_1.Component({
         selector: 'login-form',
         providers: [authentication_service_1.AuthenticationService],
-        template: "\n        <div class=\"container\" >\n            <div class=\"content\">\n                <span>Congratulations, you have successfully logged in!!</span>\n                <br />\n                <button md-raised-button (click)=\"logout()\" >Wyloguj</button>\n            </div>\n        </div>\n    "
+        template: "\n        <md-card>\n            <span>Oto strona dost\u0119pna tylko dla zalogowanych. Takich jak ty :)</span>\n            <br />\n            <br />\n            <br />\n            <button md-raised-button (click)=\"logout()\" >Wyloguj</button>\n        </md-card>\n    "
     }),
     __metadata("design:paramtypes", [authentication_service_1.AuthenticationService])
 ], PrivateComponent);

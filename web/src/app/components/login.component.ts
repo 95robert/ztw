@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service'
 import {User} from "../models/user";
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'login-form',
@@ -21,7 +22,7 @@ import {User} from "../models/user";
                         </md-input-container>
                         <br />
                         <button md-raised-button (click)="login()">Zaloguj</button>
-                        <span *ngIf="errorMsg" class="http-status">{{errorMsg}}</span>
+                        <span *ngIf="httpStatusMessage" [ngClass]="{'error': httpStatusError}" [innerHTML]="httpStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
                 
@@ -55,7 +56,9 @@ import {User} from "../models/user";
         .tab-container { padding: 20px; }
         .http-status {
             padding: 5px;
-            font-weight: 600;
+            font-weight: 500;
+        }
+        .http-status.error {
             color: #ff0000;
         }
     `]
@@ -63,21 +66,35 @@ import {User} from "../models/user";
 
 export class LoginComponent {
     public user = new User(0, '','');
-    public errorMsg = '';
+    public httpStatusMessage = '';
+    public httpStatusError = false;
     public newUser = {login: '', email: '', password1: '', password2: ''}
 
     constructor(
+        private router: Router,
         private service:AuthenticationService) {}
 
     login() {
-        if(!this.service.login(this.user.login, this.user.password)){
-            this.errorMsg = 'Failed to login';
-        }
+        this.httpStatusError = false;
+        this.httpStatusMessage = 'Logowanie ...';
+        this.service.login(this.user.login, this.user.password).then(res => {
+            console.log(res);
+            if (res.ok) {
+                this.httpStatusError = false;
+                this.httpStatusMessage = 'Zalogowano pomyślnie';
+                setTimeout(() => {
+                    this.router.navigate(['/home']);
+                }, 1000);
+            } else {
+                this.httpStatusError = true;
+                this.httpStatusMessage = 'Nie udało się zalogować: '+res.error_msg;
+            }
+        });
     }
 
     register() {
         if(!this.service.register(this.newUser)){
-            this.errorMsg = 'Failed to login';
+            this.httpStatusMessage = 'Failed to login';
         }
     }
 }

@@ -5,13 +5,13 @@ import {AuthenticationService} from '../services/authentication.service'
     selector: 'login-form',
     providers: [AuthenticationService],
     template: `
-        <div class="container" >
-            <div class="content">
-                <span>Congratulations, you have successfully logged in!!</span>
-                <br />
-                <button md-raised-button (click)="logout()" >Wyloguj</button>
-            </div>
-        </div>
+        <md-card>
+            <span>Oto strona dostępna tylko dla zalogowanych. Takich jak ty :)</span>
+            <br />
+            <br />
+            <br />
+            <button md-raised-button (click)="logout()" >Wyloguj</button>
+        </md-card>
     `
 })
 

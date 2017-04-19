@@ -4,16 +4,11 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import {User} from "../models/user";
-
-var users = [
-    new User(1, 'admin@admin.com','adm9'),
-    new User(2, 'user1@gmail.com','a23'),
-    new User(3, 'test','test'),
-];
+import {HttpResult} from "../models/http-result";
 
 @Injectable()
 export class AuthenticationService {
-    private apiUrl = 'http://localhost:8000/api/';  // URL to web api
+    private apiUrl = 'api/';  // URL to web api
     private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(
@@ -34,15 +29,16 @@ export class AuthenticationService {
         }
         return false;
     }*/
-    login(username: string, password: string): Promise<Boolean> {
+    login(username: string, password: string): Promise<HttpResult> {
         return this.http
-            .post(this.apiUrl+'login2', JSON.stringify({username: username, password: password}), {headers: this.headers})
+            .post(this.apiUrl+'login', JSON.stringify({username: username, password: password}), {headers: this.headers})
             .toPromise()
             .then(res => {
-                console.log(res);
-                return true;
+                if (res.json().ok) {
+                    localStorage.setItem("currentUser", username);
                 }
-            )
+                return res.json() as HttpResult;
+            })
             .catch(this.handleError);
     }
     private handleError(error: any): Promise<any> {

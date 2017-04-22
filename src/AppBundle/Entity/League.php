@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * League
@@ -19,6 +20,7 @@ class League
      * @ORM\Column(name="league_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $id;
 
@@ -26,6 +28,7 @@ class League
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $name;
 

@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Entity\Role;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * User
@@ -21,6 +22,7 @@ class User implements UserInterface
      * @ORM\Column(name="user_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"standard-bet-info"})
      */
     private $id;
 
@@ -35,6 +37,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="login", type="string", length=255, unique=true)
+     * @Groups({"standard-bet-info"})
      */
     private $login;
 

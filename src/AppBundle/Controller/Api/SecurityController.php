@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Api;
 
 use AppBundle\Entity\Role;
 use DateTime;
@@ -53,7 +53,7 @@ class SecurityController extends Controller
         $data = json_decode(file_get_contents('php://input'));
         $data = json_decode(json_encode($data), True);
 
-//        $data = $_GET;
+       // $data = $_GET;
 
         $login = array_key_exists('login', $data) ? $data['login']: '';
         $email = array_key_exists('email', $data) ? $data['email']: '';

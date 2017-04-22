@@ -10,4 +10,30 @@ namespace AppBundle\Repository;
  */
 class GameRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findWithFilterOptions($data){
+        return $this->findWithFilterOptionsQuery($data)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findWithFilterOptionsQuery($data){
+        $query = $this->createQueryBuilder('g');
+        if(array_key_exists('league', $data)){
+            $query->andWhere('g.league = :league')
+                ->setParameter(':league', $data['league']);
+        }
+        if(array_key_exists('team', $data)){
+            $query->andWhere('g.teamOne = :team OR g.teamTwo = :team')
+                ->setParameter(':team', $data['team']);
+        }
+        if(array_key_exists('minDate', $data)){
+            $query->andWhere('g.date >= :minDate')
+                ->setParameter(':minDate', new \DateTime($data['minDate']));
+        }
+        if(array_key_exists('maxDate', $data)){
+            $query->andWhere('g.date <= :maxDate')
+                ->setParameter(':maxDate', new \DateTime($data['maxDate']));
+        }
+        return $query;
+    }
 }

@@ -24,7 +24,7 @@ Następnie przetłumaczyć `messages.xlf` na odpowiedni język i zapisać w form
 
 ## Komendy
 ### Pobieranie meczów
-Komenda: `php bin/console bettinger:download:matches` 
+Komenda: `php bin/console bettinger:download:matches`   
 Działanie: póki co ładuje przykładowe mecze/drużyny/ligii, pózniej będzie pobierać dane o przyszłych meczach z innej strony
 
 ## API
@@ -93,7 +93,7 @@ Dane (wszystkie opcjonalnie):
 *  league - id ligi 
 *  team - id drużyny
 *  minDate - format (01-01-2000)
-*  maxDate - format (01-01-2000)
+*  maxDate - format (01-01-2000)  
 Zwracane dane:  
 *    array - obiektów meczy {id, date, teamOneScore, teamTwoScore, league, teamOne, teamTwo} 
 
@@ -110,7 +110,7 @@ Dane (wszystkie opcjonalnie):
 *  id - id typu 
 *  game - id meczy
 *  user - id typera
-*  cost - maksymalny koszt
+*  cost - maksymalny koszt  
 Zwracane dane:  
 *    array - obiektów typów {id, cost, odds, stake, result, status, user, game} - gdy zalogowany użytkownik nie ma uprawnień do zobaczenia co obstwił typer, wtedy nie w tablicy nie ma zmiennej "result"
 
@@ -121,7 +121,7 @@ Dane (wszystkie wymagane):
 *  odds - kurs
 *  stake - stawka
 *  result - (0-remis, 1 - wygrywa gospodarz, 2-wygrywa gość)
-*  game - id meczu
+*  game - id meczu  
 Zwracane dane:  
 *    ok - true/false - czy udało się dodać
   

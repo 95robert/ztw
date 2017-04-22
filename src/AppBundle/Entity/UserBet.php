@@ -4,6 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * UserBet
@@ -19,6 +21,7 @@ class UserBet
      * @ORM\Column(name="user_bet_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"standard-bet-info"})
      */
     private $id;
 
@@ -26,6 +29,10 @@ class UserBet
      * @var string
      *
      * @ORM\Column(name="cost", type="decimal", precision=10, scale=2, nullable=true)
+     * @Groups({"standard-bet-info"})
+     * @Assert\GreaterThanOrEqual(0)
+     * @Assert\Type("numeric")
+     *
      */
     private $cost;
 
@@ -33,6 +40,9 @@ class UserBet
      * @var float
      *
      * @ORM\Column(name="odds", type="float")
+     * @Groups({"standard-bet-info"})
+     * @Assert\GreaterThanOrEqual(0)
+     * @Assert\Type("numeric")
      */
     private $odds;
 
@@ -40,6 +50,9 @@ class UserBet
      * @var int
      *
      * @ORM\Column(name="stake", type="integer")
+     * @Groups({"standard-bet-info"})
+     * @Assert\GreaterThanOrEqual(0)
+     * @Assert\Type("numeric")
      */
     private $stake;
 
@@ -47,6 +60,10 @@ class UserBet
      * @var int
      *
      * @ORM\Column(name="result", type="integer", nullable=true)
+     * @Groups({"result-bet-info"})
+     * @Assert\LessThanOrEqual(1)
+     * @Assert\GreaterThanOrEqual(-1)
+     * @Assert\Type("numeric")
      */
     private $result;
 
@@ -54,18 +71,23 @@ class UserBet
      * @var int
      *
      * @ORM\Column(name="status", type="integer", nullable=true)
+     * @Groups({"standard-bet-info"})
      */
     private $status;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="usersBets")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="user_ID")
+     * @Groups({"standard-bet-info"})
+     * @Assert\NotNull()
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="Game", inversedBy="usersBets")
      * @ORM\JoinColumn(name="game_id", referencedColumnName="game_ID")
+     * @Groups({"standard-bet-info"})
+     * @Assert\NotNull()
      */
     private $game;
 
@@ -88,8 +110,7 @@ class UserBet
      */
     public function __construct()
     {
-        $this->result = 0;
-        $this->status= 0;
+        $this->status = 0;
         $this->soldBets = new ArrayCollection();
         $this->views = new ArrayCollection();
     }
@@ -252,7 +273,7 @@ class UserBet
     /**
      * @param Game $game
      */
-    public function setGame(Game $game)
+    public function setGame($game)
     {
         $this->game = $game;
     }

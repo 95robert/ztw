@@ -10,4 +10,30 @@ namespace AppBundle\Repository;
  */
 class UserBetRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findWithFilterOptions($data){
+        return $this->findWithFilterOptionsQuery($data)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findWithFilterOptionsQuery($data){
+        $query = $this->createQueryBuilder('b');
+        if(array_key_exists('id', $data)){
+            $query->andWhere('b.id = :id')
+                ->setParameter(':id', $data['id']);
+        }
+        if(array_key_exists('game', $data)){
+            $query->andWhere('b.game = :game')
+                ->setParameter(':game', $data['game']);
+        }
+        if(array_key_exists('user', $data)){
+            $query->andWhere('b.user = :user')
+                ->setParameter(':user', $data['user']);
+        }
+        if(array_key_exists('cost', $data)){
+            $query->andWhere('b.cost <= :cost')
+                ->setParameter(':cost', $data['cost']);
+        }
+        return $query;
+    }
 }

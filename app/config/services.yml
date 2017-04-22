@@ -7,3 +7,9 @@ services:
     #service_name:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
+    serialize_manager:
+        class:        AppBundle\Utils\SerializeManager
+        arguments:    ['@service_container']
+    security_view_bet_manager:
+        class:        AppBundle\Utils\SecurityViewBetManager
+        arguments:    ['@service_container']

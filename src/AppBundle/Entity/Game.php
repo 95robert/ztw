@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Game
@@ -19,6 +20,7 @@ class Game
      * @ORM\Column(name="game_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $id;
 
@@ -26,6 +28,7 @@ class Game
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $date;
 
@@ -33,6 +36,7 @@ class Game
      * @var int
      *
      * @ORM\Column(name="team_one_score", type="integer", nullable=true)
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $teamOneScore;
 
@@ -40,24 +44,28 @@ class Game
      * @var int
      *
      * @ORM\Column(name="team_two_score", type="integer", nullable=true)
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $teamTwoScore;
 
     /**
      * @ORM\ManyToOne(targetEntity="League", inversedBy="games")
      * @ORM\JoinColumn(name="league_id", referencedColumnName="league_ID")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $league;
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="games")
      * @ORM\JoinColumn(name="team_one_id", referencedColumnName="team_ID")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $teamOne;
 
     /**
      * @ORM\ManyToOne(targetEntity="Team", inversedBy="games")
      * @ORM\JoinColumn(name="team_two_id", referencedColumnName="team_ID")
+     * @Groups({"standard", "standard-bet-info"})
      */
     private $teamTwo;
 
@@ -71,8 +79,12 @@ class Game
     /**
      * Game constructor.
      */
-    public function __construct()
+    public function __construct($teamOne, $teamTwo, $league, $date, $time)
     {
+        $this->teamOne = $teamOne;
+        $this->teamTwo = $teamTwo;
+        $this->league = $league;
+        $this->date = new \DateTime($date.' '.$time);
         $this->usersBets = new ArrayCollection();
     }
 

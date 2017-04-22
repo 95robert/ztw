@@ -91,7 +91,7 @@ class UserBetController extends Controller
         $securityViewBetManager = $this->get('security_view_bet_manager');
         $data = json_decode(file_get_contents('php://input'));
         $data = json_decode(json_encode($data), True);
-        $data = $_GET;
+        //$data = $_GET;
 
         $bets = $em->getRepository(UserBet::class)->findWithFilterOptions($data);
         $selectedBets = $securityViewBetManager->selectBets($bets);
@@ -120,7 +120,7 @@ class UserBetController extends Controller
         $validator = $this->get('validator');
         $data = json_decode(file_get_contents('php://input'));
         $data = json_decode(json_encode($data), True);
-        $data = $_GET;
+        //$data = $_GET;
         $data['user'] = $this->getUser();
 
         $userBet = (new UserBetCreator($em))->create($data, $validator);

@@ -80,7 +80,7 @@ class GameController extends Controller
         $serializeManager = $this->get('serialize_manager');
         $data = json_decode(file_get_contents('php://input'));
         $data = json_decode(json_encode($data), True);
-        $data = $_GET;
+        //$data = $_GET;
         $leagues = $em->getRepository(Game::class)->findWithFilterOptions($data);
         return $serializeManager->serializeObjectToResponse($leagues, array('standard'), array(), array());
     }

@@ -94,6 +94,7 @@ Dane (wszystkie opcjonalnie):
 *  team - id drużyny
 *  minDate - format (01-01-2000)
 *  maxDate - format (01-01-2000)  
+
 Zwracane dane:  
 *    array - obiektów meczy {id, date, teamOneScore, teamTwoScore, league, teamOne, teamTwo} 
 
@@ -101,6 +102,7 @@ Zwracane dane:
 ### Typy - tablica wszystkich typów
 Ścieżka: `api/bet`  
 Brak wymaganych danych  
+
 Zwracane dane:  
 *    array - obiektów typów {id, cost, odds, stake, result, status, user, game} - gdy zalogowany użytkownik nie ma uprawnień do zobaczenia co obstwił typer, wtedy nie w tablicy nie ma zmiennej "result"
 
@@ -111,6 +113,7 @@ Dane (wszystkie opcjonalnie):
 *  game - id meczy
 *  user - id typera
 *  cost - maksymalny koszt  
+
 Zwracane dane:  
 *    array - obiektów typów {id, cost, odds, stake, result, status, user, game} - gdy zalogowany użytkownik nie ma uprawnień do zobaczenia co obstwił typer, wtedy nie w tablicy nie ma zmiennej "result"
 
@@ -122,6 +125,7 @@ Dane (wszystkie wymagane):
 *  stake - stawka
 *  result - (0-remis, 1 - wygrywa gospodarz, 2-wygrywa gość)
 *  game - id meczu  
+
 Zwracane dane:  
 *    ok - true/false - czy udało się dodać
   

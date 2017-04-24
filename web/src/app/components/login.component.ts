@@ -71,7 +71,7 @@ export class LoginComponent {
 
     public httpRegisterStatusMessage = '';
     public httpRegisterStatusError = false;
-    public newUser = {login: '', email: '', password1: '', password2: ''}
+    public newUser = {login: '', email: '', password1: '', password2: ''};
 
     constructor(
         private router: Router,

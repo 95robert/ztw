@@ -24,8 +24,20 @@ var AuthenticationService = (function () {
         return Promise.reject(error.message || error);
     };
     AuthenticationService.prototype.logout = function () {
-        localStorage.removeItem("currentUser");
-        this.router.navigate(['/login']);
+        return this.http
+            .get(this.apiUrl + 'logout')
+            .toPromise()
+            .then(function (res) {
+            localStorage.removeItem("currentUser");
+            if (res.text() !== "1") {
+                console.log("Zapytanie wylogowywania nie zwróciło 1!");
+                return false;
+            }
+            else {
+                return true;
+            }
+        })
+            .catch(this.handleError);
     };
     AuthenticationService.prototype.login = function (username, password) {
         return this.http

@@ -115,7 +115,7 @@ Dane (wszystkie opcjonalnie):
 *  cost - maksymalny koszt  
 
 Zwracane dane:  
-*    array - obiektów typów {id, cost, odds, stake, result, status, user, game} - gdy zalogowany użytkownik nie ma uprawnień do zobaczenia co obstwił typer, wtedy nie w tablicy nie ma zmiennej "result"
+*    array - obiektów typów {id, cost, odds, stake, result, status, user, game} - gdy zalogowany użytkownik nie ma uprawnień do zobaczenia co obstwił typer, wtedy w tablicy nie ma zmiennej "result"
 
 ### Typy - dodawanie typów
 Ścieżka: `api/bet/add`  

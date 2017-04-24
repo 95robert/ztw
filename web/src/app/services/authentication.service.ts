@@ -19,9 +19,20 @@ export class AuthenticationService {
         return Promise.reject(error.message || error);
     }
 
-    logout() {
-        localStorage.removeItem("currentUser");
-        this.router.navigate(['/login']);
+    logout(): Promise<Boolean> {
+        return this.http
+            .get(this.apiUrl+'logout')
+            .toPromise()
+            .then(res => {
+                localStorage.removeItem("currentUser");
+                if (res.text() !== "1") {
+                    console.log("Zapytanie wylogowywania nie zwróciło 1!");
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+            .catch(this.handleError);
     }
 
     login(username: string, password: string): Promise<HttpResult> {

@@ -10,7 +10,7 @@ import { HeroService }         from './services/hero.service';
 import {AuthGuard} from "./guards/auth.guard";
 
 // Components
-import { AppComponent }        from './components/app.component';
+import { AppComponent }        from './components/app-new.component';
 import { HeroDetailComponent } from './components/hero-detail.component';
 import { HeroesComponent }     from './components/heroes.component';
 import {DashboardComponent} from "./components/dashboard.component";
@@ -26,7 +26,7 @@ import {HeroSearchComponent} from "./components/hero-search.component";
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule,
+        // AppRoutingModule,
         BrowserAnimationsModule,
         MdCardModule,
         MdButtonModule,
@@ -36,18 +36,18 @@ import {HeroSearchComponent} from "./components/hero-search.component";
     ],
     declarations: [
         AppComponent,
-        HeroDetailComponent,
-        HeroesComponent,
-        DashboardComponent,
-        LoginComponent,
-        PrivateComponent,
-        AlertBoxComponent,
-        HeroSearchComponent
+        // HeroDetailComponent,
+        // HeroesComponent,
+        // DashboardComponent,
+        // LoginComponent,
+        // PrivateComponent,
+        // AlertBoxComponent,
+        // HeroSearchComponent
     ],
     providers: [
-        HeroService,
-        MdIconRegistry,
-        AuthGuard
+        // HeroService,
+        // MdIconRegistry,
+        // AuthGuard
     ],
     bootstrap: [ AppComponent ]
 })

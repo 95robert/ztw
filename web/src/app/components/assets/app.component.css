@@ -99,7 +99,7 @@ nav {
     -o-transition: .5s ease-in-out;
     transition: .5s ease-in-out;
     color: #FF5733;
-    z-index: 1;
+    z-index: 9;
 }
 #btgr-menu header {
     font-size: 30px;

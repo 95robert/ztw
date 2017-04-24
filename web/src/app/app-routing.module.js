@@ -10,20 +10,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
  */
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var dashboard_component_1 = require("./components/dashboard.component");
-var heroes_component_1 = require("./components/heroes.component");
-var hero_detail_component_1 = require("./components/hero-detail.component");
 var login_component_1 = require("./components/login.component");
 var private_component_1 = require("./components/private.component");
 var auth_guard_1 = require("./guards/auth.guard");
+var games_component_1 = require("./components/games.component");
 var routes = [
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
+    { path: '', redirectTo: '/games', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
+    { path: 'games', component: games_component_1.GamesComponent },
     { path: 'home', component: private_component_1.PrivateComponent, canActivate: [auth_guard_1.AuthGuard] },
-    // Routy z tutoriala
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'heroes', component: heroes_component_1.HeroesComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

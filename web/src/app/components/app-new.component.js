@@ -18,6 +18,9 @@ var AppComponent = (function () {
         this.menuShowed = !this.menuShowed;
         console.log('menuShowed = ', this.menuShowed);
     };
+    AppComponent.prototype.menuLinkClicked = function () {
+        this.menuShowed = false;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

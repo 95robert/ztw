@@ -52,6 +52,11 @@ import {Router} from "@angular/router";
         </md-card>
     `,
     styles: [`
+        @media screen and (min-width: 768px) {
+            md-card {
+                margin: 15px;
+            }
+        }
         md-card { padding: 0; }
         .tab-container { padding: 20px; }
         .http-status {

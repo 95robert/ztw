@@ -11,8 +11,11 @@ export class AppComponent {
     title = 'Bettinger';
     menuShowed = false;
     public toggleMenu() {
-        this.menuShowed = !this.menuShowed
+        this.menuShowed = !this.menuShowed;
         console.log('menuShowed = ', this.menuShowed);
+    }
+    public menuLinkClicked () {
+        this.menuShowed = false;
     }
 }
 

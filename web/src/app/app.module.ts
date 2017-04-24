@@ -32,7 +32,7 @@ import {LoaderComponent} from "./components/shared/loader.component";
         BrowserModule,
         FormsModule,
         HttpModule,
-        // AppRoutingModule,
+        AppRoutingModule,
         BrowserAnimationsModule,
         MdCardModule,
         MdButtonModule,
@@ -47,16 +47,16 @@ import {LoaderComponent} from "./components/shared/loader.component";
         // HeroDetailComponent,
         // HeroesComponent,
         // DashboardComponent,
-        // LoginComponent,
-        // PrivateComponent,
-        // AlertBoxComponent,
+        LoginComponent,
+        PrivateComponent,
+        AlertBoxComponent,
         LoaderComponent,
         // HeroSearchComponent
     ],
     providers: [
         // HeroService,
-        // MdIconRegistry,
-        // AuthGuard
+        MdIconRegistry,
+        AuthGuard,
         GameService
     ],
     bootstrap: [ AppComponent ]

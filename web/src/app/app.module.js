@@ -13,6 +13,9 @@ var material_1 = require("@angular/material");
 var http_1 = require("@angular/http");
 // Components
 var app_new_component_1 = require("./components/app-new.component");
+var games_component_1 = require("./components/games.component");
+var game_service_1 = require("./services/game.service");
+var loader_component_1 = require("./components/shared/loader.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -31,12 +34,26 @@ AppModule = __decorate([
             material_1.MdButtonModule,
             material_1.MdIconModule,
             material_1.MdInputModule,
-            material_1.MdTabsModule
+            material_1.MdTabsModule,
+            material_1.MdListModule
         ],
         declarations: [
             app_new_component_1.AppComponent,
+            games_component_1.GamesComponent,
+            // HeroDetailComponent,
+            // HeroesComponent,
+            // DashboardComponent,
+            // LoginComponent,
+            // PrivateComponent,
+            // AlertBoxComponent,
+            loader_component_1.LoaderComponent,
         ],
-        providers: [],
+        providers: [
+            // HeroService,
+            // MdIconRegistry,
+            // AuthGuard
+            game_service_1.GameService
+        ],
         bootstrap: [app_new_component_1.AppComponent]
     })
 ], AppModule);

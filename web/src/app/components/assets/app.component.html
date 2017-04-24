@@ -1,8 +1,21 @@
-<nav class="navbar">
-    <div class="brand"></div>
-    <div id="nav-icon">
+<nav>
+    <div id="nav-brand">Bettinger</div>
+    <div id="nav-icon" (click)="toggleMenu();" [ngClass]="{'open': menuShowed}">
+        <span></span>
         <span></span>
         <span></span>
         <span></span>
     </div>
 </nav>
+<div id="btgr-menu" [hidden]="!menuShowed">
+    <ul>
+        <li class="info">Menu</li>
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">Typerzy</a></li>
+        <li><a href="#">Nadchodzące mecze</a></li>
+        <li class="spacer"></li>
+        <li><a href="#">Mój profil</a></li>
+        <li><a href="#">Wyloguj</a></li>
+    </ul>
+</div>
+<games></games>

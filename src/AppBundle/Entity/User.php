@@ -22,7 +22,7 @@ class User implements UserInterface
      * @ORM\Column(name="user_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"standard-bet-info"})
+     * @Groups({"standard-bet-info", "tipster"})
      */
     private $id;
 
@@ -37,7 +37,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="login", type="string", length=255, unique=true)
-     * @Groups({"standard-bet-info"})
+     * @Groups({"standard-bet-info", "tipster"})
      */
     private $login;
 
@@ -630,5 +630,15 @@ class User implements UserInterface
         return $this;
     }
     /* ROLES */
+
+    public function getSoldSingleBets(){
+        $soldSingleBets = [];
+        foreach($this->getUsersBets() as $bet){
+            foreach($bet->getSoldBets() as $soldBet){
+                $soldSingleBets[] = $soldBet;
+            }
+        }
+        return $soldSingleBets;
+    }
 }
 

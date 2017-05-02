@@ -40,6 +40,7 @@ export class AuthenticationService {
             .post(this.apiUrl+'login', JSON.stringify({username: username, password: password}), {headers: this.headers})
             .toPromise()
             .then(res => {
+                console.log(res);
                 if (res.json().ok) {
                     localStorage.setItem("currentUser", username);
                 }

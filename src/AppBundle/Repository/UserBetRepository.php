@@ -26,6 +26,15 @@ class UserBetRepository extends \Doctrine\ORM\EntityRepository
             $query->andWhere('b.game = :game')
                 ->setParameter(':game', $data['game']);
         }
+        if(array_key_exists('gameDateMin', $data)){
+            $query->join('b.game', 'g')
+                ->andWhere('g.date >= :minDate')
+                ->setParameter(':minDate', $data['gameDateMin']);
+            if(array_key_exists('gameDateMax', $data)){
+                $query->andWhere('g.date <= :maxDate')
+                    ->setParameter(':maxDate', $data['gameDateMax']);
+            }
+        }
         if(array_key_exists('user', $data)){
             $query->andWhere('b.user = :user')
                 ->setParameter(':user', $data['user']);

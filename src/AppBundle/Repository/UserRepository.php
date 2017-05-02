@@ -37,7 +37,7 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
             'efficiency_last_3_month' => $this->getEfficiencyForTipster($tipster, 3),
             'efficiency_last_month' => $this->getEfficiencyForTipster($tipster, 1),
             'yield' => $this->getYield($tipster),
-            'sold_single_bet' => count($tipster->soldSingleBets()),
+            'sold_single_bet' => count($tipster->getSoldSingleBets()),
             'sold_subscriptions' => count($tipster->getSoldSubscriptions()),
             'count_of_currents_bets' => $this->getBetsForTipster($tipster, true),
             'count_of_bets' => $this->getBetsForTipster($tipster),

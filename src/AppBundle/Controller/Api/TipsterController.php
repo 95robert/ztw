@@ -31,36 +31,6 @@ use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
  */
 class TipsterController extends Controller
 {
-
-
-//    getTipster - zwraca typera z danymi:
-//        - standardowe dane typera
-//        - skuteczność ogólnie
-//        - skuteczność z ostatnich 3-miesięcy
-//        - skuteczność z ostatniego miesiąća
-//        - yfield
-//        - ilość sprzedanych pojedyńczych typów
-//        - ilośc sprzedanych subskrybcji
-//        - lista aktualych typów
-//
-//    getTipseter - zwraca kolekcji przefiltrowanych i posortowanych typerów według:
-//        sortowanie:
-//            jak:
-//                - rosnąco
-//                - malejąco
-//            według:
-//                - skuteczność ogólnie
-//                - skuteczność z ostatnich 3-miesięcy
-//                - skuteczność z ostatniego miesiąća
-//                - yfield
-//                - ilość aktualych typów
-//                - ilość sprzedanych pojedyńczych typów
-//                - ilośc sprzedanych subskrybcji
-//                  - cena
-//        filtrowanie:
-//            - maxPrice
-//            - minPrice
-
     /**
      * Akcja zwraca dane na temat typera.
      *

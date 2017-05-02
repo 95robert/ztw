@@ -631,7 +631,7 @@ class User implements UserInterface
     }
     /* ROLES */
 
-    public function soldSingleBets(){
+    public function getSoldSingleBets(){
         $soldSingleBets = [];
         foreach($this->getUsersBets() as $bet){
             foreach($bet->getSoldBets() as $soldBet){

@@ -74,4 +74,22 @@ class SerializeManager
         }
         return $response;
     }
+
+    public function arrayToJsonResponse($array){
+        $response = new JsonResponse();
+        $response->setData($array);
+        return $response;
+    }
+
+    public function arrayOfObjectsWithExtraFields($array, $repo, $groups = []){
+        $elems = array();
+        foreach($array as $elem){
+            $object = $repo->findOneById($elem['id']);
+            unset($elem['id']);
+            $serializedObject = $this->serializeObject($object, $groups, array());
+            $elems[] = array_merge($serializedObject, $elem);
+        }
+
+        return $this->arrayToJsonResponse($elems);
+    }
 }

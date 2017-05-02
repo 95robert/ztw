@@ -44,6 +44,7 @@ var AuthenticationService = (function () {
             .post(this.apiUrl + 'login', JSON.stringify({ username: username, password: password }), { headers: this.headers })
             .toPromise()
             .then(function (res) {
+            console.log(res);
             if (res.json().ok) {
                 localStorage.setItem("currentUser", username);
             }

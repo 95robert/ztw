@@ -154,4 +154,7 @@ Metoda: `POST`
 Dane (wszystkie opcjonalne):  
 *  sortedBy : string {efficiency, efficiency_last_3_month, ..itd}  
 *  orderBy : int {3, 4) - 3 (rosnąco)/ 4 (malejąco)  
-*  filters : array { maxPrice : <value>, minPrice: <value> }   
+*  filters : array { maxPrice : value , minPrice: value }  
+  
+Zwracane dane:  
+*  tablica z obiektami typerów

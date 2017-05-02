@@ -129,3 +129,29 @@ Dane (wszystkie wymagane):
 Zwracane dane:  
 *    ok - true/false - czy udało się dodać
   
+## API - Typerzy
+### Dane i statystyki na temat typera
+Ścieżka: `api/tipster/show/{id}`  
+Metoda: `GET`  
+Dane: brak  
+  
+Zwracane dane:  
+*    id  
+*    login  
+*    efficiency  
+*    efficiency_last_3_month  
+*    efficiency_last_month  
+*    yield  
+*    sold_single_bet  
+*    sold_subscriptions  
+*    count_of_currents_bets  
+*    count_of_bets  
+*    subscription_cost  
+  
+### Przefiltrowani i posortowani typerzy  
+Ścieżka: `api/tipster/filter`    
+Metoda: `POST`  
+Dane (wszystkie opcjonalne):  
+*  sortedBy : string {efficiency, efficiency_last_3_month, ..itd}  
+*  orderBy : int {3, 4) - 3 (rosnąco)/ 4 (malejąco)  
+*  filters : array { maxPrice : <value>, minPrice: <value> }   

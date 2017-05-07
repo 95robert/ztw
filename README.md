@@ -1,25 +1,25 @@
 ## Instalacja
-Aby zainstalować Bettinger, należy posiadać: composer do obsługi paczek php oraz node do zarządzania paczkami JavaScript. Wymagane jest również PHP oraz baza danych MySQL.
+Aby zainstalować Bettinger, należy posiadać: composer do obsługi paczek php oraz yarn do zarządzania paczkami JavaScript. Wymagane jest również PHP oraz baza danych MySQL.
 ### Instalacja Symfony
 * W głównym katalogu wpisujemy w konsoli: `composer install`
 * Duplikujemy plik `app/config/parameters.yml.dist`go i zmienamy nazwę na `parameter.yml` (należy dostosować parametry do własnego systemu)
 * W konsoli wpisujemy: `php bin/console server:run` i serwer powinien wystartować pod adresem `localhost:8000`
 
 ### Instalacja Angulara
-* Wchodzimy w konsoli do `web/` i wpisujemy `npm install`
-* Aby zbudować Front-End, wpisujemy w `web/`: `npm run build`
-* Aby włączyć automatyczne bodowanie aplikacji przy każdej zmianie plików, wpisujemy w `web/`: `npm run build:watch`
+* Wchodzimy w konsoli do `web/` i wpisujemy `yarn install`
+* Aby zbudować Front-End, wpisujemy w `web/`: `yarn run build`
+* Aby włączyć automatyczne bodowanie aplikacji przy każdej zmianie plików, wpisujemy w `web/`: `yarn run build:watch`
 
 ### Baza danych
 #### Tworzenie pustej bazy
-W głównym katalogu projektu wpisujemy w konsoli: `php bin/console doctrine:create:datebase`
+W głównym katalogu projektu wpisujemy w konsoli: `php bin/console doctrine:database:create`
 #### Aktualizacja schematu bazy
 W głównym katalogu projketu wpisujemy w konsoli: `php bin/console doctrine:schema:update --force`
 
 ## Angular
 ###i18n, Internationalization
 Aby przeszukać aplikację angulara w poszukiwaniu plików językowych, należy w /web wpisać:
-`npm run i18n -- -p src/tsconfig.json`
+`yarn run i18n -- -p src/tsconfig.json`
 Następnie przetłumaczyć `messages.xlf` na odpowiedni język i zapisać w formacie: `web/src/locale/messages.pl.xlf`
 
 ## Komendy

@@ -1,1 +1,1 @@
-{"version":3,"file":"league.js","sourceRoot":"","sources":["league.ts"],"names":[],"mappings":";AAAA;;GAEG;AACH;IAAA;IAGA,CAAC;IAAD,aAAC;AAAD,CAAC,AAHD,IAGC;AAHY,wBAAM"}
+{"version":3,"file":"league.js","sourceRoot":"","sources":["league.ts"],"names":[],"mappings":";AAAA;;GAEG;AACH;IACI,gBACW,EAAU,EACV,IAAY;QADZ,OAAE,GAAF,EAAE,CAAQ;QACV,SAAI,GAAJ,IAAI,CAAQ;IACnB,CAAC;IAAA,CAAC;IACV,aAAC;AAAD,CAAC,AALD,IAKC;AALY,wBAAM"}

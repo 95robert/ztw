@@ -1,0 +1,59 @@
+:host {
+    width: 100%;
+    display: block;
+}
+section {
+    padding: 15px;
+}
+header {
+    font-size: 30px;
+    font-weight: 700;
+    color: #FF5733;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+loader {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+    height: 60px;
+}
+
+@media (max-width: 768px){
+    header {
+        font-size: 20px;
+    }
+}
+
+header {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    margin: 20px;
+    font-weight: 700;
+    color: #581845;
+    justify-content: center;
+}
+
+header:after,
+header:before {
+    display: block;
+    color: #FF5733;
+    font-family: FontAwesome;
+    content: "\f1e3";
+    font-size: 0.5em;
+}
+header:after {
+    flex: 0 1 auto;
+    margin-left: 20px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+header:before {
+    margin-right: 20px;
+    flex: 0 2 auto;
+}

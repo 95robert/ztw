@@ -33,8 +33,9 @@ GamesComponent = __decorate([
     core_1.Component({
         selector: 'games',
         // templateUrl: './assets/games.component.html',
-        // styleUrls: [ './assets/dashgamesboard.component.css' ]
-        template: "\n        <md-card>\n            <md-list>\n                <h3 md-subheader>Nadchodz\u0105ce mecze</h3>\n                <loader style=\"padding: 0 16px;\" *ngIf=\"isLoading\"></loader>\n                <md-list-item *ngFor=\"let game of games\">\n                    <md-icon md-list-icon>star</md-icon>\n                    <h4 md-line>{{game.teamOne.name}} vs {{game.teamTwo.name}}</h4>\n                    <p md-line> {{game.league.name}}, {{game.date | date}} </p>\n                </md-list-item>\n            </md-list>\n        </md-card>\n    ",
+        styleUrls: ['./assets/common.component.css'],
+        styles: ["\n        .flex-games {\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-between;\n            align-content: flex-start;\n        }\n        .game {\n            width: 450px;\n        }\n    "],
+        template: "\n        <section>\n            <header>Nadchodz\u0105ce mecze</header>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <div class=\"flex-games\">\n                <game *ngFor=\"let game of games\" [game]=\"game\" class=\"game\"></game>\n            </div>\n        </section>\n    ",
     }),
     __metadata("design:paramtypes", [game_service_1.GameService])
 ], GamesComponent);

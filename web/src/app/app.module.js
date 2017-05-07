@@ -8,10 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
-var http_1 = require("@angular/http");
 var app_routing_module_1 = require("./app-routing.module");
+// import { HeroService }         from './services/hero.service';
 var auth_guard_1 = require("./guards/auth.guard");
 // Components
 var app_new_component_1 = require("./components/app-new.component");
@@ -21,6 +22,7 @@ var alert_box_component_1 = require("./components/shared/alert-box.component");
 var games_component_1 = require("./components/games.component");
 var game_service_1 = require("./services/game.service");
 var loader_component_1 = require("./components/shared/loader.component");
+var game_component_1 = require("./components/shared/game.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -40,7 +42,8 @@ AppModule = __decorate([
             material_1.MdIconModule,
             material_1.MdInputModule,
             material_1.MdTabsModule,
-            material_1.MdListModule
+            material_1.MdListModule,
+            material_1.MdGridListModule
         ],
         declarations: [
             app_new_component_1.AppComponent,
@@ -52,6 +55,7 @@ AppModule = __decorate([
             private_component_1.PrivateComponent,
             alert_box_component_1.AlertBoxComponent,
             loader_component_1.LoaderComponent,
+            game_component_1.GameComponent
         ],
         providers: [
             // HeroService,

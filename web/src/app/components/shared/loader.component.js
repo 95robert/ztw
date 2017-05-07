@@ -14,7 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var LoaderComponent = (function () {
     function LoaderComponent() {
-        this.alertType = "info";
+        this.alertType = 'info';
     }
     return LoaderComponent;
 }());
@@ -25,7 +25,7 @@ __decorate([
 LoaderComponent = __decorate([
     core_1.Component({
         selector: 'loader',
-        template: "<img src=\"img/ellipsis.gif\" style=\"height: 1.5em;\" />",
+        template: "<img src=\"img/ellipsis.gif\" style=\"height: 100%;\" />",
         styles: ["\n    "]
     })
 ], LoaderComponent);

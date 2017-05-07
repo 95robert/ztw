@@ -1,22 +1,24 @@
-<nav>
-    <div id="nav-brand">Bettinger</div>
-    <div id="nav-icon" (click)="toggleMenu();" [ngClass]="{'open': menuShowed}">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+<div class="nav-wrapper">
+    <nav [ngClass]="{'muted': menuShowed}">
+        <div id="nav-brand">Bettinger</div>
+        <div id="nav-icon" (click)="toggleMenu();" [ngClass]="{'open': menuShowed}">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <div id="btgr-menu" [hidden]="!menuShowed">
+        <ul>
+            <li class="info">Menu</li>
+            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Strona główna</a></li>
+            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Typerzy</a></li>
+            <li><a routerLink="/games" routerLinkActive="active" (click)="menuLinkClicked()">Nadchodzące mecze</a></li>
+            <li class="spacer"></li>
+            <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Mój profil</a></li>
+            <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Wyloguj</a></li>
+        </ul>
     </div>
-</nav>
-<div id="btgr-menu" [hidden]="!menuShowed">
-    <ul>
-        <li class="info">Menu</li>
-        <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Strona główna</a></li>
-        <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Typerzy</a></li>
-        <li><a routerLink="/games" routerLinkActive="active" (click)="menuLinkClicked()">Nadchodzące mecze</a></li>
-        <li class="spacer"></li>
-        <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Mój profil</a></li>
-        <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Wyloguj</a></li>
-    </ul>
 </div>
-
+<div class="nav-spacer"></div>
 <router-outlet></router-outlet>

@@ -2,29 +2,35 @@
  * Created by akselon on 2017-04-24.
  */
 import {Component, OnInit} from '@angular/core';
-import {Game} from "../models/game";
-import {GameService} from "../services/game.service";
+import {Game} from '../models/game';
+import {GameService} from '../services/game.service';
 
 @Component({
     selector: 'games',
     // templateUrl: './assets/games.component.html',
-    // styleUrls: [ './assets/dashgamesboard.component.css' ]
+    styleUrls: [ './assets/common.component.css'],
+    styles: [`
+        .flex-games {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: flex-start;
+        }
+        .game {
+            width: 450px;
+        }
+    ` ],
     template: `
-        <md-card>
-            <md-list>
-                <h3 md-subheader>Nadchodzące mecze</h3>
-                <loader style="padding: 0 16px;" *ngIf="isLoading"></loader>
-                <md-list-item *ngFor="let game of games">
-                    <md-icon md-list-icon>star</md-icon>
-                    <h4 md-line>{{game.teamOne.name}} vs {{game.teamTwo.name}}</h4>
-                    <p md-line> {{game.league.name}}, {{game.date | date}} </p>
-                </md-list-item>
-            </md-list>
-        </md-card>
+        <section>
+            <header>Nadchodzące mecze</header>
+            <loader style="margin: auto" *ngIf="isLoading"></loader>
+            <div class="flex-games">
+                <game *ngFor="let game of games" [game]="game" class="game"></game>
+            </div>
+        </section>
     `,
 })
 export class GamesComponent implements OnInit {
-
     games: Game[] = [];
     isLoading = true;
     constructor(private gameService: GameService) { }

@@ -65,6 +65,7 @@ header:before {
 .flex-item {
     text-align: center;
     width: 450px;
+    max-width: 100%;
 }
 .img-circle {
     width: 50%;

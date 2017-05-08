@@ -158,3 +158,9 @@ Dane (wszystkie opcjonalne):
   
 Zwracane dane:  
 *  tablica z obiektami typerów
+
+- Zapytania bet/add i bet/filter i /tipster nie działają.
+- /bet powinien zwracać też usera
+- /bet pownien zwracać obiekt gry, a nie game id (!)
+- yield is restricted word
+- /tipster brakuje imię i nazwisko, image, biografi

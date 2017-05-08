@@ -34,8 +34,7 @@ GamesComponent = __decorate([
         selector: 'games',
         // templateUrl: './assets/games.component.html',
         styleUrls: ['./assets/common.component.css'],
-        styles: ["\n        .flex-games {\n            display: flex;\n            flex-wrap: wrap;\n            justify-content: space-between;\n            align-content: flex-start;\n        }\n        .game {\n            width: 450px;\n        }\n    "],
-        template: "\n        <section>\n            <header>Nadchodz\u0105ce mecze</header>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <div class=\"flex-games\">\n                <game *ngFor=\"let game of games\" [game]=\"game\" class=\"game\"></game>\n            </div>\n        </section>\n    ",
+        template: "\n        <section>\n            <header>Nadchodz\u0105ce mecze</header>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <div class=\"flex-container\">\n                <game *ngFor=\"let game of games\" [game]=\"game\" class=\"flex-item\"></game>\n            </div>\n        </section>\n    ",
     }),
     __metadata("design:paramtypes", [game_service_1.GameService])
 ], GamesComponent);

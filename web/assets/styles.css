@@ -24,6 +24,7 @@ body, input[text], button {
 a {
   cursor: pointer;
   cursor: hand;
+  text-decoration: none;
 }
 button {
   font-family: Arial;

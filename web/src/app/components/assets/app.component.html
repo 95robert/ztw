@@ -1,6 +1,6 @@
 <div class="nav-wrapper">
     <nav [ngClass]="{'muted': menuShowed}">
-        <div id="nav-brand">Bettinger</div>
+        <div id="nav-brand" routerLink="/" (click)="menuLinkClicked()">Bettinger</div>
         <div id="nav-icon" (click)="toggleMenu();" [ngClass]="{'open': menuShowed}">
             <span></span>
             <span></span>
@@ -20,5 +20,6 @@
         </ul>
     </div>
 </div>
+
 <div class="nav-spacer"></div>
 <router-outlet></router-outlet>

@@ -7,7 +7,7 @@ import {Component, Input} from '@angular/core';
     selector: 'alert-box',
     template: `
         <md-card class="alert {{alertType}}">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';" *ngIf="!disableClose">&times;</span>
             <span [ngSwitch]="alertType">
                 <md-icon *ngSwitchCase="'danger'">error</md-icon>
                 <md-icon *ngSwitchCase="'warning'">warning</md-icon>
@@ -47,9 +47,10 @@ import {Component, Input} from '@angular/core';
 })
 export class AlertBoxComponent {
     @Input()
-    alertType: string = "info";
-
+    alertType: string = 'info';
     @Input()
-    message: string = "";
+    message: string = '';
+    @Input()
+    disableClose: boolean = false;
 }
 

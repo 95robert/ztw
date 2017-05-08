@@ -9,23 +9,12 @@ import {GameService} from '../services/game.service';
     selector: 'games',
     // templateUrl: './assets/games.component.html',
     styleUrls: [ './assets/common.component.css'],
-    styles: [`
-        .flex-games {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-content: flex-start;
-        }
-        .game {
-            width: 450px;
-        }
-    ` ],
     template: `
         <section>
             <header>Nadchodzące mecze</header>
             <loader style="margin: auto" *ngIf="isLoading"></loader>
-            <div class="flex-games">
-                <game *ngFor="let game of games" [game]="game" class="game"></game>
+            <div class="flex-container">
+                <game *ngFor="let game of games" [game]="game" class="flex-item"></game>
             </div>
         </section>
     `,
@@ -44,4 +33,3 @@ export class GamesComponent implements OnInit {
 
     }
 }
-

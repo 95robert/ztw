@@ -2,7 +2,7 @@
  * Created by Aksel on 2017-05-07.
  */
 import {Component, Input} from '@angular/core';
-import {Game} from '../../models/game';
+import {Game} from '../models/game';
 
 @Component({
     selector: 'game',
@@ -11,18 +11,18 @@ import {Game} from '../../models/game';
             <header>{{game.date | date: 'mediumDate'}}</header>
             <div class="flex-container">
                 <div class="flex-team">
-                    <img class="img-circle" src="https://kiwicdn.akamaized.net/90ed/JtzB4vEpsbVrGFjSCsvGKj.jpg">
+                    <img class="img-circle"
+                     src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_(crest).svg/720px-FC_Barcelona_(crest).svg.png">
                     <p>{{game.teamOne.name}}</p>
                 </div>
                 <div class="flex-vs">vs</div>
                 <div class="flex-team">
-                <img class="img-circle" 
-                     src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_(crest).svg/720px-FC_Barcelona_(crest).svg.png">
+                    <img class="img-circle" src="https://kiwicdn.akamaized.net/90ed/JtzB4vEpsbVrGFjSCsvGKj.jpg">
                     <p>{{game.teamTwo.name}}</p>
                 </div>
             </div>
-            <div class="buttons">
-                <a md-raised-button routerLink=".">Pokaż tipy</a>
+            <div class="buttons" *ngIf="!disableButtons">
+                <a md-raised-button [routerLink]="['/match', game.id]">Pokaż tipy</a>
             </div>
         </md-card>
     `,
@@ -36,6 +36,7 @@ import {Game} from '../../models/game';
             font-weight: 700;
             justify-content: center;
         }
+        /* override */
         .flex-container {
             display: flex;
             justify-content: space-around;
@@ -51,7 +52,6 @@ import {Game} from '../../models/game';
             font-weight: 700;
             margin: 0;
         }
-        
         .flex-vs {
             font-size: 40px;
             color: #ffc300;
@@ -67,5 +67,6 @@ import {Game} from '../../models/game';
 })
 export class GameComponent {
     @Input() game: Game;
+    @Input() disableButtons: boolean = false;
 }
 

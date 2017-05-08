@@ -12,7 +12,6 @@ var http_1 = require("@angular/http");
 var animations_1 = require("@angular/platform-browser/animations");
 var material_1 = require("@angular/material");
 var app_routing_module_1 = require("./app-routing.module");
-// import { HeroService }         from './services/hero.service';
 var auth_guard_1 = require("./guards/auth.guard");
 // Components
 var app_new_component_1 = require("./components/app-new.component");
@@ -22,7 +21,13 @@ var alert_box_component_1 = require("./components/shared/alert-box.component");
 var games_component_1 = require("./components/games.component");
 var game_service_1 = require("./services/game.service");
 var loader_component_1 = require("./components/shared/loader.component");
-var game_component_1 = require("./components/shared/game.component");
+var game_component_1 = require("./components/game.component");
+var match_component_1 = require("./components/match.component");
+var tipster_component_1 = require("./components/tipster.component");
+var tipster_service_1 = require("./services/tipster.service");
+var bet_service_1 = require("./services/bet.service");
+var bet_component_1 = require("./components/bet.component");
+var tipster_box_component_1 = require("./components/shared/tipster-box.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -43,7 +48,8 @@ AppModule = __decorate([
             material_1.MdInputModule,
             material_1.MdTabsModule,
             material_1.MdListModule,
-            material_1.MdGridListModule
+            material_1.MdGridListModule,
+            material_1.MdTooltipModule
         ],
         declarations: [
             app_new_component_1.AppComponent,
@@ -55,13 +61,19 @@ AppModule = __decorate([
             private_component_1.PrivateComponent,
             alert_box_component_1.AlertBoxComponent,
             loader_component_1.LoaderComponent,
-            game_component_1.GameComponent
+            game_component_1.GameComponent,
+            match_component_1.MatchComponent,
+            tipster_component_1.TipsterComponent,
+            bet_component_1.BetComponent,
+            tipster_box_component_1.TipsterBoxComponent
         ],
         providers: [
             // HeroService,
             material_1.MdIconRegistry,
             auth_guard_1.AuthGuard,
-            game_service_1.GameService
+            game_service_1.GameService,
+            tipster_service_1.TipsterService,
+            bet_service_1.BetService
         ],
         bootstrap: [app_new_component_1.AppComponent]
     })

@@ -52,8 +52,22 @@ header:after {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg);
 }
-
 header:before {
     margin-right: 20px;
     flex: 0 2 auto;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.flex-item {
+    text-align: center;
+    width: 450px;
+}
+.img-circle {
+    width: 50%;
+    border-radius: 50%;
+    height: auto;
 }

@@ -18,10 +18,10 @@ var game_1 = require("../models/game");
 var league_1 = require("../models/league");
 var team_1 = require("../models/team");
 var GameService = (function () {
-    // private url = 'api/game';  // URL to web api
-    // private headers = new Headers({'Content-Type': 'application/json'});
     function GameService(http) {
         this.http = http;
+        this.url = 'api/game'; // URL to web api
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     GameService.prototype.getGames = function () {
         // return this.http.get(this.url)

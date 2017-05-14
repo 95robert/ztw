@@ -68,7 +68,7 @@ class TipsterController extends Controller
      *          - efficiency
      *          - efficiency_last_3_month
      *          - efficiency_last_month
-     *          - yield - to taka jakby stopa zwrotu
+     *          - yield_value - to taka jakby stopa zwrotu
      *          - sold_single_bet
      *          - sold_subscriptions
      *          - count_of_currents_bets
@@ -88,7 +88,7 @@ class TipsterController extends Controller
      *          - efficiency
      *          - efficiency_last_3_month
      *          - efficiency_last_month
-     *          - yield - to taka jakby stopa zwrotu
+     *          - yield_value - to taka jakby stopa zwrotu
      *          - sold_single_bet
      *          - sold_subscriptions
      *          - count_of_currents_bets

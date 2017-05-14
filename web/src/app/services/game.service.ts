@@ -10,8 +10,8 @@ import {Team} from '../models/team';
 
 @Injectable()
 export class GameService {
-    // private url = 'api/game';  // URL to web api
-    // private headers = new Headers({'Content-Type': 'application/json'});
+    private url = 'api/game';  // URL to web api
+    private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }
     getGames(): Promise<Game[]> {

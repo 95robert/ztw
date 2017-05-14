@@ -141,7 +141,7 @@ Zwracane dane:
 *    efficiency  
 *    efficiency_last_3_month  
 *    efficiency_last_month  
-*    yield  
+*    yield_value  
 *    sold_single_bet  
 *    sold_subscriptions  
 *    count_of_currents_bets  
@@ -163,4 +163,8 @@ Zwracane dane:
 - /bet powinien zwracać też usera
 - /bet pownien zwracać obiekt gry, a nie game id (!)
 - yield is restricted word
+- loga drużyn  
 - /tipster brakuje imię i nazwisko, image, biografi
+
+- zaloguj zamiast wyloguj  
+- przycisk powrotu

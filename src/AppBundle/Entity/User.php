@@ -133,6 +133,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Groups({"standard-bet-info", "tipster"})
      */
     private $image;
 
@@ -140,6 +141,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="about", type="string", length=1000, nullable=true)
+     * @Groups({"standard-bet-info", "tipster"})
      */
     private $about;
 

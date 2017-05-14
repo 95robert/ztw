@@ -82,7 +82,7 @@ class UserBetController extends Controller
      *      - game
      *
      * @Route("/filter")
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      */
     public function filterAction(Request $request)
     {
@@ -112,7 +112,7 @@ class UserBetController extends Controller
      *  - ok - true/false
      *
      * @Route("/add")
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      */
     public function addAction(Request $request)
     {

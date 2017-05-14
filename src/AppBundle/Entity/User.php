@@ -130,6 +130,22 @@ class User implements UserInterface
     private $roles;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     * @Groups({"standard-bet-info", "tipster"})
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="about", type="string", length=1000, nullable=true)
+     * @Groups({"standard-bet-info", "tipster"})
+     */
+    private $about;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -640,5 +656,38 @@ class User implements UserInterface
         }
         return $soldSingleBets;
     }
+
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image ? $this->image : 'img/default_user.png';
+    }
+
+    /**
+     * @param string $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAbout()
+    {
+        return $this->about;
+    }
+
+    /**
+     * @param string $about
+     */
+    public function setAbout($about)
+    {
+        $this->about = $about;
+    }
+
 }
 

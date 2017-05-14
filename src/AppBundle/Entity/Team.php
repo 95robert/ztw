@@ -47,6 +47,14 @@ class Team
     private $gamesAsGuests;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     * @Groups({"standard", "standard-bet-info"})
+     */
+    private $logo;
+
+    /**
      * League constructor.
      */
     public function __construct()
@@ -152,6 +160,38 @@ class Team
     public function removeGameAsGuest(Game $game){
         $this->gamesAsGuests->remove($game);
         $game->setTeamTwo(null);
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getGamesAsGuests()
+    {
+        return $this->gamesAsGuests;
+    }
+
+    /**
+     * @param ArrayCollection $gamesAsGuests
+     */
+    public function setGamesAsGuests($gamesAsGuests)
+    {
+        $this->gamesAsGuests = $gamesAsGuests;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo ? $this->logo : 'img/teams_logo/default_logo.png';
+    }
+
+    /**
+     * @param string $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
     }
 }
 

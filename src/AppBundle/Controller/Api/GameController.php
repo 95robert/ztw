@@ -49,8 +49,8 @@ class GameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $serializeManager = $this->get('serialize_manager');
-        $leagues = $em->getRepository(Game::class)->findAll();
-        return $serializeManager->serializeObjectToResponse($leagues, array('standard'), array(), array());
+        $games = $em->getRepository(Game::class)->findAll();
+        return $serializeManager->serializeObjectToResponse($games, array('standard'), array(), array());
     }
 
     /**
@@ -72,7 +72,7 @@ class GameController extends Controller
      *      - teamTwo
      *
      * @Route("/filter")
-     * @Method({"GET"})
+     * @Method({"GET", "POST"})
      */
     public function filterAction(Request $request)
     {

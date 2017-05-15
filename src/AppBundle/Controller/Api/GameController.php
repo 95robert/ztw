@@ -84,4 +84,27 @@ class GameController extends Controller
         $leagues = $em->getRepository(Game::class)->findWithFilterOptions($data);
         return $serializeManager->serializeObjectToResponse($leagues, array('standard'), array(), array());
     }
+
+    /**
+     * Akcja zwraca dane na temat meczu.
+     *
+     * zwraca:
+     *      - id
+     *      - date
+     *      - teamOneScore
+     *      - teamTwoScore
+     *      - league
+     *      - teamOne
+     *      - teamTwo
+     *
+     * @Route("/{id}")
+     * @Method({"GET"})
+     */
+    public function showGameAction(Request $request, Game $game)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $serializeManager = $this->get('serialize_manager');
+
+        return $serializeManager->serializeObjectToResponse($game, array('standard'), [], array());
+    }
 }

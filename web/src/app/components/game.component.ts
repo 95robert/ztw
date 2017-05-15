@@ -8,7 +8,7 @@ import {Game} from '../models/game';
     selector: 'game',
     template: `
         <md-card>
-            <header>{{game.date | date: 'mediumDate'}}</header>
+            <header>{{game.date}}</header>
                 <div class="flex-container">
                 <div class="flex-team">
                     <img class="img-circle"

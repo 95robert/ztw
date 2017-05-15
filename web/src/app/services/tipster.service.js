@@ -14,17 +14,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var tipster_1 = require("../models/tipster");
 var TipsterService = (function () {
     function TipsterService(http) {
         this.http = http;
+        this.url = 'api/tipster'; // URL to web api
     }
     TipsterService.prototype.getTipster = function (id) {
-        return new Promise(function (resolve) {
-            setTimeout(function () {
-                resolve(new tipster_1.Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0));
-            }, 500);
-        });
+        return this.http.get(this.url)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+    };
+    TipsterService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     };
     return TipsterService;
 }());

@@ -14,9 +14,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var game_1 = require("../models/game");
-var league_1 = require("../models/league");
-var team_1 = require("../models/team");
 var GameService = (function () {
     function GameService(http) {
         this.http = http;
@@ -24,63 +21,63 @@ var GameService = (function () {
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     GameService.prototype.getGames = function () {
-        // return this.http.get(this.url)
-        //     .toPromise()
-        //     .then(response => {
-        //         return response.json() as Game[];
-        //     })
-        //     .catch(this.handleError);
-        return new Promise(function (resolve) {
-            // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
-            // In this example, we use setTimeout(...) to simulate async code.
-            // In reality, you will probably be using something like XHR or an HTML5 API.
-            setTimeout(function () {
-                var l1 = new league_1.League(1, 'BBVA');
-                var t1 = new team_1.Team(1, 'Barcelona');
-                var t2 = new team_1.Team(1, 'Real Madryt');
-                resolve([
-                    new game_1.Game(1, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(2, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(3, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(4, new Date('2017-05-17'), 0, 2, l1, t1, t2)
-                ]);
-            }, 500);
-        });
+        return this.http.get(this.url)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+        // return new Promise((resolve) => {
+        //     // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
+        //     // In this example, we use setTimeout(...) to simulate async code.
+        //     // In reality, you will probably be using something like XHR or an HTML5 API.
+        //     setTimeout(function(){
+        //         let l1 = new League(1, 'BBVA');
+        //         let t1 = new Team(1, 'Barcelona');
+        //         let t2 = new Team(1, 'Real Madryt');
+        //         resolve([
+        //             new Game(1, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(2, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(3, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(4, new Date('2017-05-17'), 0, 2, l1, t1, t2)
+        //         ]);
+        //     }, 500);
+        //
+        // });
     };
     GameService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     };
     GameService.prototype.getGame = function (id) {
-        // return this.http.get(this.url)
-        //     .toPromise()
-        //     .then(response => {
-        //         return response.json() as Game[];
-        //     })
-        //     .catch(this.handleError);
-        return new Promise(function (resolve, reject) {
-            // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
-            // In this example, we use setTimeout(...) to simulate async code.
-            // In reality, you will probably be using something like XHR or an HTML5 API.
-            setTimeout(function () {
-                var l1 = new league_1.League(1, 'BBVA');
-                var t1 = new team_1.Team(1, 'Barca');
-                var t2 = new team_1.Team(1, 'Real');
-                var games = [
-                    new game_1.Game(1, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(2, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(3, new Date('2017-05-07'), 5, 6, l1, t1, t2),
-                    new game_1.Game(4, new Date('2017-05-17'), 0, 2, l1, t1, t2)
-                ];
-                for (var _i = 0, games_1 = games; _i < games_1.length; _i++) {
-                    var game = games_1[_i];
-                    if (game.id === id) {
-                        resolve(game);
-                    }
-                }
-                reject("Can not find match id = " + id);
-            }, 500);
-        });
+        return this.http.get(this.url + '/' + id)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+        // return new Promise((resolve, reject) => {
+        //     // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
+        //     // In this example, we use setTimeout(...) to simulate async code.
+        //     // In reality, you will probably be using something like XHR or an HTML5 API.
+        //     setTimeout(function(){
+        //         let l1 = new League(1, 'BBVA');
+        //         let t1 = new Team(1, 'Barca');
+        //         let t2 = new Team(1, 'Real');
+        //         let games = [
+        //             new Game(1, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(2, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(3, new Date('2017-05-07'), 5, 6, l1, t1, t2),
+        //             new Game(4, new Date('2017-05-17'), 0, 2, l1, t1, t2)
+        //         ];
+        //         for (let game of games) {
+        //             if (game.id === id) {
+        //                 resolve(game);
+        //             }
+        //         }
+        //         reject(`Can not find match id = ${id}`);
+        //     }, 500);
+        // });
     };
     return GameService;
 }());

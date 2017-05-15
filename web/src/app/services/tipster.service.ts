@@ -8,14 +8,19 @@ import {Tipster} from '../models/tipster';
 
 @Injectable()
 export class TipsterService {
+    private url = 'api/tipster';  // URL to web api
+
     constructor(private http: Http) { }
     getTipster(id: number): Promise<Tipster> {
-        return new Promise((resolve) => {
-            setTimeout(function(){
-                resolve(
-                    new Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0)
-                );
-            }, 500);
-        });
+        return this.http.get(this.url)
+            .toPromise()
+            .then(response => {
+                return response.json() as Tipster;
+            })
+            .catch(this.handleError);
+    }
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
     }
 }

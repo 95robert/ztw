@@ -14,35 +14,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
-var bet_1 = require("../models/bet");
-var tipster_1 = require("../models/tipster");
 var BetService = (function () {
     // private headers = new Headers({'Content-Type': 'application/json'});
     function BetService(http) {
         this.http = http;
-        this.url = 'api/bet'; // URL to web api
+        this.url = 'api/bet/'; // URL to web api
     }
     BetService.prototype.getBetsForGame = function (id) {
-        // return this.http.get(this.url)
-        //     .toPromise()
-        //     .then(response => {
-        //         return response.json() as Game[];
-        //     })
-        //     .catch(this.handleError);
-        return new Promise(function (resolve) {
-            // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
-            // In this example, we use setTimeout(...) to simulate async code.
-            // In reality, you will probably be using something like XHR or an HTML5 API.
-            setTimeout(function () {
-                var t = new tipster_1.Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0);
-                resolve([
-                    new bet_1.Bet(1, 100, 5, 1000, 1, 1, t),
-                    new bet_1.Bet(1, 100, 5, 1000, 1, 1, t),
-                    new bet_1.Bet(2, 200, 4, 100, 2, 1, t),
-                    new bet_1.Bet(3, 100, 5, 1000, 0, 1, t)
-                ]);
-            }, 500);
-        });
+        return this.http.get(this.url + "filter?game=" + id)
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+        // return new Promise((resolve) => {
+        //     // We call resolve(...) when what we were doing async succeeded, and reject(...) when it failed.
+        //     // In this example, we use setTimeout(...) to simulate async code.
+        //     // In reality, you will probably be using something like XHR or an HTML5 API.
+        //     setTimeout(function(){
+        //         let t = new Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0);
+        //         resolve([
+        //             new Bet(1, 100, 5, 1000, 1, 1, t),
+        //             new Bet(1, 100, 5, 1000, 1, 1, t),
+        //             new Bet(2, 200, 4, 100, 2, 1, t),
+        //             new Bet(3, 100, 5, 1000, 0, 1, t)
+        //         ]);
+        //     }, 500);
+        // });
     };
     BetService.prototype.handleError = function (error) {
         console.error('An error occurred', error);

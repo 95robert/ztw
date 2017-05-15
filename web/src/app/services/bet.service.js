@@ -37,6 +37,7 @@ var BetService = (function () {
                 var t = new tipster_1.Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0);
                 resolve([
                     new bet_1.Bet(1, 100, 5, 1000, 1, 1, t),
+                    new bet_1.Bet(1, 100, 5, 1000, 1, 1, t),
                     new bet_1.Bet(2, 200, 4, 100, 2, 1, t),
                     new bet_1.Bet(3, 100, 5, 1000, 0, 1, t)
                 ]);

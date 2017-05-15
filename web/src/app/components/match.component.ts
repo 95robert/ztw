@@ -17,12 +17,12 @@ import {Bet} from '../models/bet';
     `],
     template: `
         <section>
-            <header>Podgląd meczu</header>
+            <header i18n>Match overview</header>
             <loader style="margin: auto" *ngIf="isLoading"></loader>
             <alert-box alertType="warning" [message]="warningMessage" disableClose="true" *ngIf="showWarning"></alert-box>
             <game [game]="game" *ngIf="!isLoading" disableButtons="true"></game>
             
-            <header>Typy dla tego meczu</header>
+            <header i18n>Tips for this match</header>
             <loader style="margin: auto" *ngIf="isLoading2"></loader>
             <alert-box alertType="warning" [message]="warningMessage2" disableClose="true" *ngIf="showWarning2"></alert-box>
 

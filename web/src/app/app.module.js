@@ -14,7 +14,7 @@ var material_1 = require("@angular/material");
 var app_routing_module_1 = require("./app-routing.module");
 var auth_guard_1 = require("./guards/auth.guard");
 // Components
-var app_new_component_1 = require("./components/app-new.component");
+var app_component_1 = require("./components/app.component");
 var login_component_1 = require("./components/login.component");
 var private_component_1 = require("./components/private.component");
 var alert_box_component_1 = require("./components/shared/alert-box.component");
@@ -27,7 +27,7 @@ var tipster_component_1 = require("./components/tipster.component");
 var tipster_service_1 = require("./services/tipster.service");
 var bet_service_1 = require("./services/bet.service");
 var bet_component_1 = require("./components/bet.component");
-var tipster_box_component_1 = require("./components/shared/tipster-box.component");
+var tipsterbox_component_1 = require("./components/shared/tipsterbox.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -52,11 +52,8 @@ AppModule = __decorate([
             material_1.MdTooltipModule
         ],
         declarations: [
-            app_new_component_1.AppComponent,
+            app_component_1.AppComponent,
             games_component_1.GamesComponent,
-            // HeroDetailComponent,
-            // HeroesComponent,
-            // DashboardComponent,
             login_component_1.LoginComponent,
             private_component_1.PrivateComponent,
             alert_box_component_1.AlertBoxComponent,
@@ -65,17 +62,16 @@ AppModule = __decorate([
             match_component_1.MatchComponent,
             tipster_component_1.TipsterComponent,
             bet_component_1.BetComponent,
-            tipster_box_component_1.TipsterBoxComponent
+            tipsterbox_component_1.TipsterboxComponent
         ],
         providers: [
-            // HeroService,
             material_1.MdIconRegistry,
             auth_guard_1.AuthGuard,
             game_service_1.GameService,
             tipster_service_1.TipsterService,
             bet_service_1.BetService
         ],
-        bootstrap: [app_new_component_1.AppComponent]
+        bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
 exports.AppModule = AppModule;

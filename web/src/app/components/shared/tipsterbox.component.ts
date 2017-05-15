@@ -1,12 +1,12 @@
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by @akselon on 2017-05-08.
  */
 import {Component, Input} from '@angular/core';
 import {Tipster} from '../../models/tipster';
 
 @Component({
-    selector: 'tipster-box',
-    styleUrls: [ '../../assets/common.component.css'],
+    selector: 'tipsterbox',
+    styleUrls: [ '../assets/common.component.css'],
     styles: [`
         section {
             max-width: 1200px;
@@ -31,9 +31,9 @@ import {Tipster} from '../../models/tipster';
             height: 30px !important;
         }
     `],
-    templateUrl: '../../assets/tipster.component.html'
+    templateUrl: '../assets/tipster.component.html'
 })
-export class TipsterBoxComponent  {
+export class TipsterboxComponent  {
     @Input() tipster: Tipster;
     // Hides unusfull informations from template
     displayLess: boolean = true;

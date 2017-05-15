@@ -1,6 +1,3 @@
-/**
- * Created by akselon on 2017-04-19.
- */
 /*
  SystemJS Text plugin from
  https://github.com/systemjs/plugin-text/blob/master/text.js

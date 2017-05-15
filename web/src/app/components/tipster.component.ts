@@ -50,8 +50,6 @@ export class TipsterComponent implements OnInit {
             this.tipsterService.getTipster(this.id)
                 .then(tipster => {
                     this.tipster = tipster;
-                    console.log(`Załadowano tipstera`);
-                    console.log(this.tipster);
                     this.isLoading = false;
                 })
                 .catch(message => {

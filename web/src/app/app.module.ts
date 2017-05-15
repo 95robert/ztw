@@ -12,7 +12,7 @@ import { AppRoutingModule }     from './app-routing.module';
 import {AuthGuard} from './guards/auth.guard';
 
 // Components
-import { AppComponent }        from './components/app-new.component';
+import { AppComponent }        from './components/app.component';
 import {LoginComponent} from './components/login.component';
 import {PrivateComponent} from './components/private.component';
 import {AlertBoxComponent} from './components/shared/alert-box.component';
@@ -25,7 +25,7 @@ import {TipsterComponent} from './components/tipster.component';
 import {TipsterService} from './services/tipster.service';
 import {BetService} from './services/bet.service';
 import {BetComponent} from './components/bet.component';
-import {TipsterBoxComponent} from './components/shared/tipster-box.component';
+import {TipsterboxComponent} from './components/shared/tipsterbox.component';
 
 // import 'hammerjs';
 
@@ -48,9 +48,6 @@ import {TipsterBoxComponent} from './components/shared/tipster-box.component';
     declarations: [
         AppComponent,
         GamesComponent,
-        // HeroDetailComponent,
-        // HeroesComponent,
-        // DashboardComponent,
         LoginComponent,
         PrivateComponent,
         AlertBoxComponent,
@@ -59,11 +56,9 @@ import {TipsterBoxComponent} from './components/shared/tipster-box.component';
         MatchComponent,
         TipsterComponent,
         BetComponent,
-        TipsterBoxComponent
-        // HeroSearchComponent
+        TipsterboxComponent
     ],
     providers: [
-        // HeroService,
         MdIconRegistry,
         AuthGuard,
         GameService,

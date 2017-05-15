@@ -28,9 +28,9 @@ var AuthenticationService = (function () {
             .get(this.apiUrl + 'logout')
             .toPromise()
             .then(function (res) {
-            localStorage.removeItem("currentUser");
-            if (res.text() !== "1") {
-                console.log("Zapytanie wylogowywania nie zwróciło 1!");
+            localStorage.removeItem('currentUser');
+            if (res.text() !== '1') {
+                console.log('Response from logout query did not return 1!');
                 return false;
             }
             else {
@@ -46,7 +46,7 @@ var AuthenticationService = (function () {
             .then(function (res) {
             console.log(res);
             if (res.json().ok) {
-                localStorage.setItem("currentUser", username);
+                localStorage.setItem('currentUser', username);
             }
             return res.json();
         })
@@ -58,7 +58,7 @@ var AuthenticationService = (function () {
             .toPromise()
             .then(function (res) {
             if (res.json().ok) {
-                localStorage.setItem("currentUser", login);
+                localStorage.setItem('currentUser', login);
             }
             return res.json();
         })

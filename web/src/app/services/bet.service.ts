@@ -28,6 +28,7 @@ export class BetService {
                 let t = new Tipster(1, 'akselon', 'Aksel Nooitgedagt', 0, 0, 0, 0, 0, 0, 0, 0);
                 resolve([
                     new Bet(1, 100, 5, 1000, 1, 1, t),
+                    new Bet(1, 100, 5, 1000, 1, 1, t),
                     new Bet(2, 200, 4, 100, 2, 1, t),
                     new Bet(3, 100, 5, 1000, 0, 1, t)
                 ]);

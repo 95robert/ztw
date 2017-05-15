@@ -13,3 +13,4 @@ export class Bet {
         public tipster: Tipster,
     ) { };
 }
+

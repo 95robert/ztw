@@ -16,12 +16,7 @@ const routes: Routes = [
     { path: 'home',  component: PrivateComponent, canActivate: [AuthGuard] },
     { path: 'games',  component: GamesComponent},
     { path: 'match/:id', component: MatchComponent, canActivate: [AuthGuard]  },
-    { path: 'tipster/:id', component: TipsterComponent, canActivate: [AuthGuard]  },
-
-    // Routy z tutoriala
-    // { path: 'dashboard',  component: DashboardComponent, canActivate: [AuthGuard]  },
-    // { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard]  },
-    // { path: 'heroes',     component: HeroesComponent, canActivate: [AuthGuard]  }
+    { path: 'tipster/:id', component: TipsterComponent, canActivate: [AuthGuard]  }
 ];
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],

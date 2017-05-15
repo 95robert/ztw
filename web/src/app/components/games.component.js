@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by akselon on 2017-04-24.
+ * Created by @akselon on 2017-04-24.
  */
 var core_1 = require("@angular/core");
 var game_service_1 = require("../services/game.service");
@@ -34,7 +34,7 @@ GamesComponent = __decorate([
         selector: 'games',
         // templateUrl: './assets/games.component.html',
         styleUrls: ['./assets/common.component.css'],
-        template: "\n        <section>\n            <header>Nadchodz\u0105ce mecze</header>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <div class=\"flex-container\">\n                <game *ngFor=\"let game of games\" [game]=\"game\" class=\"flex-item\"></game>\n            </div>\n        </section>\n    ",
+        template: "\n        <section>\n            <header i18n>Upcomming matches</header>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <div class=\"flex-container\">\n                <game *ngFor=\"let game of games\" [game]=\"game\" class=\"flex-item\"></game>\n            </div>\n        </section>\n    ",
     }),
     __metadata("design:paramtypes", [game_service_1.GameService])
 ], GamesComponent);

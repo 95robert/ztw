@@ -22,7 +22,7 @@ var routes = [
     { path: 'home', component: private_component_1.PrivateComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'games', component: games_component_1.GamesComponent },
     { path: 'match/:id', component: match_component_1.MatchComponent, canActivate: [auth_guard_1.AuthGuard] },
-    { path: 'tipster/:id', component: tipster_component_1.TipsterComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'tipster/:id', component: tipster_component_1.TipsterComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

@@ -19,7 +19,7 @@ W głównym katalogu projketu wpisujemy w konsoli: `php bin/console doctrine:sch
 ## Angular
 ###i18n, Internationalization
 Aby przeszukać aplikację angulara w poszukiwaniu plików językowych, należy w /web wpisać:
-`yarn run i18n -- -p src/tsconfig.json`
+`./node_modules/.bin/ng-xi18n" --i18nFormat=xlf -p src/tsconfig.json`
 Następnie przetłumaczyć `messages.xlf` na odpowiedni język i zapisać w formacie: `web/src/locale/messages.pl.xlf`
 
 ## Komendy

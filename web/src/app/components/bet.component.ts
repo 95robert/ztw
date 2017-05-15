@@ -1,5 +1,5 @@
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by @akselon on 2017-05-08.
  */
 import {Component, Input} from '@angular/core';
 import {Bet} from '../models/bet';
@@ -9,11 +9,13 @@ import {Bet} from '../models/bet';
     template: `
         <md-card>
             <div class="two-parts">
-                <div class="left"><tipster-box [tipster]="bet.tipster"></tipster-box></div>
+                <div class="left">
+                    <tipsterbox [tipster]="bet.tipster"></tipsterbox>
+                </div>
                 <div class="right">
-                    <p>Typ:</p>
+                    <p i18n>Type:</p>
                     <div [ngSwitch]="bet.result" class="result-container">
-                        <div *ngSwitchCase="0" class="no-team">Remis</div>
+                        <div *ngSwitchCase="0" class="no-team" i18n>Draw</div>
                         <div *ngSwitchCase="1" class="team">
                             <img class="img-circle"
                                  src="{{teamOneLogo}}">
@@ -24,7 +26,7 @@ import {Bet} from '../models/bet';
                                  src="{{teamTwoLogo}}">
                             <p>Real Madryt</p>
                         </div>
-                        <div *ngSwitchDefault>Błąd wyboru typu</div>
+                        <div *ngSwitchDefault i18n></div>
                     </div>
                 </div>
             </div>

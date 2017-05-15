@@ -1,5 +1,5 @@
 /**
- * Created by Aksel on 2017-05-07.
+ * Created by @akselon on 2017-05-07.
  */
 import {Component, Input} from '@angular/core';
 import {Game} from '../models/game';
@@ -9,7 +9,7 @@ import {Game} from '../models/game';
     template: `
         <md-card>
             <header>{{game.date | date: 'mediumDate'}}</header>
-            <div class="flex-container">
+                <div class="flex-container">
                 <div class="flex-team">
                     <img class="img-circle"
                      src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_(crest).svg/720px-FC_Barcelona_(crest).svg.png">
@@ -22,7 +22,7 @@ import {Game} from '../models/game';
                 </div>
             </div>
             <div class="buttons" *ngIf="!disableButtons">
-                <a md-raised-button [routerLink]="['/match', game.id]">Pokaż tipy</a>
+                <a md-raised-button [routerLink]="['/match', game.id]" i18n>Show tips</a>
             </div>
         </md-card>
     `,

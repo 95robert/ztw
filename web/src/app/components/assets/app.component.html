@@ -1,6 +1,11 @@
 <div class="nav-wrapper">
     <nav [ngClass]="{'muted': menuShowed}">
         <div id="nav-brand" routerLink="/" (click)="menuLinkClicked()">Bettinger</div>
+        <div id="nav-language" [ngSwitch]="locale" [hidden]="!menuShowed">
+            <a *ngSwitchCase="'en'" i18n href="?locale=pl">Polski</a>
+            <a *ngSwitchCase="'pl'" href="?locale=en">English</a>
+            <a *ngSwitchDefault i18n href="?locale=pl">Fail locale: {{locale}}</a>
+        </div>
         <div id="nav-icon" (click)="toggleMenu();" [ngClass]="{'open': menuShowed}">
             <span></span>
             <span></span>
@@ -10,13 +15,12 @@
     </nav>
     <div id="btgr-menu" [hidden]="!menuShowed">
         <ul>
-            <li class="info">Menu</li>
-            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Strona główna</a></li>
-            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()">Typerzy</a></li>
-            <li><a routerLink="/games" routerLinkActive="active" (click)="menuLinkClicked()">Nadchodzące mecze</a></li>
+            <li class="info" i18n>Menu</li>
+            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()" i18n>Homepage</a></li>
+            <li><a routerLink="/" routerLinkActive="active" (click)="menuLinkClicked()" i18n>Tipsters</a></li>
+            <li><a routerLink="/games" routerLinkActive="active" (click)="menuLinkClicked()" i18n>Upcomming matches</a></li>
             <li class="spacer"></li>
-            <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Mój profil</a></li>
-            <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()">Wyloguj</a></li>
+            <li><a routerLink="/home" routerLinkActive="active" (click)="menuLinkClicked()" i18n>My profile</a></li>
         </ul>
     </div>
 </div>

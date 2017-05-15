@@ -29,8 +29,6 @@ var TipsterComponent = (function () {
             _this.tipsterService.getTipster(_this.id)
                 .then(function (tipster) {
                 _this.tipster = tipster;
-                console.log("Za\u0142adowano tipstera");
-                console.log(_this.tipster);
                 _this.isLoading = false;
             })
                 .catch(function (message) {

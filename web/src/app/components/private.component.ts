@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service'
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'login-form',
@@ -18,7 +18,7 @@ import {Router} from "@angular/router";
 export class PrivateComponent {
     constructor(
         private router: Router,
-        private service:AuthenticationService){}
+        private service: AuthenticationService){}
 
     logout() {
         this.service.logout().then(res => {

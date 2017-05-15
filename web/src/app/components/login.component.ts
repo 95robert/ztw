@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 import {AuthenticationService} from '../services/authentication.service'
-import {User} from "../models/user";
-import {Router} from "@angular/router";
+import {User} from '../models/user';
 
 @Component({
     selector: 'login-form',
@@ -9,9 +9,9 @@ import {Router} from "@angular/router";
     template: `
         <md-card>
             <md-tab-group>
-                <md-tab label="Login">
+                <md-tab i18n-label label="Login">
                     <div class="tab-container">
-                        <md-card-title>Login</md-card-title>
+                        <md-card-title i18n>Login</md-card-title>
                         <md-input-container>
                             <input [(ngModel)]="user.login" mdInput i18n-placeholder placeholder="Username">
                         </md-input-container>
@@ -21,13 +21,14 @@ import {Router} from "@angular/router";
                         </md-input-container>
                         <br />
                         <button md-raised-button (click)="login()" i18n>Logg in</button>
-                        <span *ngIf="httpLoginStatusMessage" [ngClass]="{'error': httpLoginStatusError}" [innerHTML]="httpLoginStatusMessage" class="http-status"></span>
+                        <span *ngIf="httpLoginStatusMessage" [ngClass]="{'error': httpLoginStatusError}"
+                              [innerHTML]="httpLoginStatusMessage" class="http-status"></span>
                     </div>
-                </md-tab>
+                </md-tab>\
                 
-                <md-tab label="Registration">
+                <md-tab i18n-label label="Registration">
                     <div class="tab-container">
-                        <md-card-title>Registration</md-card-title>
+                        <md-card-title i18n>Registration</md-card-title>
                         <md-input-container>
                             <input [(ngModel)]="newUser.login" mdInput i18n-placeholder placeholder="User name">
                         </md-input-container>
@@ -45,7 +46,8 @@ import {Router} from "@angular/router";
                         </md-input-container>
                         <br />
                         <button md-raised-button (click)="register()" i18n>Register</button>
-                        <span *ngIf="httpRegisterStatusMessage" [ngClass]="{'error': httpRegisterStatusError}" [innerHTML]="httpRegisterStatusMessage" class="http-status"></span>
+                        <span *ngIf="httpRegisterStatusMessage" [ngClass]="{'error': httpRegisterStatusError}"
+                              [innerHTML]="httpRegisterStatusMessage" class="http-status"></span>
                     </div>
                 </md-tab>
             </md-tab-group>
@@ -70,7 +72,7 @@ import {Router} from "@angular/router";
 })
 
 export class LoginComponent {
-    public user = new User(0, '','');
+    public user = new User(0, '', '');
     public httpLoginStatusMessage = '';
     public httpLoginStatusError = false;
 
@@ -80,7 +82,7 @@ export class LoginComponent {
 
     constructor(
         private router: Router,
-        private service:AuthenticationService) {}
+        private service: AuthenticationService) {}
 
     login() {
         this.httpLoginStatusError = false;
@@ -94,7 +96,7 @@ export class LoginComponent {
                 }, 3000);
             } else {
                 this.httpLoginStatusError = true;
-                this.httpLoginStatusMessage = 'Could not log in: '+res.error_msg;
+                this.httpLoginStatusMessage = 'Could not log in: ' + res.error_msg;
             }
         });
     }
@@ -111,7 +113,7 @@ export class LoginComponent {
                 }, 1000);
             } else {
                 this.httpRegisterStatusError = true;
-                this.httpRegisterStatusMessage = 'Could not register: '+res.error_msg;
+                this.httpRegisterStatusMessage = 'Could not register: ' + res.error_msg;
             }
         });
     }

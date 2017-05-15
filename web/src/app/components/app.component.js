@@ -6,19 +6,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 /**
- * Created by akselon on 2017-04-09.
+ * Created by akselon on 2017-04-24.
  */
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Bettinger';
+        this.locale = document['locale'];
+        this.menuShowed = false;
     }
+    AppComponent.prototype.toggleMenu = function () {
+        this.menuShowed = !this.menuShowed;
+        console.log(this.locale);
+        console.log('menuShowed = ', this.menuShowed);
+    };
+    AppComponent.prototype.menuLinkClicked = function () {
+        this.menuShowed = false;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n        <h1>{{title}}</h1>\n        <nav>\n            <a routerLink=\"/login\" routerLinkActive=\"active\">Login/Registration</a>\n            <a routerLink=\"/home\" routerLinkActive=\"active\">Private content</a>\n            <!--<a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>-->\n            <!--<a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>-->\n        </nav>\n\n        <div class=\"app-content\">\n            <router-outlet></router-outlet>\n        </div>\n    ",
+        templateUrl: './assets/app.component.html',
         styleUrls: ['./assets/app.component.css']
     })
 ], AppComponent);

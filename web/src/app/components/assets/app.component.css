@@ -37,6 +37,16 @@ nav.muted {
     display: block;
     clear: both;
 }
+#nav-language {
+    font-size: 40px;
+    font-weight: 700;
+    left: 0;
+    float: left;
+    margin-left: 20px;
+}
+#nav-language a {
+    color: #FFC300;
+}
 #nav-icon {
     margin: 0;
     float: right;

@@ -1,5 +1,5 @@
 <section>
-    <header *ngIf="!displayLess">Podgląd tipstera</header>
+    <header *ngIf="!displayLess" i18n>Tipster overview</header>
     <loader style="margin: auto" *ngIf="isLoading"></loader>
     <alert-box alertType="warning" [message]="warningMessage" disableClose="true" *ngIf="showWarning"></alert-box>
     <div class="flex-container" *ngIf="!isLoading">
@@ -18,19 +18,19 @@
                 <md-divider></md-divider>
                 <!--<h3 md-subheader>Statystyki</h3>-->
                 <md-list-item>
-                    <md-icon md-list-icon mdTooltip="Trafność typów w ostanich 3 miesiącach" [mdTooltipPosition]="'above'">timeline</md-icon>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Hit rate, last 3 months" [mdTooltipPosition]="'above'">timeline</md-icon>
                     <h4 md-line>{{tipster.efficiency}}</h4>
-                    <p md-line *ngIf="!displayLess"> trafność typów, 3 miesiące </p>
+                    <p md-line *ngIf="!displayLess" i18n> Hit rate, last 3 months </p>
                 </md-list-item>
                 <md-list-item>
-                    <md-icon md-list-icon mdTooltip="Liczba aktualnych typów" [mdTooltipPosition]="'above'">access_time</md-icon>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Current tips amount" [mdTooltipPosition]="'above'">access_time</md-icon>
                     <h4 md-line>{{tipster.count_of_bets}}</h4>
-                    <p md-line *ngIf="!displayLess"> aktualnych typów</p>
+                    <p md-line *ngIf="!displayLess"> current tips </p>
                 </md-list-item>
                 <md-list-item>
-                    <md-icon md-list-icon mdTooltip="Liczba sprzedanych subskrybcji" [mdTooltipPosition]="'above'">attach_money</md-icon>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscriptions sold amount" [mdTooltipPosition]="'above'">attach_money</md-icon>
                     <h4 md-line>{{tipster.sold_subscriptions}}</h4>
-                    <p md-line *ngIf="!displayLess"> sprzedane subskrybcje</p>
+                    <p md-line *ngIf="!displayLess" i18n> sold subscriptions </p>
                 </md-list-item>
             </md-list>
         </div>

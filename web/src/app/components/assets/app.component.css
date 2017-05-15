@@ -26,11 +26,13 @@ nav {
 nav.muted {
     color: #FF5733;
 }
-#nav-brand {
+#nav-back, #nav-brand, #nav-language {
     font-size: 40px;
     font-weight: 700;
     left: 0;
     float: left;
+    margin-right: 20px;
+    cursor: pointer;
 }
 #nav-brand:after {
     content: '';

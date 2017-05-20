@@ -159,12 +159,35 @@ Dane (wszystkie opcjonalne):
 Zwracane dane:  
 *  tablica z obiektami typerów
 
-- Zapytania bet/add i bet/filter i /tipster nie działają.
-- /bet powinien zwracać też usera
-- /bet pownien zwracać obiekt gry, a nie game id (!)
-- yield is restricted word
-- loga drużyn  
-- /tipster brakuje imię i nazwisko, image, biografi
+## API - Ustawienia
+### Dane na temat ustawień typera
+Ścieżka: `api/settings`  
+Metoda: `GET`  
+Dane: brak  
+  
+Zwracane dane:  
+*    id  
+*    login  
+*    subscription_cost  
+*    image  
+*    about  
+  
+### Edycja ustawień 
+Ścieżka: `api/settings/edit`    
+Metoda: `POST`  
+Dane (wszystkie opcjonalne):  
+*  subscription_cost : float  
+*  password : string  
+*  repassword : string  
+*  about : string  
+  
+Zwracane dane:  
+*  ok : int {0, 1}  
+*  errorCode : int  {  
+                     1 - nieprawidłowa wartość subscription_cost,  
+                     2 - hasła do siebie nie pasują,  
+                     3 - hasło za krótkie,  
+                     4 - upload avatara się nie powiódł  
+                     }  
 
-- zaloguj zamiast wyloguj  
-- przycisk powrotu
+

@@ -22,7 +22,7 @@ class User implements UserInterface
      * @ORM\Column(name="user_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @Groups({"standard-bet-info", "tipster"})
+     * @Groups({"standard-bet-info", "tipster", "settings"})
      */
     private $id;
 
@@ -66,6 +66,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="subscription_cost", type="decimal", precision=10, scale=2, nullable=true)
+     * @Groups({"settings"})
      */
     private $subscriptionCost;
 
@@ -133,7 +134,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=true)
-     * @Groups({"standard-bet-info", "tipster"})
+     * @Groups({"standard-bet-info", "tipster", "settings"})
      */
     private $image;
 
@@ -141,7 +142,7 @@ class User implements UserInterface
      * @var string
      *
      * @ORM\Column(name="about", type="string", length=1000, nullable=true)
-     * @Groups({"standard-bet-info", "tipster"})
+     * @Groups({"standard-bet-info", "tipster", "settings"})
      */
     private $about;
 

@@ -91,7 +91,7 @@ class UserBetController extends Controller
         $securityViewBetManager = $this->get('security_view_bet_manager');
         $data = json_decode(file_get_contents('php://input'));
         $data = json_decode(json_encode($data), True);
-        $data = $_GET;
+        //$data = $_GET;
 
         $bets = $em->getRepository(UserBet::class)->findWithFilterOptions($data);
         $selectedBets = $securityViewBetManager->selectBets($bets);

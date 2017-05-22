@@ -176,3 +176,6 @@ nav.muted {
     #nav-icon.open span:nth-child(1) { top: 14px !important; }
     #btgr-menu li, #btgr-menu li a { font-size: 30px; }
 }
+md-card {
+    margin: 5px !important;
+}

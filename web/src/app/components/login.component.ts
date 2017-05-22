@@ -6,53 +6,7 @@ import {User} from '../models/user';
 @Component({
     selector: 'login-form',
     providers: [AuthenticationService],
-    template: `
-        <md-card>
-            <md-tab-group>
-                <md-tab i18n-label label="Login">
-                    <div class="tab-container">
-                        <md-card-title i18n>Login</md-card-title>
-                        <md-input-container>
-                            <input [(ngModel)]="user.login" mdInput i18n-placeholder placeholder="Username">
-                        </md-input-container>
-                        <br />
-                        <md-input-container>
-                            <input [(ngModel)]="user.password" mdInput type="password" i18n-placeholder placeholder="Password">
-                        </md-input-container>
-                        <br />
-                        <button md-raised-button (click)="login()" i18n>Logg in</button>
-                        <span *ngIf="httpLoginStatusMessage" [ngClass]="{'error': httpLoginStatusError}"
-                              [innerHTML]="httpLoginStatusMessage" class="http-status"></span>
-                    </div>
-                </md-tab>\
-                
-                <md-tab i18n-label label="Registration">
-                    <div class="tab-container">
-                        <md-card-title i18n>Registration</md-card-title>
-                        <md-input-container>
-                            <input [(ngModel)]="newUser.login" mdInput i18n-placeholder placeholder="User name">
-                        </md-input-container>
-                        <br />
-                        <md-input-container>
-                            <input [(ngModel)]="newUser.email" mdInput i18n-placeholder placeholder="E-mail">
-                        </md-input-container>
-                        <br />
-                        <md-input-container>
-                            <input [(ngModel)]="newUser.password1" mdInput i18n-placeholder type="password" placeholder="Password">
-                        </md-input-container>
-                        <br />
-                        <md-input-container>
-                            <input [(ngModel)]="newUser.password2" mdInput i18n-placeholder type="password" placeholder="Repeat password">
-                        </md-input-container>
-                        <br />
-                        <button md-raised-button (click)="register()" i18n>Register</button>
-                        <span *ngIf="httpRegisterStatusMessage" [ngClass]="{'error': httpRegisterStatusError}"
-                              [innerHTML]="httpRegisterStatusMessage" class="http-status"></span>
-                    </div>
-                </md-tab>
-            </md-tab-group>
-        </md-card>
-    `,
+    templateUrl: './assets/login.component.html',
     styles: [`
         @media screen and (min-width: 768px) {
             md-card {
@@ -72,7 +26,7 @@ import {User} from '../models/user';
 })
 
 export class LoginComponent {
-    public user = new User(0, '', '');
+    public user = new User(0, '', '', '', '', '');
     public httpLoginStatusMessage = '';
     public httpLoginStatusError = false;
 

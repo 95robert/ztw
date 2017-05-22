@@ -25,7 +25,6 @@ loader {
         font-size: 20px;
     }
 }
-
 header {
     display: flex;
     align-items: center;
@@ -71,4 +70,7 @@ header:before {
     width: 50%;
     border-radius: 50%;
     height: auto;
+}
+md-card {
+    margin: 5px !important;
 }

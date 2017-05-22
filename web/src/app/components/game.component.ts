@@ -29,6 +29,7 @@ import {Game} from '../models/game';
     styles: [`
         md-card {
             color: #581845;
+            margin: 5px;
         }
         header {
             text-align: center;

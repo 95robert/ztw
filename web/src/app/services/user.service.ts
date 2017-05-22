@@ -24,7 +24,7 @@ export class UserService {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
-    saveChanges(user: User): Promise<User> {
+    saveChanges(user: User): Promise<boolean> {
         const url = `${this.url}/edit`;
         console.log(JSON.stringify(user));
         return this.http

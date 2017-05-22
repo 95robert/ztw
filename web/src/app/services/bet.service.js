@@ -21,7 +21,7 @@ var BetService = (function () {
         this.url = 'api/bet/'; // URL to web api
     }
     BetService.prototype.getBetsForGame = function (id) {
-        return this.http.get(this.url + "filter?game=" + id)
+        return this.http.get(this.url + 'filter?game=' + id)
             .toPromise()
             .then(function (response) {
             return response.json();

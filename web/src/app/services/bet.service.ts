@@ -14,7 +14,7 @@ export class BetService {
 
     constructor(private http: Http) { }
     getBetsForGame(id: number): Promise<Bet[]> {
-        return this.http.get(this.url + "filter?game=" + id)
+        return this.http.get(this.url + 'filter?game=' + id)
             .toPromise()
             .then(response => {
                 return response.json() as Bet[];

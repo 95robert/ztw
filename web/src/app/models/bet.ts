@@ -10,7 +10,6 @@ export class Bet {
         public stake: number,
         public result: number,
         public game: number,
-        public tipster: Tipster,
+        public user: Tipster,
     ) { };
 }
-

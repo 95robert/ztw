@@ -10,7 +10,7 @@ import {Bet} from '../models/bet';
         <md-card>
             <div class="two-parts">
                 <div class="left">
-                    <tipsterbox [tipster]="bet.tipster"></tipsterbox>
+                    <tipsterbox [tipster]="bet.user"></tipsterbox>
                 </div>
                 <div class="right">
                     <p i18n>Type:</p>

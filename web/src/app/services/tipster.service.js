@@ -20,7 +20,7 @@ var TipsterService = (function () {
         this.url = 'api/tipster'; // URL to web api
     }
     TipsterService.prototype.getTipster = function (id) {
-        return this.http.get(this.url)
+        return this.http.get(this.url + '/show/' + id)
             .toPromise()
             .then(function (response) {
             return response.json();

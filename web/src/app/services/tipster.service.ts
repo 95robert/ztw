@@ -12,7 +12,7 @@ export class TipsterService {
 
     constructor(private http: Http) { }
     getTipster(id: number): Promise<Tipster> {
-        return this.http.get(this.url)
+        return this.http.get(this.url + '/show/' + id)
             .toPromise()
             .then(response => {
                 return response.json() as Tipster;

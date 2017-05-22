@@ -27,12 +27,12 @@ class UserEditor
         $ok = 1;
         $errorCode = 0;
 
-        if(array_key_exists('subscription_cost', $newData)){
-            if(floatval($newData['subscription_cost']) == 0){
+        if(array_key_exists('subscriptionCost', $newData)){
+            if(floatval($newData['subscriptionCost']) == 0){
                 $ok = 0;
                 $errorCode = 1;
             }else{
-                $user->setSubscriptionCost(floatval($newData['subscription_cost']));
+                $user->setSubscriptionCost(floatval($newData['subscriptionCost']));
             }
         }
 
@@ -40,7 +40,7 @@ class UserEditor
             $user->setAbout($newData['about']);
         }
 
-        if(array_key_exists('password', $newData)){
+        if(array_key_exists('password', $newData) && $newData['password']){
             $password = $newData['password'];
             $repassword = array_key_exists('repassword', $newData) ? $newData['repassword'] : '';
 

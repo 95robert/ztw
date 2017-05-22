@@ -1,9 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MdDialog} from '@angular/material';
 import {UserService} from '../services/user.service';
 import {User} from '../models/user';
+import {MD_DIALOG_DATA} from '@angular/material';
 
 @Component({
     selector: 'login-form',
@@ -33,7 +34,9 @@ export class ProfileComponent implements OnInit {
     }
     saveChanges() {
         this.userService.saveChanges(this.user).then(result => {
-            this.dialog.open(ChangeSettingsDialog);
+            this.dialog.open(ChangeSettingsDialog, {
+                data: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+            });
         });
     }
     ngOnInit() {
@@ -54,4 +57,6 @@ export class ProfileComponent implements OnInit {
     selector: 'change-settings-dialog',
     templateUrl: './assets/change-settings-dialog.html',
 })
-export class ChangeSettingsDialog {}
+export class ChangeSettingsDialog {
+    constructor(@Inject(MD_DIALOG_DATA) public data: any) { }
+}

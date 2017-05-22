@@ -8,11 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require("@angular/core");
 var authentication_service_1 = require("../services/authentication.service");
 var router_1 = require("@angular/router");
 var material_1 = require("@angular/material");
 var user_service_1 = require("../services/user.service");
+var material_2 = require("@angular/material");
 var ProfileComponent = (function () {
     function ProfileComponent(router, route, authService, userService, dialog) {
         this.router = router;
@@ -33,7 +37,9 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.saveChanges = function () {
         var _this = this;
         this.userService.saveChanges(this.user).then(function (result) {
-            _this.dialog.open(ChangeSettingsDialog);
+            _this.dialog.open(ChangeSettingsDialog, {
+                data: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+            });
         });
     };
     ProfileComponent.prototype.ngOnInit = function () {
@@ -67,7 +73,8 @@ ProfileComponent = __decorate([
 ], ProfileComponent);
 exports.ProfileComponent = ProfileComponent;
 var ChangeSettingsDialog = (function () {
-    function ChangeSettingsDialog() {
+    function ChangeSettingsDialog(data) {
+        this.data = data;
     }
     return ChangeSettingsDialog;
 }());
@@ -75,7 +82,9 @@ ChangeSettingsDialog = __decorate([
     core_1.Component({
         selector: 'change-settings-dialog',
         templateUrl: './assets/change-settings-dialog.html',
-    })
+    }),
+    __param(0, core_1.Inject(material_2.MD_DIALOG_DATA)),
+    __metadata("design:paramtypes", [Object])
 ], ChangeSettingsDialog);
 exports.ChangeSettingsDialog = ChangeSettingsDialog;
 //# sourceMappingURL=profile.component.js.map

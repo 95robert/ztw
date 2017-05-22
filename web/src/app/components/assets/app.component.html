@@ -1,6 +1,6 @@
 <div class="nav-wrapper">
     <nav [ngClass]="{'muted': menuShowed}">
-        <div id="nav-back" (click)="menuLinkBack()" *ngIf="showBackLink"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+        <div id="nav-back" (click)="menuLinkBack()" *ngIf="showBackLink && !menuShowed"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
         <div id="nav-brand" routerLink="/" (click)="menuLinkClicked()">Bettinger</div>
         <div id="nav-language" [ngSwitch]="locale" [hidden]="!menuShowed">
             <a *ngSwitchCase="'en'" i18n href="?locale=pl">Polski</a>

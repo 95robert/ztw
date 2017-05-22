@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {User} from '../models/user';
+import {HttpResult} from '../models/http-result';
 
 @Injectable()
 export class UserService {
@@ -24,15 +25,16 @@ export class UserService {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
-    saveChanges(user: User): Promise<boolean> {
+    saveChanges(user: User): Promise<HttpResult> {
         const url = `${this.url}/edit`;
         console.log(JSON.stringify(user));
         return this.http
             .post(url, JSON.stringify(user), {headers: this.headers})
             .toPromise()
             .then(response => {
-                console.log(response);
-                return response.statusText === 'OK';
+                const r = JSON.parse(response._body);
+                console.log(r);
+                return new HttpResult(r.ok, r.errorCode);
             })
             .catch(this.handleError);
     }

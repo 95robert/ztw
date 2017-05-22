@@ -14,6 +14,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
+var http_result_1 = require("../models/http-result");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
@@ -39,8 +40,9 @@ var UserService = (function () {
             .post(url, JSON.stringify(user), { headers: this.headers })
             .toPromise()
             .then(function (response) {
-            console.log(response);
-            return response.statusText === 'OK';
+            var r = JSON.parse(response._body);
+            console.log(r);
+            return new http_result_1.HttpResult(r.ok, r.errorCode);
         })
             .catch(this.handleError);
     };

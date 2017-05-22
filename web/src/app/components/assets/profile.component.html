@@ -1,0 +1,31 @@
+<section>
+    <header i18n>Your profile</header>
+    <loader style="margin: auto" *ngIf="isLoading"></loader>
+    <alert-box alertType="warning" [message]="warningMessage" disableClose="true" *ngIf="showWarning"></alert-box>
+    <div class="flex-container" *ngIf="!isLoading">
+        <div class="flex-item">
+            <img class="img-circle tipster-image" src="{{user.image}}">
+        </div>
+        <div class="flex-item">
+            <h3>User settings</h3>
+
+            <md-input-container>
+                <input mdInput placeholder="Subscription cost" [(ngModel)]="user.subscriptionCost">
+            </md-input-container>
+
+            <md-input-container>
+                <input mdInput placeholder="Password" [(ngModel)]="user.password">
+            </md-input-container>
+
+            <md-input-container>
+                <input mdInput placeholder="Rewrite password" [(ngModel)]="user.repassword">
+            </md-input-container>
+
+            <md-input-container>
+                <textarea mdInput placeholder="About you" [(ngModel)]="user.about" rows="5"></textarea>
+            </md-input-container>
+
+            <button md-raised-button (click)="saveChanges(user)" i18n>Save changes</button><button md-raised-button (click)="logout()" i18n>Logout</button>
+        </div>
+    </div>
+</section>

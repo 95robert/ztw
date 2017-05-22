@@ -32,7 +32,7 @@ var LoginComponent = (function () {
                 _this.httpLoginStatusError = false;
                 _this.httpLoginStatusMessage = 'Logged in succesfully <md-icon></md-icon>';
                 setTimeout(function () {
-                    _this.router.navigate(['/home']);
+                    _this.router.navigate(['/']);
                 }, 3000);
             }
             else {

@@ -52,7 +52,6 @@ var MatchComponent = (function () {
             .then(function (bets) {
             _this.bets = bets;
             _this.isLoading2 = false;
-            console.log(_this.bets);
         })
             .catch(function (message) {
             _this.warningMessage2 = message;

@@ -72,7 +72,6 @@ export class MatchComponent implements OnInit, OnDestroy {
             .then(bets => {
                 this.bets = bets;
                 this.isLoading2 = false;
-                console.log(this.bets);
             })
             .catch(message => {
                 this.warningMessage2 = message;

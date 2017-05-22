@@ -11,7 +11,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var login_component_1 = require("./components/login.component");
-var private_component_1 = require("./components/private.component");
+var profile_component_1 = require("./components/profile.component");
 var auth_guard_1 = require("./guards/auth.guard");
 var games_component_1 = require("./components/games.component");
 var match_component_1 = require("./components/match.component");
@@ -19,7 +19,7 @@ var tipster_component_1 = require("./components/tipster.component");
 var routes = [
     { path: '', redirectTo: '/games', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
-    { path: 'home', component: private_component_1.PrivateComponent, canActivate: [auth_guard_1.AuthGuard] },
+    { path: 'profile', component: profile_component_1.ProfileComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'games', component: games_component_1.GamesComponent },
     { path: 'match/:id', component: match_component_1.MatchComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'tipster/:id', component: tipster_component_1.TipsterComponent, canActivate: [auth_guard_1.AuthGuard] }

@@ -92,7 +92,7 @@ export class LoginComponent {
                 this.httpLoginStatusError = false;
                 this.httpLoginStatusMessage = 'Logged in succesfully <md-icon></md-icon>';
                 setTimeout(() => {
-                    this.router.navigate(['/home']);
+                    this.router.navigate(['/']);
                 }, 3000);
             } else {
                 this.httpLoginStatusError = true;

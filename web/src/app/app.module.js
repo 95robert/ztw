@@ -16,7 +16,7 @@ var auth_guard_1 = require("./guards/auth.guard");
 // Components
 var app_component_1 = require("./components/app.component");
 var login_component_1 = require("./components/login.component");
-var private_component_1 = require("./components/private.component");
+var profile_component_1 = require("./components/profile.component");
 var alert_box_component_1 = require("./components/shared/alert-box.component");
 var games_component_1 = require("./components/games.component");
 var game_service_1 = require("./services/game.service");
@@ -26,6 +26,7 @@ var match_component_1 = require("./components/match.component");
 var tipster_component_1 = require("./components/tipster.component");
 var tipster_service_1 = require("./services/tipster.service");
 var bet_service_1 = require("./services/bet.service");
+var user_service_1 = require("./services/user.service");
 var bet_component_1 = require("./components/bet.component");
 var tipsterbox_component_1 = require("./components/shared/tipsterbox.component");
 // import 'hammerjs';
@@ -49,27 +50,34 @@ AppModule = __decorate([
             material_1.MdTabsModule,
             material_1.MdListModule,
             material_1.MdGridListModule,
-            material_1.MdTooltipModule
+            material_1.MdTooltipModule,
+            material_1.MaterialModule
         ],
         declarations: [
             app_component_1.AppComponent,
             games_component_1.GamesComponent,
             login_component_1.LoginComponent,
-            private_component_1.PrivateComponent,
+            profile_component_1.ProfileComponent,
             alert_box_component_1.AlertBoxComponent,
             loader_component_1.LoaderComponent,
             game_component_1.GameComponent,
             match_component_1.MatchComponent,
             tipster_component_1.TipsterComponent,
             bet_component_1.BetComponent,
-            tipsterbox_component_1.TipsterboxComponent
+            tipsterbox_component_1.TipsterboxComponent,
+            profile_component_1.ChangeSettingsDialog
+        ],
+        entryComponents: [
+            profile_component_1.ChangeSettingsDialog
         ],
         providers: [
             material_1.MdIconRegistry,
+            material_1.MdDialog,
             auth_guard_1.AuthGuard,
             game_service_1.GameService,
             tipster_service_1.TipsterService,
-            bet_service_1.BetService
+            bet_service_1.BetService,
+            user_service_1.UserService
         ],
         bootstrap: [app_component_1.AppComponent]
     })

@@ -1,0 +1,55 @@
+{% extends("admin/index.html.twig") %}
+{% set pageName = "drużyny" %}
+{% block teamsClassMenu %}active{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    <a href="{{ path('add_team') }}" class="btn btn-success">Dodaj nową drużynę</a>
+                </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="table" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nazwa drużyny</th>
+                        <th>Logo</th>
+                        <th>Akcje</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for team in teams %}
+                        <tr>
+                            <td>{{ team.id }}</td>
+                            <td>{{ team.name }}</td>
+                            <td>{{ team.logo }}</td>
+                            <td><a class="btn btn-primary btn-sm" href="{{ path('edit_team', {'id' : team.id}) }}"><i class="fa fa-edit"></i> Edytuj</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(function () {
+            $('#table').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+{% endblock %}

@@ -183,7 +183,7 @@ class Team
      */
     public function getLogo()
     {
-        return $this->logo ? $this->logo : 'img/teams_logo/default_logo.png';
+        return $this->logo ? 'img/teams_logo/'.$this->logo : 'img/teams_logo/default_logo.png';
     }
 
     /**
@@ -192,6 +192,10 @@ class Team
     public function setLogo($logo)
     {
         $this->logo = $logo;
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 }
 

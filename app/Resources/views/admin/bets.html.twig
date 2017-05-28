@@ -1,0 +1,63 @@
+{% extends("admin/index.html.twig") %}
+{% set pageName = "typy" %}
+{% block betsClassMenu %}active{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title"></h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="table" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Mecz</th>
+                        <th>Typer</th>
+                        <th>Kurs</th>
+                        <th>Stawka</th>
+                        <th>Obstawiany wynik</th>
+                        <th>Status</th>
+                        <th>Akcje</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for bet in bets %}
+                        {% if activeOnly != "1" or bet.game.date|date("d-m-Y H:i") >= "now"|date("d-m-Y H:i") %}
+                            <tr>
+                                <td>{{ bet.id }}</td>
+                                <td>{{ bet.game }}</td>
+                                <td>{{ bet.user.login }}</td>
+                                <td>{{ bet.odds }}</td>
+                                <td>{{ bet.stake }}</td>
+                                <td>{{ bet.resultText }}</td>
+                                <td>{{ bet.statusText }}</td>
+                                <td><a class="btn btn-primary btn-sm" href="{{ path('edit_bet', {'id' : bet.id}) }}"><i class="fa fa-edit"></i> Edytuj</a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(function () {
+            $('#table').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+{% endblock %}

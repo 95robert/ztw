@@ -1,0 +1,18 @@
+{% extends("admin/index.html.twig") %}
+{% set pageName = "ligi" %}
+{% block leaguesClassMenu %}active{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-xs-6">
+        {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+        {{ form_row(form) }}
+        <input class="btn btn-success" type="submit" value="Zapisz">
+        {{ form_end(form) }}
+        <!-- /.box -->
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script>
+    </script>
+{% endblock %}

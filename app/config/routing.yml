@@ -1,6 +1,9 @@
 api:
     resource: '@AppBundle/Controller/Api'
     type: annotation
+admin:
+    resource: '@AppBundle/Controller/Admin'
+    type: annotation
 home:
     resource: '@AppBundle/Controller/'
     type: annotation

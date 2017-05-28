@@ -690,5 +690,9 @@ class User implements UserInterface
         $this->about = $about;
     }
 
+    public function __toString(){
+        return $this->login;
+    }
+
 }
 

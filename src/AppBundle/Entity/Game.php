@@ -79,7 +79,7 @@ class Game
     /**
      * Game constructor.
      */
-    public function __construct($teamOne, $teamTwo, $league, $date, $time)
+    public function __construct($teamOne = null, $teamTwo = null, $league= null, $date = null, $time = null)
     {
         $this->teamOne = $teamOne;
         $this->teamTwo = $teamTwo;
@@ -248,6 +248,11 @@ class Game
     public function removeUsersBet(UserBet $usersBets){
         $this->usersBets->remove($usersBets);
         $usersBets->setGame(null);
+    }
+
+    public function __toString(){
+        $date = $this->date->format("d-m-Y");
+        return '('.$this->league.') '.$this->teamOne.' - '.$this->teamTwo.' - '.$date.' - ('.$this->teamOneScore.'-'.$this->teamTwoScore.')';
     }
 
 }

@@ -61,8 +61,6 @@ class UserBet
      *
      * @ORM\Column(name="result", type="integer", nullable=true)
      * @Groups({"result-bet-info"})
-     * @Assert\LessThanOrEqual(1)
-     * @Assert\GreaterThanOrEqual(-1)
      * @Assert\Type("numeric")
      */
     private $result;
@@ -222,6 +220,18 @@ class UserBet
         return $this->result;
     }
 
+    public function resultText(){
+        switch ($this->result){
+            case 0:
+                return "remis";
+            case 1:
+                return "wygrana gospodarza";
+            case 2:
+                return "wygrana gościa";
+        }
+        return "";
+    }
+
     /**
      * Set status
      *
@@ -234,6 +244,18 @@ class UserBet
         $this->status = $status;
 
         return $this;
+    }
+
+    public function statusText(){
+        switch ($this->status){
+            case -1:
+                return "przegrana";
+            case 0:
+                return "w trakcie";
+            case 1:
+                return "wygrana";
+        }
+        return "";
     }
 
     /**

@@ -112,5 +112,9 @@ class League
         $this->games->remove($game);
         $game->setLeague(null);
     }
+
+    public function __toString(){
+        return $this->name;
+    }
 }
 

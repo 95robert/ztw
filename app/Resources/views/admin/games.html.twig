@@ -1,0 +1,65 @@
+{% extends("admin/index.html.twig") %}
+{% set pageName = "mecze" %}
+{% block gamesClassMenu %}active{% endblock %}
+{% block main %}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">
+                    <a href="{{ path('add_game') }}" class="btn btn-success">Dodaj nowy mecz</a>
+                </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="table" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Data i godzina</th>
+                        <th>Liga</th>
+                        <th>Gospodarz</th>
+                        <th>Gość</th>
+                        <th>Wynik</th>
+                        <th>Ilość typów</th>
+                        <th>Akcje</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for game in games %}
+                        {% if activeOnly != "1" or game.date|date("d-m-Y H:i") >= "now"|date("d-m-Y H:i") %}
+                            <tr>
+                                <td>{{ game.id }}</td>
+                                <td>{{ game.date | date("d-m-Y H:i") }}</td>
+                                <td>{{ game.league.name }}</td>
+                                <td>{{ game.teamOne.name }}</td>
+                                <td>{{ game.teamTwo.name }}</td>
+                                <td>{{ game.teamOneScore }} - {{ game.teamTwoScore }}</td>
+                                <td>{{ game.usersBets | length }}</td>
+                                <td><a class="btn btn-primary btn-sm" href="{{ path('edit_game', {'id' : game.id}) }}"><i class="fa fa-edit"></i> Edytuj</a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script>
+        $(function () {
+            $('#table').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+{% endblock %}

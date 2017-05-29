@@ -153,7 +153,13 @@ class SecurityController extends Controller
             $encoder = $encoder_service->getEncoder($user);
 
             if ($encoder->isPasswordValid($user->getPassword(), $password, $user->getSalt())) {
-                $this->loginUser($user, $password);
+                if($user->getActive()){
+                    $this->loginUser($user, $password);
+                }else{
+                    $validLogin = false;
+                    $errorCode = 3;
+                    $errorMsg = "This account is disabled";
+                }
             } else {
                 $validLogin = false;
                 $errorCode = 2;

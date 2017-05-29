@@ -15,20 +15,36 @@ class UserBetCreator extends EntityCreator
     public function create($date, $validator = null){
         $em = $this->_em;
 
-        $userBet = new UserBet();
-        $userBet->setUser($date['user']);
+        $game = $em->getRepository(Game::class)->findOneById($date['game']);
+
+        $userBet = $em->getRepository(UserBet::class)->findOneBy(array(
+            'user' => $date['user'],
+            'game' => $game,
+        ));
+
+        if($userBet == null){
+            $userBet = new UserBet();
+            $userBet->setUser($date['user']);
+            $userBet->setGame($game);
+            if($validator == null || count($validator->validate($userBet)) == 0) {
+                $em->persist($userBet);
+            }
+        }
+
         $userBet->setCost($date['cost']);
-        $userBet->setGame($em->getRepository(Game::class)->findOneById($date['game']));
         $userBet->setOdds($date['odds']);
         $userBet->setResult($date['result']);
         $userBet->setStake($date['stake']);
 
-        if($validator == null || count($validator->validate($userBet)) == 0){
-            $em->persist($userBet);
-            $em->flush();
-            return $userBet;
+        if($date['result'] != -1){
+            if($validator == null || count($validator->validate($userBet)) == 0){
+                $em->flush();
+                return $userBet;
+            }
         }else{
-            return null;
+            $em->remove($userBet);
+            $em->flush();
         }
+        return null;
     }
 }

@@ -63,6 +63,8 @@ class TipsterController extends Controller
     /**
      * Akcja zwraca listę przefiltrowaną listę typów.
      *
+     * filtrowanie po lidze
+     *
      * parametry:
      *  - sortedBy - string {
      *          - efficiency

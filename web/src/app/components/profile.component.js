@@ -37,8 +37,12 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.saveChanges = function () {
         var _this = this;
         this.userService.saveChanges(this.user).then(function (result) {
+            console.log('I have tihgs', result);
             _this.dialog.open(ChangeSettingsDialog, {
-                data: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+                data: {
+                    result: result,
+                    message: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+                }
             });
         });
     };

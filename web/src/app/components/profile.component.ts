@@ -34,8 +34,12 @@ export class ProfileComponent implements OnInit {
     }
     saveChanges() {
         this.userService.saveChanges(this.user).then(result => {
+            console.log('I have tihgs', result);
             this.dialog.open(ChangeSettingsDialog, {
-                data: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+                data: {
+                    result: result,
+                    message: ((result.ok) ? 'Your profile has been saved!' : 'Could not save the profile: ' + result.error_msg)
+                }
             });
         });
     }

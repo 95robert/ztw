@@ -1,2 +1,8 @@
 <h3 style="margin-top: 0;" i18n>Save user profile</h3>
-<p>{{data}}</p>
+<div [ngSwitch]="data.result.error_cod">
+    <p *ngSwitchCase="1" style="color: red;" i18n>Incorrect subscription cost value.</p>
+    <p *ngSwitchCase="2" style="color: red;" i18n>Passwords do not match.</p>
+    <p *ngSwitchCase="3" style="color: red;" i18n>Password is too short.</p>
+    <p *ngSwitchCase="4" style="color: red;" i18n>Could not upload the avatar.</p>
+    <p *ngSwitchDefault style="color: green;" >{{data.message}}</p>
+</div>

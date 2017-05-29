@@ -38,8 +38,6 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.toggleMenu = function () {
         this.menuShowed = !this.menuShowed;
-        console.log(this.locale);
-        console.log('menuShowed = ', this.menuShowed);
     };
     AppComponent.prototype.menuLinkClicked = function () {
         this.menuShowed = false;

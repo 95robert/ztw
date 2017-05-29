@@ -32,8 +32,6 @@ export class AppComponent {
     }
     public toggleMenu() {
         this.menuShowed = !this.menuShowed;
-        console.log(this.locale);
-        console.log('menuShowed = ', this.menuShowed);
     }
     public menuLinkClicked () {
         this.menuShowed = false;

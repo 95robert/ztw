@@ -79,6 +79,5 @@ export class TipsterboxComponent implements OnInit {
     // Hides unusfull informations from template
     displayLess: boolean = true;
     ngOnInit(): void {
-        console.log(this.tipster);
     }
 }

@@ -19,7 +19,6 @@ var TipsterboxComponent = (function () {
         this.displayLess = true;
     }
     TipsterboxComponent.prototype.ngOnInit = function () {
-        console.log(this.tipster);
     };
     return TipsterboxComponent;
 }());

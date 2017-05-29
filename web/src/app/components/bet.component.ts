@@ -13,18 +13,18 @@ import {Bet} from '../models/bet';
                     <tipsterbox [tipster]="bet.user"></tipsterbox>
                 </div>
                 <div class="right">
-                    <p i18n>Type:</p>
+                    <p i18n>Tip:</p>
                     <div [ngSwitch]="bet.result" class="result-container">
                         <div *ngSwitchCase="0" class="no-team" i18n>Draw</div>
                         <div *ngSwitchCase="1" class="team">
                             <img class="img-circle"
                                  src="{{teamOneLogo}}">
-                            <p>Barcelona</p>
+                            <p>{{bet.game.teamOne.name}}</p>
                         </div>
                         <div *ngSwitchCase="2" class="team">
                             <img class="img-circle"
                                  src="{{teamTwoLogo}}">
-                            <p>Real Madryt</p>
+                            <p>{{bet.game.teamTwo.name}}</p>
                         </div>
                         <div *ngSwitchDefault i18n></div>
                     </div>

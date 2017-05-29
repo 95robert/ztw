@@ -14,6 +14,7 @@ import {Bet} from '../models/bet';
     styleUrls: [ './assets/common.component.css'],
     styles: [`
         .flex-container {justify-content: flex-start !important;}
+        .buttonactive {background: #ffc300;}
     `],
     template: `
         <section>
@@ -23,9 +24,18 @@ import {Bet} from '../models/bet';
             <game [game]="game" *ngIf="!isLoading" disableButtons="true"></game>
             
             <header i18n>Tips for this match</header>
+            <md-card *ngIf="!isLoading">
+                <md-card-title i18n>Your tip</md-card-title>
+                <loader style="margin: auto" *ngIf="isLoading3"></loader>
+                <alert-box alertType="warning" [message]="warningMessage3" disableClose="true" *ngIf="showWarning3"></alert-box>
+                <button md-raised-button (click)="usersBetChange(1)" [class.buttonactive]="usersBet === 1">{{game.teamOne.name}}</button>
+                <button md-raised-button (click)="usersBetChange(0)" [class.buttonactive]="usersBet === 0" i18n>Draw</button>
+                <button md-raised-button (click)="usersBetChange(2)" [class.buttonactive]="usersBet === 2">{{game.teamTwo.name}}</button>
+            </md-card>
             <loader style="margin: auto" *ngIf="isLoading2"></loader>
             <alert-box alertType="warning" [message]="warningMessage2" disableClose="true" *ngIf="showWarning2"></alert-box>
-
+            <alert-box alertType="info" [message]="'No types for this match yet'" disableClose="true"
+                       *ngIf="!isLoading2 && !bets.length && !isLoading"></alert-box>
             <div class="flex-container">
                 <bet *ngFor="let bet of bets" [bet]="bet" class="flex-item"></bet>
             </div>
@@ -43,6 +53,10 @@ export class MatchComponent implements OnInit, OnDestroy {
     bets: Bet[] = [];
     showWarning2 = false;
     warningMessage2 = '';
+    usersBet = -1;
+    isLoading3 = false;
+    showWarning3 = false;
+    warningMessage3 = '';
 
     constructor(
         private route: ActivatedRoute,
@@ -82,6 +96,23 @@ export class MatchComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.sub.unsubscribe();
+    }
+
+    public usersBetChange(newBet: number) {
+        console.log('Sending bet');
+        this.isLoading3 = true;
+        const betToSend = (this.usersBet === newBet) ? -1 : newBet;
+        this.betService.sendUsersBet(100, 100, 100, betToSend, this.id)
+            .then(res => {
+                this.isLoading3 = false;
+                this.usersBet = betToSend;
+                this.loadBetsForGame();
+            })
+            .catch(message => {
+                this.warningMessage3 = message;
+                this.showWarning3 = true;
+                this.isLoading3 = false;
+            });
     }
 }
 

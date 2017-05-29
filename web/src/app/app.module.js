@@ -29,6 +29,7 @@ var bet_service_1 = require("./services/bet.service");
 var user_service_1 = require("./services/user.service");
 var bet_component_1 = require("./components/bet.component");
 var tipsterbox_component_1 = require("./components/shared/tipsterbox.component");
+var tipsters_component_1 = require("./components/tipsters.component");
 // import 'hammerjs';
 var AppModule = (function () {
     function AppModule() {
@@ -65,7 +66,8 @@ AppModule = __decorate([
             tipster_component_1.TipsterComponent,
             bet_component_1.BetComponent,
             tipsterbox_component_1.TipsterboxComponent,
-            profile_component_1.ChangeSettingsDialog
+            profile_component_1.ChangeSettingsDialog,
+            tipsters_component_1.TipstersComponent
         ],
         entryComponents: [
             profile_component_1.ChangeSettingsDialog

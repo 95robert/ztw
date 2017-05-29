@@ -18,7 +18,12 @@ var TipsterService = (function () {
     function TipsterService(http) {
         this.http = http;
         this.url = 'api/tipster'; // URL to web api
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
+    TipsterService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    };
     TipsterService.prototype.getTipster = function (id) {
         return this.http.get(this.url + '/show/' + id)
             .toPromise()
@@ -27,9 +32,14 @@ var TipsterService = (function () {
         })
             .catch(this.handleError);
     };
-    TipsterService.prototype.handleError = function (error) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+    TipsterService.prototype.getTipsters = function (login) {
+        return this.http
+            .post(this.url + "/filter", JSON.stringify({ login: login }), { headers: this.headers })
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
     };
     return TipsterService;
 }());

@@ -50,7 +50,7 @@ var LoginComponent = (function () {
                 _this.httpRegisterStatusError = false;
                 _this.httpRegisterStatusMessage = 'Registered succesfully! Logging in...';
                 setTimeout(function () {
-                    _this.router.navigate(['/home']);
+                    _this.router.navigate(['/']);
                 }, 1000);
             }
             else {

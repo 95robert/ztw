@@ -63,7 +63,7 @@ export class LoginComponent {
                 this.httpRegisterStatusError = false;
                 this.httpRegisterStatusMessage = 'Registered succesfully! Logging in...';
                 setTimeout(() => {
-                    this.router.navigate(['/home']);
+                    this.router.navigate(['/']);
                 }, 1000);
             } else {
                 this.httpRegisterStatusError = true;

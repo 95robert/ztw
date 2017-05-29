@@ -30,6 +30,5 @@ export class GamesComponent implements OnInit {
                 this.games = games;
                 this.isLoading = false;
             });
-
     }
 }

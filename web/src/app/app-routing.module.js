@@ -16,11 +16,13 @@ var auth_guard_1 = require("./guards/auth.guard");
 var games_component_1 = require("./components/games.component");
 var match_component_1 = require("./components/match.component");
 var tipster_component_1 = require("./components/tipster.component");
+var tipsters_component_1 = require("./components/tipsters.component");
 var routes = [
     { path: '', redirectTo: '/games', pathMatch: 'full' },
     { path: 'login', component: login_component_1.LoginComponent },
     { path: 'profile', component: profile_component_1.ProfileComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'games', component: games_component_1.GamesComponent },
+    { path: 'tipsters', component: tipsters_component_1.TipstersComponent },
     { path: 'match/:id', component: match_component_1.MatchComponent, canActivate: [auth_guard_1.AuthGuard] },
     { path: 'tipster/:id', component: tipster_component_1.TipsterComponent, canActivate: [auth_guard_1.AuthGuard] }
 ];

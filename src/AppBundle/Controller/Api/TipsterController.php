@@ -106,7 +106,7 @@ class TipsterController extends Controller
         $data = json_decode(json_encode($data), True);
 
         //$data = $_GET;
-
+        $data = !is_array($data) ? []:$data;
         $sortedBy = array_key_exists('sortedBy', $data) ? $data['sortedBy'] : 'count_of_currents_bets';
         $orderBy = array_key_exists('orderBy', $data) ? $data['orderBy'] : SORT_DESC;
         $filters = array_key_exists('filters', $data) ? $data['filters'] : array();

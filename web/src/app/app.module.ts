@@ -27,6 +27,7 @@ import {BetService} from './services/bet.service';
 import {UserService} from './services/user.service';
 import {BetComponent} from './components/bet.component';
 import {TipsterboxComponent} from './components/shared/tipsterbox.component';
+import {TipstersComponent} from './components/tipsters.component';
 
 // import 'hammerjs';
 
@@ -59,7 +60,8 @@ import {TipsterboxComponent} from './components/shared/tipsterbox.component';
         TipsterComponent,
         BetComponent,
         TipsterboxComponent,
-        ChangeSettingsDialog
+        ChangeSettingsDialog,
+        TipstersComponent
     ],
     entryComponents: [
         ChangeSettingsDialog

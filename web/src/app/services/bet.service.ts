@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Bet} from '../models/bet';
-import {Tipster} from "../models/tipster";
-import {HttpResult} from "../models/http-result";
+import {Tipster} from '../models/tipster';
+import {HttpResult} from '../models/http-result';
 
 @Injectable()
 export class BetService {

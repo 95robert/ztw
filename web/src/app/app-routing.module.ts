@@ -9,12 +9,14 @@ import { AuthGuard } from './guards/auth.guard';
 import {GamesComponent} from './components/games.component';
 import {MatchComponent} from './components/match.component';
 import {TipsterComponent} from './components/tipster.component';
+import {TipstersComponent} from './components/tipsters.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/games', pathMatch: 'full' },
     { path: 'login',  component: LoginComponent },
     { path: 'profile',  component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'games',  component: GamesComponent},
+    { path: 'tipsters',  component: TipstersComponent},
     { path: 'match/:id', component: MatchComponent, canActivate: [AuthGuard]  },
     { path: 'tipster/:id', component: TipsterComponent, canActivate: [AuthGuard]  }
 ];

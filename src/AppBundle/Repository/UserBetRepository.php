@@ -45,4 +45,22 @@ class UserBetRepository extends \Doctrine\ORM\EntityRepository
         }
         return $query;
     }
+
+    public function getLeaguesWhereTipsterBet($tipster){
+        $userBets = $this->findBy(array(
+            'user' => $tipster
+        ));
+
+        $leagues = [];
+        foreach ($userBets as $bet){
+            $leagueID = $bet->getGame()->getLeague()->getId();
+            if(!(array_key_exists($leagueID, $leagues))){
+                $leagues[$leagueID] = 1;
+            }else{
+                $leagues[$leagueID]++;
+            }
+        }
+
+        return $leagues;
+    }
 }

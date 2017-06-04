@@ -90,6 +90,15 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         foreach ($tipsters as $key => $tipster){
             if($tipster->hasRole('ROLE_ADMIN')) unset($tipsters[$key]);
         }
+        if(array_key_exists('league', $filters)){
+            foreach ($tipsters as $key => $tipster){
+                $leagues = $this->getEntityManager()->getRepository(UserBet::class)
+                    ->getLeaguesWhereTipsterBet($tipster);
+                if(!(array_key_exists($filters['league'], $leagues))){
+                    unset($tipsters[$key]);
+                }
+            }
+        }
         return $tipsters;
     }
 
@@ -102,6 +111,10 @@ class UserRepository extends \Doctrine\ORM\EntityRepository
         if(array_key_exists('maxPrice', $filters)){
             $query->andWhere('t.subscriptionCost <= :maxPrice')
                 ->setParameter(':maxPrice', $filters['maxPrice']);
+        }
+        if(array_key_exists('login', $filters)){
+            $query->andWhere('t.login LIKE :login')
+                ->setParameter(':login', '%'.$filters['login'].'%');
         }
         return $query;
     }

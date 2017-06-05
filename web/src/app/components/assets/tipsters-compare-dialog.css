@@ -1,0 +1,29 @@
+:host {
+    text-align: center;
+    padding: 24px 0;
+}
+a {
+    font-weight: 700;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.table {
+    display: table;
+    max-width: 600px;
+}
+.row {
+    display: table-row;
+}
+.labels {
+    display: table-cell; width: 20%;
+}
+.values {
+    display: table-cell; width: 40%;
+}
+.img-circle {
+    width: 50%;
+    border-radius: 50%;
+    height: auto;
+}

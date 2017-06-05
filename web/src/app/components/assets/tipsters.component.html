@@ -13,6 +13,15 @@
     </md-card>
     <loader style="margin: auto" *ngIf="isLoading"></loader>
     <md-card class="flex-container" *ngIf="tipsters.length">
-        <tipsterbox *ngFor="let tipster of tipsters" [tipster]="tipster" class="flex-item"></tipsterbox>
+        <div *ngFor="let tipster of tipsters; let i = index" class="flex-item" (mouseover)="mouseOver(tipster.id)" >
+            <span class="compare-checkbox"><md-checkbox name="tipsterOneToCompare" (click)="setCompareTipster(tipster.id)"
+                *ngIf="showRadioButton[tipster.id] || tipsterOneToCompare == tipster.id || tipsterTwoToCompare == tipster.id"></md-checkbox></span>
+            <button class="compare-button" md-raised-button (click)="compare()" i18n
+                    *ngIf="tipsterOneToCompare != 0 && tipsterTwoToCompare != 0 && (tipsterOneToCompare == tipster.id || tipsterTwoToCompare == tipster.id)">
+                Compare
+            </button>
+
+            <tipsterbox [tipster]="tipster"></tipsterbox>
+        </div>
     </md-card>
 </section>

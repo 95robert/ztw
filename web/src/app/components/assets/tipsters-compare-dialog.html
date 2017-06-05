@@ -1,0 +1,96 @@
+<h3 style="margin-top: 0;" i18n>Tipsters Compare</h3>
+<loader style="margin: auto" *ngIf="isLoading"></loader>
+<section class="table" *ngIf="!isLoading">
+        
+    <div class="row">
+                
+        <div class="labels"></div>
+                
+        <div class="values">
+            <img class="img-circle" src="{{tipsterOne.image}}"><br/>
+            <a md-dialog-close [routerLink]="['/tipster', tipsterOne.id]">{{tipsterOne.login}}</a>
+        </div>
+                
+        <div class="values">
+            <img class="img-circle" src="{{tipsterTwo.image}}"><br/>
+            <a md-dialog-close [routerLink]="['/tipster', tipsterTwo.id]">{{tipsterTwo.login}}</a>
+        </div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>timeline</md-icon>
+            <br/><p i18n>Hit rate</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.efficiency}}</div>
+                
+        <div class="values">{{tipsterTwo.efficiency}}</div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>timeline</md-icon>
+            <br/>
+            <p i18n>Hit rate, last mth</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.efficiency_last_month}}</div>
+                
+        <div class="values">{{tipsterTwo.efficiency_last_month}}</div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>timeline</md-icon>
+            <br/>
+            <p i18n>Hit rate, last 3 mths</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.efficiency_last_3_month}}</div>
+                
+        <div class="values">{{tipsterTwo.efficiency_last_3_month}}</div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>album</md-icon>
+            <br/>
+            <p i18n>Count of tips</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.count_of_bets}}</div>
+                
+        <div class="values">{{tipsterTwo.count_of_bets}}</div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>album</md-icon>
+            <br/>
+            <p i18n>Count of current bets</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.count_of_currents_bets}}</div>
+                
+        <div class="values">{{tipsterTwo.count_of_currents_bets}}</div>
+    </div>
+        
+    <div class="row">
+                
+        <div class="labels">
+            <md-icon md-list-icon>attach_money</md-icon>
+            <br/>
+            <p i18n>Subscription cost</p>
+        </div>
+                
+        <div class="values">{{tipsterOne.subscription_cost}}</div>
+                
+        <div class="values">{{tipsterTwo.subscription_cost}}</div>
+    </div>
+</section>

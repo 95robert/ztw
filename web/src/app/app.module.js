@@ -69,10 +69,12 @@ AppModule = __decorate([
             tipsterbox_component_1.TipsterboxComponent,
             profile_component_1.ChangeSettingsDialog,
             tipsters_component_1.TipstersComponent,
-            ranking_component_1.RankingComponent
+            ranking_component_1.RankingComponent,
+            tipsters_component_1.TipstersCompareDialog
         ],
         entryComponents: [
-            profile_component_1.ChangeSettingsDialog
+            profile_component_1.ChangeSettingsDialog,
+            tipsters_component_1.TipstersCompareDialog
         ],
         providers: [
             material_1.MdIconRegistry,

@@ -48,6 +48,15 @@ var TipsterService = (function () {
         })
             .catch(this.handleError);
     };
+    TipsterService.prototype.getBestTipsters = function () {
+        return this.http
+            .post(this.url + "/filter", JSON.stringify({ sortedBy: 'efficiency_last_3_month' }), { headers: this.headers })
+            .toPromise()
+            .then(function (response) {
+            return response.json();
+        })
+            .catch(this.handleError);
+    };
     return TipsterService;
 }());
 TipsterService = __decorate([

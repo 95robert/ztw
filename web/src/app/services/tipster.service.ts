@@ -27,7 +27,7 @@ export class TipsterService {
     }
 
     getTipsters(login: string, minPrice: number, maxPrice: number): Promise<Tipster[]> {
-        var filters = {};
+        let filters = {};
         if (login && login != null)
             filters['login'] = login;
         if (minPrice && minPrice != null)
@@ -37,6 +37,17 @@ export class TipsterService {
 
         return this.http
             .post(`${this.url}/filter`, JSON.stringify({filters: filters, sortedBy: 'subscription_cost'}), {headers: this.headers})
+            .toPromise()
+            .then(response => {
+                return response.json() as Tipster[];
+            })
+            .catch(this.handleError);
+
+    }
+
+    getBestTipsters(): Promise<Tipster[]> {
+        return this.http
+            .post(`${this.url}/filter`, JSON.stringify({sortedBy: 'efficiency_last_3_month'}), {headers: this.headers})
             .toPromise()
             .then(response => {
                 return response.json() as Tipster[];

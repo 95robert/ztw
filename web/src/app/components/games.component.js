@@ -33,7 +33,7 @@ GamesComponent = __decorate([
     core_1.Component({
         selector: 'games',
         templateUrl: './assets/games.component.html',
-        styleUrls: ['./assets/common.component.css']
+        styleUrls: ['./assets/common.css']
     }),
     __metadata("design:paramtypes", [game_service_1.GameService])
 ], GamesComponent);

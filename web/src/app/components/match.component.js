@@ -71,7 +71,7 @@ var MatchComponent = (function () {
         this.isLoading3 = true;
         var betToSend = (this.usersBet === newBet) ? -1 : newBet;
         this.betService.sendUsersBet(100, 100, 100, betToSend, this.id)
-            .then(function (res) {
+            .then(function () {
             _this.isLoading3 = false;
             _this.usersBet = betToSend;
             _this.loadBetsForGame();
@@ -88,7 +88,7 @@ MatchComponent = __decorate([
     core_1.Component({
         selector: 'games',
         templateUrl: './assets/match.component.html',
-        styleUrls: ['./assets/match.component.css', './assets/common.component.css'],
+        styleUrls: ['./assets/match.component.css', './assets/common.css'],
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         game_service_1.GameService,

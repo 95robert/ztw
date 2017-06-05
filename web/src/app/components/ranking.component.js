@@ -9,42 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by akselon on 2017-05-29.
+ * Created by akselon on 2017-06-05.
  */
 var core_1 = require("@angular/core");
 var tipster_service_1 = require("../services/tipster.service");
-var TipstersComponent = (function () {
-    function TipstersComponent(tipsterService) {
+var RankingComponent = (function () {
+    function RankingComponent(tipsterService) {
         this.tipsterService = tipsterService;
         this.tipsters = [];
         this.isLoading = true;
         this.filterName = '';
     }
-    TipstersComponent.prototype.ngOnInit = function () {
-        this.search();
-    };
-    TipstersComponent.prototype.search = function () {
+    RankingComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.isLoading = true;
-        this.tipsterService.getTipsters(this.filterName, this.filterMinPrice, this.filterMaxPrice)
+        this.tipsterService.getBestTipsters()
             .then(function (tipsters) {
             _this.tipsters = tipsters;
             _this.isLoading = false;
         });
     };
-    TipstersComponent.prototype.reset = function () {
-        this.filterName = this.filterMinPrice = this.filterMaxPrice = null;
-        this.search();
-    };
-    return TipstersComponent;
+    return RankingComponent;
 }());
-TipstersComponent = __decorate([
+RankingComponent = __decorate([
     core_1.Component({
-        selector: 'tipsters',
-        templateUrl: './assets/tipsters.component.html',
-        styleUrls: ['./assets/common.css', './assets/tipsters.component.css']
+        selector: 'ranking',
+        templateUrl: './assets/ranking.component.html',
+        styleUrls: ['./assets/common.css', './assets/ranking.component.css']
     }),
     __metadata("design:paramtypes", [tipster_service_1.TipsterService])
-], TipstersComponent);
-exports.TipstersComponent = TipstersComponent;
-//# sourceMappingURL=tipsters.component.js.map
+], RankingComponent);
+exports.RankingComponent = RankingComponent;
+//# sourceMappingURL=ranking.component.js.map

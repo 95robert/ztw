@@ -1,0 +1,21 @@
+.flex-item {
+    width: 160px !important;
+    margin-bottom: 20px;
+    position: relative
+}
+.flex-container { justify-content: flex-start !important; }
+.position {
+    position: absolute;
+    left: 0;
+    color: #581845;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-weight: 700;
+    padding: 5px;
+    font-size: 24px;
+}
+.top3 {
+    font-size: 27px;
+    background: #ffc300;
+}

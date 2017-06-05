@@ -47,7 +47,7 @@ TipsterComponent = __decorate([
     core_1.Component({
         selector: 'tipster',
         templateUrl: './assets/tipster.component.html',
-        styleUrls: ['./assets/tipster.component.css', './assets/common.component.css']
+        styleUrls: ['./assets/tipster.component.css', './assets/common.css']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         tipster_service_1.TipsterService])

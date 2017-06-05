@@ -10,6 +10,7 @@ import {GamesComponent} from './components/games.component';
 import {MatchComponent} from './components/match.component';
 import {TipsterComponent} from './components/tipster.component';
 import {TipstersComponent} from './components/tipsters.component';
+import {RankingComponent} from './components/ranking.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/games', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: 'profile',  component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'games',  component: GamesComponent},
     { path: 'tipsters',  component: TipstersComponent},
+    { path: 'ranking',  component: RankingComponent},
     { path: 'match/:id', component: MatchComponent, canActivate: [AuthGuard]  },
     { path: 'tipster/:id', component: TipsterComponent, canActivate: [AuthGuard]  }
 ];

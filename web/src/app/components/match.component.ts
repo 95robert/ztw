@@ -11,7 +11,7 @@ import {Bet} from '../models/bet';
 @Component({
     selector: 'games',
     templateUrl: './assets/match.component.html',
-    styleUrls: [ './assets/match.component.css', './assets/common.component.css'],
+    styleUrls: [ './assets/match.component.css', './assets/common.css'],
 })
 export class MatchComponent implements OnInit, OnDestroy {
     id: number;
@@ -73,7 +73,7 @@ export class MatchComponent implements OnInit, OnDestroy {
         this.isLoading3 = true;
         const betToSend = (this.usersBet === newBet) ? -1 : newBet;
         this.betService.sendUsersBet(100, 100, 100, betToSend, this.id)
-            .then(res => {
+            .then(() => {
                 this.isLoading3 = false;
                 this.usersBet = betToSend;
                 this.loadBetsForGame();

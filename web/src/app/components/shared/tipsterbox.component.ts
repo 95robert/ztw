@@ -6,7 +6,7 @@ import {Tipster} from '../../models/tipster';
 
 @Component({
     selector: 'tipsterbox',
-    styleUrls: [ '../assets/common.component.css'],
+    styleUrls: [ '../assets/common.css'],
     styles: [`
         section {
             max-width: 1200px;

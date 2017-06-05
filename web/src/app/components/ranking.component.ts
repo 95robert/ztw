@@ -1,16 +1,16 @@
 /**
- * Created by akselon on 2017-05-29.
+ * Created by akselon on 2017-06-05.
  */
 import {Component, OnInit} from '@angular/core';
 import {Tipster} from '../models/tipster';
 import {TipsterService} from '../services/tipster.service';
 
 @Component({
-    selector: 'tipsters',
-    templateUrl: './assets/tipsters.component.html',
-    styleUrls: [ './assets/common.css', './assets/tipsters.component.css' ]
+    selector: 'ranking',
+    templateUrl: './assets/ranking.component.html',
+    styleUrls: [ './assets/common.css', './assets/ranking.component.css' ]
 })
-export class TipstersComponent implements OnInit {
+export class RankingComponent implements OnInit {
     tipsters: Tipster[] = [];
     isLoading = true;
     filterName = '';
@@ -19,18 +19,11 @@ export class TipstersComponent implements OnInit {
     constructor(private tipsterService: TipsterService) { }
 
     ngOnInit(): void {
-        this.search();
-    }
-    search() {
         this.isLoading = true;
-        this.tipsterService.getTipsters(this.filterName, this.filterMinPrice, this.filterMaxPrice)
+        this.tipsterService.getBestTipsters()
             .then(tipsters => {
                 this.tipsters = tipsters;
                 this.isLoading = false;
             });
-    }
-    reset() {
-        this.filterName = this.filterMinPrice = this.filterMaxPrice = null;
-        this.search();
     }
 }

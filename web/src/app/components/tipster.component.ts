@@ -1,7 +1,7 @@
 /**
  * Created by akselon on 2017-05-08.
  */
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Tipster} from '../models/tipster';
 import {TipsterService} from '../services/tipster.service';
@@ -9,9 +9,9 @@ import {TipsterService} from '../services/tipster.service';
 @Component({
     selector: 'tipster',
     templateUrl: './assets/tipster.component.html',
-    styleUrls: [ './assets/tipster.component.css', './assets/common.component.css' ]
+    styleUrls: [ './assets/tipster.component.css', './assets/common.css' ]
 })
-export class TipsterComponent implements OnInit {
+export class TipsterComponent implements OnInit, OnDestroy {
     id: number;
     private sub: any;
     tipster: Tipster;

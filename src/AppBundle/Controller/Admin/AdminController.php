@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Api;
+namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Game;
 use AppBundle\Entity\League;

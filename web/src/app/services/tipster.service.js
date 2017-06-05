@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
@@ -32,9 +32,16 @@ var TipsterService = (function () {
         })
             .catch(this.handleError);
     };
-    TipsterService.prototype.getTipsters = function (login) {
+    TipsterService.prototype.getTipsters = function (login, minPrice, maxPrice) {
+        var filters = {};
+        if (login && login != null)
+            filters['login'] = login;
+        if (minPrice && minPrice != null)
+            filters['minPrice'] = minPrice;
+        if (maxPrice && maxPrice != null)
+            filters['maxPrice'] = maxPrice;
         return this.http
-            .post(this.url + "/filter", JSON.stringify({ login: login }), { headers: this.headers })
+            .post(this.url + "/filter", JSON.stringify({ filters: filters, sortedBy: 'subscription_cost' }), { headers: this.headers })
             .toPromise()
             .then(function (response) {
             return response.json();

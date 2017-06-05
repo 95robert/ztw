@@ -1,5 +1,5 @@
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
@@ -9,28 +9,7 @@ import {TipsterService} from '../services/tipster.service';
 @Component({
     selector: 'tipster',
     templateUrl: './assets/tipster.component.html',
-    styleUrls: [ './assets/common.component.css'],
-    styles: [`
-        section {
-            max-width: 1200px;
-            margin: auto;
-        }
-        .tipster-name, .tipster-login {
-            font-size: 30px;
-            color: black;
-            font-weight: 700;
-        }
-        .tipster-image {
-            width: 75%;
-        }
-        md-icon {
-            color: #ffc300;
-        }
-        h4 {
-            color: #FF5733;
-            font-size: 20px !important;
-        }
-    `]
+    styleUrls: [ './assets/tipster.component.css', './assets/common.component.css' ]
 })
 export class TipsterComponent implements OnInit {
     id: number;

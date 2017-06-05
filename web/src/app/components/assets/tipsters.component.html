@@ -1,0 +1,18 @@
+<section>
+    <header i18n>Tipsters search</header>
+    <md-card>
+        <md-input-container>
+            <input mdInput [(ngModel)]="filterName" placeholder="Search by login" />
+        </md-input-container><br />
+
+        <md-input-container><input mdInput [(ngModel)]="filterMinPrice" placeholder="Min. subscription price" type="number" class="mdInline" /></md-input-container>
+        -
+        <md-input-container><input mdInput [(ngModel)]="filterMaxPrice" placeholder="Max. subscription price" type="number" class="mdInline" /></md-input-container>
+        <br />
+        <button md-raised-button (click)="search()" i18n>Search</button> <button md-button (click)="reset()"  i18n>Reset</button>
+    </md-card>
+    <loader style="margin: auto" *ngIf="isLoading"></loader>
+    <md-card class="flex-container" *ngIf="tipsters.length">
+        <tipsterbox *ngFor="let tipster of tipsters" [tipster]="tipster" class="flex-item"></tipsterbox>
+    </md-card>
+</section>

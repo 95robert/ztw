@@ -20,7 +20,7 @@ export class AppComponent {
                 router: Router) {
         this.sub = router.events
             .filter(event => event instanceof NavigationStart)
-            .subscribe(e => {
+            .subscribe((e: NavigationStart) => {
                 let url = e.url;
                 if (this.firstUrl === '') {
                     this.firstUrl = url;

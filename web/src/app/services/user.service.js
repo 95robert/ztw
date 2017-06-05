@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by @akselon on 2017-05-22.
+ * Created by akselon on 2017-05-22.
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
@@ -35,13 +35,11 @@ var UserService = (function () {
     };
     UserService.prototype.saveChanges = function (user) {
         var url = this.url + "/edit";
-        console.log(JSON.stringify(user));
         return this.http
             .post(url, JSON.stringify(user), { headers: this.headers })
             .toPromise()
             .then(function (response) {
             var r = JSON.parse(response._body);
-            console.log(r);
             return new http_result_1.HttpResult(r.ok, r.errorCode);
         })
             .catch(this.handleError);

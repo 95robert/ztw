@@ -1,70 +1,13 @@
 /**
- * Created by @akselon on 2017-05-07.
+ * Created by akselon on 2017-05-07.
  */
 import {Component, Input} from '@angular/core';
 import {Game} from '../models/game';
 
 @Component({
     selector: 'game',
-    template: `
-        <md-card>
-            <header>{{game.date}}</header>
-                <div class="flex-container">
-                <div class="flex-team">
-                    <img class="img-circle"
-                     src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_(crest).svg/720px-FC_Barcelona_(crest).svg.png">
-                    <p>{{game.teamOne.name}}</p>
-                </div>
-                <div class="flex-vs">vs</div>
-                <div class="flex-team">
-                    <img class="img-circle" src="https://kiwicdn.akamaized.net/90ed/JtzB4vEpsbVrGFjSCsvGKj.jpg">
-                    <p>{{game.teamTwo.name}}</p>
-                </div>
-            </div>
-            <div class="buttons" *ngIf="!disableButtons">
-                <a md-raised-button [routerLink]="['/match', game.id]" i18n>Show tips</a>
-            </div>
-        </md-card>
-    `,
-    styles: [`
-        md-card {
-            color: #581845;
-            margin: 5px;
-        }
-        header {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            justify-content: center;
-        }
-        /* override */
-        .flex-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .flex-team {
-            text-align: center;
-            margin: 10px 20px;
-        }
-        .flex-team p {
-            font-size: 25px;
-            color: #FF5733;
-            font-weight: 700;
-            margin: 0;
-        }
-        .flex-vs {
-            font-size: 40px;
-            color: #ffc300;
-            padding: 0;
-            margin: 0;
-        }
-        .img-circle {
-            width: 50%;
-            border-radius: 50%;
-            height: auto;
-        }
-    `]
+    templateUrl: './assets/game.component.html',
+    styleUrls: ['./assets/game.component.css']
 })
 export class GameComponent {
     @Input() game: Game;

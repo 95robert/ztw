@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by Aksel on 2017-05-29.
+ * Created by akselon on 2017-05-29.
  */
 var core_1 = require("@angular/core");
 var tipster_service_1 = require("../services/tipster.service");
@@ -26,21 +26,23 @@ var TipstersComponent = (function () {
     TipstersComponent.prototype.search = function () {
         var _this = this;
         this.isLoading = true;
-        this.tipsterService.getTipsters(this.filterName)
+        this.tipsterService.getTipsters(this.filterName, this.filterMinPrice, this.filterMaxPrice)
             .then(function (tipsters) {
             _this.tipsters = tipsters;
             _this.isLoading = false;
         });
+    };
+    TipstersComponent.prototype.reset = function () {
+        this.filterName = this.filterMinPrice = this.filterMaxPrice = null;
+        this.search();
     };
     return TipstersComponent;
 }());
 TipstersComponent = __decorate([
     core_1.Component({
         selector: 'tipsters',
-        // templateUrl: './assets/games.component.html',
-        styleUrls: ['./assets/common.component.css'],
-        styles: ["\n        .flex-item { width: 160px !important; margin-bottom: 20px; }\n        .flex-container { justify-content: flex-start !important; }\n    "],
-        template: "\n        <section>\n            <header i18n>Tipsters search</header>\n            <md-card>\n                <md-input-container>\n                    <input mdInput [(ngModel)]=\"filterName\" placeholder=\"Search by login\">\n                </md-input-container><br />\n                <button md-raised-button (click)=\"search()\">Search</button>\n            </md-card>\n            <loader style=\"margin: auto\" *ngIf=\"isLoading\"></loader>\n            <md-card class=\"flex-container\" *ngIf=\"tipsters.length\">\n                <tipsterbox *ngFor=\"let tipster of tipsters\" [tipster]=\"tipster\" class=\"flex-item\"></tipsterbox>\n            </md-card>\n        </section>\n    "
+        templateUrl: './assets/tipsters.component.html',
+        styleUrls: ['./assets/common.component.css', './assets/tipsters.component.css']
     }),
     __metadata("design:paramtypes", [tipster_service_1.TipsterService])
 ], TipstersComponent);

@@ -1,5 +1,5 @@
 /**
- * Created by @akselon on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 import {Component, Input, OnInit} from '@angular/core';
 import {Tipster} from '../../models/tipster';
@@ -64,10 +64,10 @@ import {Tipster} from '../../models/tipster';
                             <p md-line *ngIf="!displayLess"> current tips </p>
                         </md-list-item>
                         <md-list-item>
-                            <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscriptions sold amount"
+                            <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscription price"
                                      [mdTooltipPosition]="'above'">attach_money</md-icon>
-                            <h4 md-line>{{tipster.sold_subscriptions}}</h4>
-                            <p md-line *ngIf="!displayLess" i18n> sold subscriptions </p>
+                            <h4 md-line>{{tipster.subscription_cost}}</h4>
+                            <p md-line *ngIf="!displayLess" i18n>subscription price</p>
                         </md-list-item>
                     </md-list>
                 </div>

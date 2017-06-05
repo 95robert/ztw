@@ -176,6 +176,23 @@ nav.muted {
     #nav-icon.open span:nth-child(1) { top: 14px !important; }
     #btgr-menu li, #btgr-menu li a { font-size: 30px; }
 }
+@media screen and (min-width: 768px) {
+    .mat-card {
+        margin: 15px !important;
+    }
+}
 md-card {
+    padding: 0;
     margin: 5px !important;
+}
+.tab-container { padding: 20px; }
+.http-status {
+    padding: 5px;
+    font-weight: 500;
+}
+.http-status.error {
+    color: #ff0000;
+}
+.alert {
+    padding: 15px 0;
 }

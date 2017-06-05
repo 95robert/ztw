@@ -1,5 +1,5 @@
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
@@ -28,13 +28,11 @@ export class BetService {
     }
 
     sendUsersBet(cost: number, odds: number, stake: number, result: number, game: number): Promise<HttpResult> {
-        console.log('Wysyłam zapytanie z tym rezultatem:' + result);
         return this.http
             .post(this.url + 'add', JSON.stringify({cost: cost, odds: odds, stake: stake, result: result, game: game}),
                 {headers: this.headers})
             .toPromise()
             .then(res => {
-                console.log(res);
                 return res.json() as HttpResult;
             })
             .catch(this.handleError);

@@ -6,23 +6,7 @@ import {User} from '../models/user';
 @Component({
     selector: 'login-form',
     providers: [AuthenticationService],
-    templateUrl: './assets/login.component.html',
-    styles: [`
-        @media screen and (min-width: 768px) {
-            md-card {
-                margin: 15px;
-            }
-        }
-        md-card { padding: 0; }
-        .tab-container { padding: 20px; }
-        .http-status {
-            padding: 5px;
-            font-weight: 500;
-        }
-        .http-status.error {
-            color: #ff0000;
-        }
-    `]
+    templateUrl: './assets/login.component.html'
 })
 
 export class LoginComponent {

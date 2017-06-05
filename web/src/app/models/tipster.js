@@ -1,6 +1,6 @@
 "use strict";
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 var Tipster = (function () {
     function Tipster(id, login, name, efficiency, efficiency_last_3_month, efficiency_last_month, 

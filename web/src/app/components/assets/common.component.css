@@ -12,7 +12,6 @@ header {
     text-align: center;
     text-transform: uppercase;
 }
-
 loader {
     display: block;
     text-align: center;
@@ -34,7 +33,6 @@ header {
     color: #581845;
     justify-content: center;
 }
-
 header:after,
 header:before {
     display: block;
@@ -71,6 +69,8 @@ header:before {
     border-radius: 50%;
     height: auto;
 }
-md-card {
-    margin: 5px !important;
+@media screen and (min-width: 768px) {
+    md-card >>> {
+        margin: 15px 0;
+    }
 }

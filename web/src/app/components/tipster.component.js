@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
@@ -47,8 +47,7 @@ TipsterComponent = __decorate([
     core_1.Component({
         selector: 'tipster',
         templateUrl: './assets/tipster.component.html',
-        styleUrls: ['./assets/common.component.css'],
-        styles: ["\n        section {\n            max-width: 1200px;\n            margin: auto;\n        }\n        .tipster-name, .tipster-login {\n            font-size: 30px;\n            color: black;\n            font-weight: 700;\n        }\n        .tipster-image {\n            width: 75%;\n        }\n        md-icon {\n            color: #ffc300;\n        }\n        h4 {\n            color: #FF5733;\n            font-size: 20px !important;\n        }\n    "]
+        styleUrls: ['./assets/tipster.component.css', './assets/common.component.css']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,
         tipster_service_1.TipsterService])

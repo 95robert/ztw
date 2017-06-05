@@ -1,5 +1,5 @@
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 import {Tipster} from './tipster';
 import {Game} from './game';

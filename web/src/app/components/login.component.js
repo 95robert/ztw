@@ -65,8 +65,7 @@ LoginComponent = __decorate([
     core_1.Component({
         selector: 'login-form',
         providers: [authentication_service_1.AuthenticationService],
-        templateUrl: './assets/login.component.html',
-        styles: ["\n        @media screen and (min-width: 768px) {\n            md-card {\n                margin: 15px;\n            }\n        }\n        md-card { padding: 0; }\n        .tab-container { padding: 20px; }\n        .http-status {\n            padding: 5px;\n            font-weight: 500;\n        }\n        .http-status.error {\n            color: #ff0000;\n        }\n    "]
+        templateUrl: './assets/login.component.html'
     }),
     __metadata("design:paramtypes", [router_1.Router,
         authentication_service_1.AuthenticationService])

@@ -1,0 +1,7 @@
+<section>
+    <header i18n>Upcomming matches</header>
+    <loader style="margin: auto" *ngIf="isLoading"></loader>
+    <div class="flex-container">
+        <game *ngFor="let game of games" [game]="game" class="flex-item"></game>
+    </div>
+</section>

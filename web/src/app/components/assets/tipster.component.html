@@ -5,7 +5,7 @@
     <div class="flex-container" *ngIf="!isLoading">
         <div class="flex-item">
             <img class="img-circle tipster-image"
-                 src="https://lh3.googleusercontent.com/-it6WUUKckmo/AAAAAAAAAAI/AAAAAAAAcWg/MOCY6YBg_XY/s640/photo.jpg">
+                 src="{{tipster.image}}">
         </div>
         <div class="flex-item">
             <div class="tipster-name" *ngIf="!displayLess">
@@ -16,21 +16,25 @@
             </div>
             <md-list class="tipster-name">
                 <md-divider></md-divider>
-                <!--<h3 md-subheader>Statystyki</h3>-->
                 <md-list-item>
                     <md-icon md-list-icon i18n-mdTooltip mdTooltip="Hit rate, last 3 months" [mdTooltipPosition]="'above'">timeline</md-icon>
-                    <h4 md-line>{{tipster.efficiency}}</h4>
-                    <p md-line *ngIf="!displayLess" i18n> Hit rate, last 3 months </p>
+                    <h4 md-line>{{tipster.efficiency_last_3_month}}</h4>
+                    <p md-line *ngIf="!displayLess" i18n>Hit rate, last 3 months</p>
                 </md-list-item>
                 <md-list-item>
-                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Current tips amount" [mdTooltipPosition]="'above'">access_time</md-icon>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Current tips amount" [mdTooltipPosition]="'above'">album</md-icon>
                     <h4 md-line>{{tipster.count_of_bets}}</h4>
-                    <p md-line *ngIf="!displayLess"> current tips </p>
+                    <p md-line *ngIf="!displayLess">current tips</p>
                 </md-list-item>
                 <md-list-item>
-                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscriptions sold amount" [mdTooltipPosition]="'above'">attach_money</md-icon>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscription price" [mdTooltipPosition]="'above'">attach_money</md-icon>
+                    <h4 md-line>{{tipster.subscription_cost}}</h4>
+                    <p md-line *ngIf="!displayLess" i18n>subscription price</p>
+                </md-list-item>
+                <md-list-item>
+                    <md-icon md-list-icon i18n-mdTooltip mdTooltip="Sold subscriptions  amount" [mdTooltipPosition]="'above'">shopping_cart</md-icon>
                     <h4 md-line>{{tipster.sold_subscriptions}}</h4>
-                    <p md-line *ngIf="!displayLess" i18n> sold subscriptions </p>
+                    <p md-line *ngIf="!displayLess" i18n>sold subscriptions</p>
                 </md-list-item>
             </md-list>
         </div>

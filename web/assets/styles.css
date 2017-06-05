@@ -2,6 +2,9 @@
     font-family: "proxima-nova-soft";
     src: url("ProximaNovaSoft-Regular.otf") format("truetype");
 }
+section {
+  padding: 15px;
+}
 html, body, my-app {
     margin: 0;
     padding: 0;

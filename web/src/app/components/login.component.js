@@ -22,9 +22,11 @@ var LoginComponent = (function () {
         this.httpRegisterStatusMessage = '';
         this.httpRegisterStatusError = false;
         this.newUser = { login: '', email: '', password1: '', password2: '' };
+        this.isLoading = false;
     }
     LoginComponent.prototype.login = function () {
         var _this = this;
+        this.isLoading = true;
         this.httpLoginStatusError = false;
         this.httpLoginStatusMessage = 'Logging in ...';
         this.service.login(this.user.login, this.user.password).then(function (res) {
@@ -32,10 +34,12 @@ var LoginComponent = (function () {
                 _this.httpLoginStatusError = false;
                 _this.httpLoginStatusMessage = 'Logged in succesfully <md-icon></md-icon>';
                 setTimeout(function () {
+                    _this.isLoading = false;
                     _this.router.navigate(['/']);
-                }, 3000);
+                }, 1000);
             }
             else {
+                _this.isLoading = false;
                 _this.httpLoginStatusError = true;
                 _this.httpLoginStatusMessage = 'Could not log in: ' + res.error_msg;
             }
@@ -43,6 +47,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.register = function () {
         var _this = this;
+        this.isLoading = true;
         this.httpRegisterStatusError = false;
         this.httpRegisterStatusMessage = 'Registration ...';
         this.service.register(this.newUser.login, this.newUser.email, this.newUser.password1, this.newUser.password2).then(function (res) {
@@ -50,10 +55,12 @@ var LoginComponent = (function () {
                 _this.httpRegisterStatusError = false;
                 _this.httpRegisterStatusMessage = 'Registered succesfully! Logging in...';
                 setTimeout(function () {
+                    _this.isLoading = false;
                     _this.router.navigate(['/']);
                 }, 1000);
             }
             else {
+                _this.isLoading = false;
                 _this.httpRegisterStatusError = true;
                 _this.httpRegisterStatusMessage = 'Could not register: ' + res.error_msg;
             }
@@ -65,8 +72,7 @@ LoginComponent = __decorate([
     core_1.Component({
         selector: 'login-form',
         providers: [authentication_service_1.AuthenticationService],
-        templateUrl: './assets/login.component.html',
-        styles: ["\n        @media screen and (min-width: 768px) {\n            md-card {\n                margin: 15px;\n            }\n        }\n        md-card { padding: 0; }\n        .tab-container { padding: 20px; }\n        .http-status {\n            padding: 5px;\n            font-weight: 500;\n        }\n        .http-status.error {\n            color: #ff0000;\n        }\n    "]
+        templateUrl: './assets/login.component.html'
     }),
     __metadata("design:paramtypes", [router_1.Router,
         authentication_service_1.AuthenticationService])

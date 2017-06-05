@@ -18,9 +18,8 @@ var material_1 = require("@angular/material");
 var user_service_1 = require("../services/user.service");
 var material_2 = require("@angular/material");
 var ProfileComponent = (function () {
-    function ProfileComponent(router, route, authService, userService, dialog) {
+    function ProfileComponent(router, authService, userService, dialog) {
         this.router = router;
-        this.route = route;
         this.authService = authService;
         this.userService = userService;
         this.dialog = dialog;
@@ -37,7 +36,6 @@ var ProfileComponent = (function () {
     ProfileComponent.prototype.saveChanges = function () {
         var _this = this;
         this.userService.saveChanges(this.user).then(function (result) {
-            console.log('I have tihgs', result);
             _this.dialog.open(ChangeSettingsDialog, {
                 data: {
                     result: result,
@@ -66,11 +64,10 @@ ProfileComponent = __decorate([
         selector: 'login-form',
         providers: [authentication_service_1.AuthenticationService],
         templateUrl: './assets/profile.component.html',
-        styleUrls: ['./assets/common.component.css'],
+        styleUrls: ['./assets/common.css'],
         styles: ["\n        md-input-container {display: block !important;}\n    "]
     }),
     __metadata("design:paramtypes", [router_1.Router,
-        router_1.ActivatedRoute,
         authentication_service_1.AuthenticationService,
         user_service_1.UserService,
         material_1.MdDialog])

@@ -1,0 +1,27 @@
+<section>
+    <header i18n>Tipsters search</header>
+    <md-card>
+        <md-input-container>
+            <input mdInput [(ngModel)]="filterName" placeholder="Search by login" />
+        </md-input-container><br />
+
+        <md-input-container><input mdInput [(ngModel)]="filterMinPrice" placeholder="Min. subscription price" type="number" class="mdInline" /></md-input-container>
+        -
+        <md-input-container><input mdInput [(ngModel)]="filterMaxPrice" placeholder="Max. subscription price" type="number" class="mdInline" /></md-input-container>
+        <br />
+        <button md-raised-button (click)="search()" i18n>Search</button> <button md-button (click)="reset()"  i18n>Reset</button>
+    </md-card>
+    <loader style="margin: auto" *ngIf="isLoading"></loader>
+    <md-card class="flex-container" *ngIf="tipsters.length">
+        <div *ngFor="let tipster of tipsters; let i = index" class="flex-item" (mouseover)="mouseOver(tipster.id)" >
+            <span class="compare-checkbox"><md-checkbox name="tipsterOneToCompare" (click)="setCompareTipster(tipster.id)"
+                *ngIf="showRadioButton[tipster.id] || tipsterOneToCompare == tipster.id || tipsterTwoToCompare == tipster.id"></md-checkbox></span>
+            <button class="compare-button" md-raised-button (click)="compare()" i18n
+                    *ngIf="tipsterOneToCompare != 0 && tipsterTwoToCompare != 0 && (tipsterOneToCompare == tipster.id || tipsterTwoToCompare == tipster.id)">
+                Compare
+            </button>
+
+            <tipsterbox [tipster]="tipster"></tipsterbox>
+        </div>
+    </md-card>
+</section>

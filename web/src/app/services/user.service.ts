@@ -1,5 +1,5 @@
 /**
- * Created by @akselon on 2017-05-22.
+ * Created by akselon on 2017-05-22.
  */
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
@@ -27,13 +27,11 @@ export class UserService {
     }
     saveChanges(user: User): Promise<HttpResult> {
         const url = `${this.url}/edit`;
-        console.log(JSON.stringify(user));
         return this.http
             .post(url, JSON.stringify(user), {headers: this.headers})
             .toPromise()
             .then(response => {
                 const r = JSON.parse(response._body);
-                console.log(r);
                 return new HttpResult(r.ok, r.errorCode);
             })
             .catch(this.handleError);

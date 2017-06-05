@@ -27,7 +27,8 @@ import {BetService} from './services/bet.service';
 import {UserService} from './services/user.service';
 import {BetComponent} from './components/bet.component';
 import {TipsterboxComponent} from './components/shared/tipsterbox.component';
-import {TipstersComponent} from './components/tipsters.component';
+import {TipstersCompareDialog, TipstersComponent} from './components/tipsters.component';
+import {RankingComponent} from "./components/ranking.component";
 
 // import 'hammerjs';
 
@@ -61,10 +62,13 @@ import {TipstersComponent} from './components/tipsters.component';
         BetComponent,
         TipsterboxComponent,
         ChangeSettingsDialog,
-        TipstersComponent
+        TipstersComponent,
+        RankingComponent,
+        TipstersCompareDialog
     ],
     entryComponents: [
-        ChangeSettingsDialog
+        ChangeSettingsDialog,
+        TipstersCompareDialog
     ],
     providers: [
         MdIconRegistry,

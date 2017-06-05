@@ -1,0 +1,19 @@
+section {
+    max-width: 1200px;
+    margin: auto;
+}
+.tipster-name, .tipster-login {
+    font-size: 30px;
+    color: black;
+    font-weight: 700;
+}
+.tipster-image {
+    width: 75%;
+}
+md-icon {
+    color: #ffc300;
+}
+h4 {
+    color: #FF5733;
+    font-size: 20px !important;
+}

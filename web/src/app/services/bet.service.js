@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by Aksel on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
@@ -33,12 +33,10 @@ var BetService = (function () {
         return Promise.reject(error.message || error);
     };
     BetService.prototype.sendUsersBet = function (cost, odds, stake, result, game) {
-        console.log('Wysyłam zapytanie z tym rezultatem:' + result);
         return this.http
             .post(this.url + 'add', JSON.stringify({ cost: cost, odds: odds, stake: stake, result: result, game: game }), { headers: this.headers })
             .toPromise()
             .then(function (res) {
-            console.log(res);
             return res.json();
         })
             .catch(this.handleError);

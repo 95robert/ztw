@@ -1,0 +1,11 @@
+<section>
+    <header i18n>Tipsters top-list</header>
+    <md-card i18n>Best tipsters according to their efficiency in the last 3 months.</md-card>
+    <loader style="margin: auto" *ngIf="isLoading"></loader>
+    <md-card class="flex-container" *ngIf="tipsters.length">
+        <div *ngFor="let tipster of tipsters; let i = index" class="flex-item">
+            <span class="position" [class.top3]="i < 3">{{i+1}}</span>
+            <tipsterbox [tipster]="tipster"></tipsterbox>
+        </div>
+    </md-card>
+</section>

@@ -9,33 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by akselon on 2017-04-24.
+ * Created by akselon on 2017-06-05.
  */
 var core_1 = require("@angular/core");
-var game_service_1 = require("../services/game.service");
-var GamesComponent = (function () {
-    function GamesComponent(gameService) {
-        this.gameService = gameService;
-        this.games = [];
+var tipster_service_1 = require("../services/tipster.service");
+var RankingComponent = (function () {
+    function RankingComponent(tipsterService) {
+        this.tipsterService = tipsterService;
+        this.tipsters = [];
         this.isLoading = true;
+        this.filterName = '';
     }
-    GamesComponent.prototype.ngOnInit = function () {
+    RankingComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.gameService.getGames()
-            .then(function (games) {
-            _this.games = games;
+        this.isLoading = true;
+        this.tipsterService.getBestTipsters()
+            .then(function (tipsters) {
+            _this.tipsters = tipsters;
             _this.isLoading = false;
         });
     };
-    return GamesComponent;
+    return RankingComponent;
 }());
-GamesComponent = __decorate([
+RankingComponent = __decorate([
     core_1.Component({
-        selector: 'games',
-        templateUrl: './assets/games.component.html',
-        styleUrls: ['./assets/common.css']
+        selector: 'ranking',
+        templateUrl: './assets/ranking.component.html',
+        styleUrls: ['./assets/common.css', './assets/ranking.component.css']
     }),
-    __metadata("design:paramtypes", [game_service_1.GameService])
-], GamesComponent);
-exports.GamesComponent = GamesComponent;
-//# sourceMappingURL=games.component.js.map
+    __metadata("design:paramtypes", [tipster_service_1.TipsterService])
+], RankingComponent);
+exports.RankingComponent = RankingComponent;
+//# sourceMappingURL=ranking.component.js.map

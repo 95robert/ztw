@@ -10,7 +10,7 @@ import {MD_DIALOG_DATA} from '@angular/material';
     selector: 'login-form',
     providers: [AuthenticationService],
     templateUrl: './assets/profile.component.html',
-    styleUrls: [ './assets/common.component.css'],
+    styleUrls: [ './assets/common.css'],
     styles: [`
         md-input-container {display: block !important;}
     `]
@@ -23,7 +23,6 @@ export class ProfileComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private route: ActivatedRoute,
         private authService: AuthenticationService,
         private userService: UserService,
         public dialog: MdDialog) {}
@@ -34,7 +33,6 @@ export class ProfileComponent implements OnInit {
     }
     saveChanges() {
         this.userService.saveChanges(this.user).then(result => {
-            console.log('I have tihgs', result);
             this.dialog.open(ChangeSettingsDialog, {
                 data: {
                     result: result,

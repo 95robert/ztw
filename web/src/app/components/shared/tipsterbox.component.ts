@@ -1,12 +1,12 @@
 /**
- * Created by @akselon on 2017-05-08.
+ * Created by akselon on 2017-05-08.
  */
 import {Component, Input, OnInit} from '@angular/core';
 import {Tipster} from '../../models/tipster';
 
 @Component({
     selector: 'tipsterbox',
-    styleUrls: [ '../assets/common.component.css'],
+    styleUrls: [ '../assets/common.css'],
     styles: [`
         section {
             max-width: 1200px;
@@ -50,24 +50,23 @@ import {Tipster} from '../../models/tipster';
                     </div>
                     <md-list class="tipster-name">
                         <md-divider></md-divider>
-                        <!--<h3 md-subheader>Statystyki</h3>-->
                         <md-list-item>
                             <md-icon md-list-icon i18n-mdTooltip mdTooltip="Hit rate, last 3 months"
                                      [mdTooltipPosition]="'above'">timeline</md-icon>
-                            <h4 md-line>{{tipster.efficiency}}</h4>
+                            <h4 md-line>{{tipster.efficiency_last_3_month}}</h4>
                             <p md-line *ngIf="!displayLess" i18n> Hit rate, last 3 months </p>
                         </md-list-item>
                         <md-list-item>
                             <md-icon md-list-icon i18n-mdTooltip mdTooltip="Current tips amount"
-                                     [mdTooltipPosition]="'above'">access_time</md-icon>
+                                     [mdTooltipPosition]="'above'">album</md-icon>
                             <h4 md-line>{{tipster.count_of_bets}}</h4>
                             <p md-line *ngIf="!displayLess"> current tips </p>
                         </md-list-item>
                         <md-list-item>
-                            <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscriptions sold amount"
+                            <md-icon md-list-icon i18n-mdTooltip mdTooltip="Subscription price"
                                      [mdTooltipPosition]="'above'">attach_money</md-icon>
-                            <h4 md-line>{{tipster.sold_subscriptions}}</h4>
-                            <p md-line *ngIf="!displayLess" i18n> sold subscriptions </p>
+                            <h4 md-line>{{tipster.subscription_cost}}</h4>
+                            <p md-line *ngIf="!displayLess" i18n>subscription price</p>
                         </md-list-item>
                     </md-list>
                 </div>

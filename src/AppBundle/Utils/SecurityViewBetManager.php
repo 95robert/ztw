@@ -75,6 +75,7 @@ class SecurityViewBetManager
      * @return bool
      */
     public function userCanSeeBet($bet){
+        return true;
         $user = $this->container->get('security.token_storage')->getToken()->getUser();
         if($bet->getCost() > 0 && $user != $bet->getUser()){
             //@TODO UPROWADZANIE WARUNKÓW KIEDY USER MOŻE ZOBACZYC TYP

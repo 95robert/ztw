@@ -96,7 +96,7 @@ class UserBetController extends Controller
         $bets = $em->getRepository(UserBet::class)->findWithFilterOptions($data);
         $selectedBets = $securityViewBetManager->selectBets($bets);
         $notAllowedBets = $serializeManager->serializeObject($selectedBets['notAllowedBets'], array('standard-bet-info'), array(), array());
-        $allowedBets = $serializeManager->serializeObject($selectedBets['notAllowedBets'], array('standard-bet-info', 'result-bet-info'), array(), array());
+        $allowedBets = $serializeManager->serializeObject($selectedBets['allowedBets'], array('standard-bet-info', 'result-bet-info'), array(), array());
 
         foreach ($allowedBets as $key => $bet){
             $user = $em->getRepository(User::class)->findOneById($bet['user']['id']);

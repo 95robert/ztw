@@ -103,6 +103,7 @@ class SecurityController extends Controller
             $user->setPassword($encodedPassword);
             $em->persist($user);
             $em->flush();
+            $this->loginUser($user, $password);
         }
 
         $response = new JsonResponse();

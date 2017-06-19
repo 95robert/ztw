@@ -38,13 +38,53 @@
         <source>Register</source>
         <target>Zarejestruj</target>
       </trans-unit>
-      <trans-unit id="17a2f2d96311637663202e946733e8083c183894" datatype="html">
-        <source>This content is only available for logged in users :)</source>
-        <target>Zawartość widoczna tylko dla zalogowanych użytkowników :)</target>
+      <trans-unit id="36c443571c295bd28548c8b22042a7a387f59143" datatype="html">
+        <source>Your profile</source>
+        <target>Twój profil</target>
+      </trans-unit>
+      <trans-unit id="87596713c4117de7eee7257e8f09a9876a4fa6a7" datatype="html">
+        <source>User settings</source>
+        <target>Ustawienia</target>
+      </trans-unit>
+      <trans-unit id="e0bfabe29e662dab386e47ff8b82ab186b6da867" datatype="html">
+        <source>Subscription cost</source>
+        <target>Koszt subskrybcji</target>
+      </trans-unit>
+      <trans-unit id="0a5b6349f48f3e72cb1cc7a515acab76a742f0b5" datatype="html">
+        <source>Rewrite password</source>
+        <target>Powtórz hasło</target>
+      </trans-unit>
+      <trans-unit id="01d65f81860f53751e598f830ae13dfccb097028" datatype="html">
+        <source>About you</source>
+        <target>O Tobie</target>
+      </trans-unit>
+      <trans-unit id="5b3075e8dc3f3921ec316b0bd83b6d14a06c1a4f" datatype="html">
+        <source>Save changes</source>
+        <target>Zapisz zmiany</target>
       </trans-unit>
       <trans-unit id="bb694b49d408265c91c62799c2b3a7e3151c824d" datatype="html">
         <source>Logout</source>
         <target>Wyloguj</target>
+      </trans-unit>
+      <trans-unit id="2c816287ed5f4a02364b10efb120adb0ace797b0" datatype="html">
+        <source>Save user profile</source>
+        <target>Zapisz profil użytkownika</target>
+      </trans-unit>
+      <trans-unit id="a41ecf74373b407d2aa140af0486dd71162a5b44" datatype="html">
+        <source>Incorrect subscription cost value.</source>
+        <target>Niepoprawna cena subskrypcji.</target>
+      </trans-unit>
+      <trans-unit id="d7d72e2526ee9605e16ea719671cceed8eb6efa3" datatype="html">
+        <source>Passwords do not match.</source>
+        <target>Podane hasła nie są takie same.</target>
+      </trans-unit>
+      <trans-unit id="940fdc18ec6d5cf889eb3f46e92fcffb579c1867" datatype="html">
+        <source>Password is too short.</source>
+        <target>Zbyt krótkie hasło.</target>
+      </trans-unit>
+      <trans-unit id="1172ac3714cbf58a1a57ac79462034469827bb14" datatype="html">
+        <source>Could not upload the avatar.</source>
+        <target>Nie można było wysłać zdjęcia profilowego.</target>
       </trans-unit>
       <trans-unit id="e69cef9751187243b8af3fee5628302b53b0db9f" datatype="html">
         <source>Upcomming matches</source>
@@ -57,6 +97,14 @@
       <trans-unit id="1eb6cba131446f2ae14888bc089c06ef18bbcc63" datatype="html">
         <source>Tips for this match</source>
         <target>Typy dla tego meczu</target>
+      </trans-unit>
+      <trans-unit id="750fc122a85e080eef3bc1d938c770dfa9e89e5a" datatype="html">
+        <source>Your tip</source>
+        <target>Twój typ</target>
+      </trans-unit>
+      <trans-unit id="a9c16db1d07908ad468c925fb3a36d96b98e9080" datatype="html">
+        <source>Draw</source>
+        <target>Remis</target>
       </trans-unit>
       <trans-unit id="0a6947b0ba423002ec553e0cd3473fc18e7553bc" datatype="html">
         <source>Tipster overview</source>
@@ -74,13 +122,81 @@
         <source>Current tips amount</source>
         <target>Liczba aktualnych typów</target>
       </trans-unit>
-      <trans-unit id="ecba8129526eba8e0eef5959b6f5af29d5ad655b" datatype="html">
-        <source>Subscriptions sold amount</source>
+      <trans-unit id="713c82a5bd916e816d8f3538663d7659b5fd8d4f" datatype="html">
+        <source>Subscription price</source>
+        <target>Cena subskrybcji</target>
+      </trans-unit>
+      <trans-unit id="b0676f035dce1c8b13b4d18ba35c55c84e940bac" datatype="html">
+        <source>subscription price</source>
+        <target>cena subskrypcji</target>
+      </trans-unit>
+      <trans-unit id="bd87efd5bd862bae2bb57c90f15ec97e8f76415e" datatype="html">
+        <source>Sold subscriptions  amount</source>
         <target>Liczba sprzedanych subskrybcji</target>
       </trans-unit>
-      <trans-unit id="88e6171b872e5c055669726e24e869b410f7a015" datatype="html">
-        <source> sold subscriptions </source>
-        <target>Sprzedane subskrybcje</target>
+      <trans-unit id="11883c95466985d801d656b5601e86148bd51465" datatype="html">
+        <source>sold subscriptions</source>
+        <target>sprzedanych subskrybcji</target>
+      </trans-unit>
+      <trans-unit id="758a2d6b119ab47335088c39b608e255a0584d61" datatype="html">
+        <source>Tipsters search</source>
+        <target>Wyszukiwarka tipsterów</target>
+      </trans-unit>
+      <trans-unit id="90a0b35fe191a209a40a57eff36d0efc3649fbb1" datatype="html">
+        <source>Search by login</source>
+        <target>Szukaj wg. loginów</target>
+      </trans-unit>
+      <trans-unit id="b00c2d2b5e11577702834aa16c6ce52d341e8384" datatype="html">
+        <source>Min. subscription price</source>
+        <target>Min. cena subskrybcji</target>
+      </trans-unit>
+      <trans-unit id="7526b33962a3f0a2dbc34db43e656af9c00318c9" datatype="html">
+        <source>Max. subscription price</source>
+        <target>Maks. cena subskrybcji</target>
+      </trans-unit>
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <target>Szukaj</target>
+      </trans-unit>
+      <trans-unit id="06c663bf1474713f57551123a46b34318543b67d" datatype="html">
+        <source>Reset</source>
+        <target>Reset</target>
+      </trans-unit>
+      <trans-unit id="3c6f717805130ade341de7ea2977e1b9c212276e" datatype="html">
+        <source>Compare</source>
+        <target>Porównaj</target>
+      </trans-unit>
+      <trans-unit id="8e1d871e56dc4cb81c72dabd3d26101fd17a79ae" datatype="html">
+        <source>Tipsters Compare</source>
+        <target>Porównanie tipsterów</target>
+      </trans-unit>
+      <trans-unit id="0d4cb7ff8432afc6a15379ee56df2bb77403bf25" datatype="html">
+        <source>Hit rate</source>
+        <target>Trafność</target>
+      </trans-unit>
+      <trans-unit id="6d6bdafbe02f0df4c5b5541fe919103a3e601bff" datatype="html">
+        <source>Hit rate, last mth</source>
+        <target>Trafność, ost. msc.</target>
+      </trans-unit>
+      <trans-unit id="90045e237143b9b1d48eae749ec4798424a78fb6" datatype="html">
+        <source>Hit rate, last 3 mths</source>
+        <target>Trafność, ots. 3 msce</target>
+      </trans-unit>
+      <trans-unit id="d6cfa1ad5aba8cddb4a44123ba422ae1c4eaa6f2" datatype="html">
+        <source>Count of tips</source>
+        <target>Liczba tipów</target>
+      </trans-unit>
+      <trans-unit id="42d12bc841548b8b0228c01d2e2304c3a0025ada" datatype="html">
+        <source>Count of current bets</source>
+        <target>Liczba aktualnych tipów</target>
+      </trans-unit>
+      <trans-unit id="7de2120d872155c6a2ad34314146a86c9d8b9905" datatype="html">
+        <source>Tipsters top-list</source>
+        <target>Toplista tipsterów</target>
+      </trans-unit>
+      <trans-unit id="3d8481de673de037d677da126aa43fda0743ca40" datatype="html">
+        <source>Best tipsters according to their efficiency in the last 3 months.</source>
+        <target>Najlepsi tipsterzy pod względem trafności przez ostatnie 3 miesiące.</target>
       </trans-unit>
       <trans-unit id="5cec7751842bf21f7403ec089e30a74f1d4776ef" datatype="html">
         <source>Polski</source>
@@ -94,13 +210,17 @@
         <source>Menu</source>
         <target>Menu</target>
       </trans-unit>
-      <trans-unit id="1cb86e649ad2e5cfc86efb2d28c06b1d959f8aa6" datatype="html">
-        <source>Homepage</source>
-        <target>Strona główna</target>
+      <trans-unit id="01aa5508abb4473531a18c605c1c41ae4b6074d0" datatype="html">
+        <source>Matches</source>
+        <target>Mecze</target>
       </trans-unit>
       <trans-unit id="bcac15e7dfb97b3fb2c65d42e91c9af5c9d4fb5a" datatype="html">
         <source>Tipsters</source>
         <target>Tipsterzy</target>
+      </trans-unit>
+      <trans-unit id="0e69fc7de5d88295ef8ae8938fd34ff5e5327e48" datatype="html">
+        <source>Ranking</source>
+        <target>Ranking</target>
       </trans-unit>
       <trans-unit id="3ac9a098a34b04923bf20ec0c754bab138750b79" datatype="html">
         <source>My profile</source>
@@ -108,15 +228,11 @@
       </trans-unit>
       <trans-unit id="4b52d53bdc6e17961b2da8ad03d65729fe4e4335" datatype="html">
         <source>Show tips</source>
-        <target>Pokaż typy</target>
+        <target>Pokaż tipy</target>
       </trans-unit>
-      <trans-unit id="e78c0d60ac39787f62c9159646fe0b3c1ed55a1d" datatype="html">
-        <source>Type:</source>
-        <target>Typ:</target>
-      </trans-unit>
-      <trans-unit id="a9c16db1d07908ad468c925fb3a36d96b98e9080" datatype="html">
-        <source>Draw</source>
-        <target>Remis</target>
+      <trans-unit id="50f7d911f4c3caa51c033edb36261331cb756e7f" datatype="html">
+        <source>Tip:</source>
+        <target>Tip:</target>
       </trans-unit>
     </body>
   </file>

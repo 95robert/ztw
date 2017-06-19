@@ -50,6 +50,11 @@ class GameController extends Controller
         $em = $this->getDoctrine()->getManager();
         $serializeManager = $this->get('serialize_manager');
         $games = $em->getRepository(Game::class)->findAll();
+        foreach($games as $k => $g){
+            if($g->getDate() < (new DateTime())){
+                unset($games[$k]);
+            }
+        }
         return $serializeManager->serializeObjectToResponse($games, array('standard'), array(), array());
     }
 

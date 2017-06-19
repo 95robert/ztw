@@ -15,12 +15,7 @@ var core_1 = require("@angular/core");
 var bet_1 = require("../models/bet");
 var BetComponent = (function () {
     function BetComponent() {
-        this.teamOneLogo = 'https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_(crest).svg/720px-FC_Barcelona_(crest).svg.png';
-        this.teamTwoLogo = 'https://kiwicdn.akamaized.net/90ed/JtzB4vEpsbVrGFjSCsvGKj.jpg';
     }
-    BetComponent.prototype.ngOnInit = function () {
-        console.log('mam2y', this.bet);
-    };
     return BetComponent;
 }());
 __decorate([

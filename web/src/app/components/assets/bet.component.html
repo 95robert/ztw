@@ -9,12 +9,12 @@
                 <div *ngSwitchCase="0" class="no-team" i18n>Draw</div>
                 <div *ngSwitchCase="1" class="team">
                     <img class="img-circle"
-                         src="{{teamOneLogo}}">
+                         src="{{bet.game.teamOne.logo}}">
                     <p>{{bet.game.teamOne.name}}</p>
                 </div>
                 <div *ngSwitchCase="2" class="team">
                     <img class="img-circle"
-                         src="{{teamTwoLogo}}">
+                         src="{{bet.game.teamTwo.logo}}">
                     <p>{{bet.game.teamTwo.name}}</p>
                 </div>
                 <div *ngSwitchDefault i18n></div>

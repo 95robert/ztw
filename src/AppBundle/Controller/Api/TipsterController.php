@@ -111,8 +111,8 @@ class TipsterController extends Controller
 
         //$data = $_GET;
         $data = !is_array($data) ? [] : $data;
-        $sortedBy = array_key_exists('sortedBy', $data) ? $data['sortedBy'] : 'count_of_currents_bets';
-        $orderBy = array_key_exists('orderBy', $data) ? $data['orderBy'] : SORT_ASC;
+        $sortedBy = array_key_exists('sortedBy', $data) ? $data['sortedBy'] : 'efficiency_last_3_month';
+        $orderBy = array_key_exists('orderBy', $data) ? $data['orderBy'] : SORT_DESC;
         $filters = array_key_exists('filters', $data) ? $data['filters'] : array();
 
         $sortedTipsters = $em->getRepository(User::class)->getSortedTipsters($sortedBy, $orderBy, $filters);

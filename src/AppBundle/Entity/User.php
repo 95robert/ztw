@@ -510,7 +510,8 @@ class User implements UserInterface
     /**
      * @param SeenBet $seenBet
      */
-    public function addView(SeenBet $seenBet){
+    public function addView(SeenBet $seenBet)
+    {
         $this->views->add($seenBet);
         $seenBet->setUser($this);
     }
@@ -518,7 +519,8 @@ class User implements UserInterface
     /**
      * @param SeenBet $seenBet
      */
-    public function removeView(SeenBet $seenBet){
+    public function removeView(SeenBet $seenBet)
+    {
         $this->views->remove($seenBet);
         $seenBet->setUser(null);
     }
